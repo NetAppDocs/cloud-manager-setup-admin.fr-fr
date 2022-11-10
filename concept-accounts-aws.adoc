@@ -1,0 +1,77 @@
+---
+sidebar: sidebar 
+permalink: concept-accounts-aws.html 
+keywords: cloud provider accounts, aws, aws accounts, keys, multiple accounts, permissions, aws permissions, policy, policies, json 
+summary: 'BlueXP vous permet de choisir les informations d"identification AWS à utiliser lors du déploiement de Cloud Volumes ONTAP. Vous pouvez déployer tous vos systèmes Cloud Volumes ONTAP à l"aide des identifiants AWS initiaux, ou ajouter des identifiants supplémentaires.' 
+---
+= Identifiants et autorisations AWS
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+BlueXP vous permet de choisir les informations d'identification AWS à utiliser lors du déploiement de Cloud Volumes ONTAP. Vous pouvez déployer tous vos systèmes Cloud Volumes ONTAP à l'aide des identifiants AWS initiaux, ou ajouter des identifiants supplémentaires.
+
+
+
+== Identifiants AWS initiaux
+
+Lorsque vous déployez un connecteur depuis BlueXP, vous devez fournir l'ARN d'un rôle IAM ou de clés d'accès pour un utilisateur IAM. La méthode d'authentification que vous utilisez doit disposer des autorisations requises pour déployer l'instance de connecteur dans AWS. Les autorisations requises sont répertoriées dans le link:task-creating-connectors-aws.html["Règle de déploiement du connecteur pour AWS"].
+
+Lorsque BlueXP lance l'instance Connector dans AWS, il crée un rôle IAM et un profil d'instance pour l'instance. Il attache également une règle qui fournit au connecteur les autorisations nécessaires pour gérer les ressources et les processus de ce compte AWS. link:reference-permissions-aws.html["Consultez la manière dont BlueXP utilise les autorisations"].
+
+image:diagram_permissions_initial_aws.png["Image conceptuelle qui montre BlueXP déployé le connecteur dans un compte AWS. Une politique IAM est affectée à un rôle IAM, qui est rattaché à l'instance BlueXP."]
+
+BlueXP sélectionne ces identifiants AWS par défaut lorsque vous créez un nouvel environnement de travail pour Cloud Volumes ONTAP :
+
+image:screenshot_accounts_select_aws.gif["Capture d'écran indiquant l'option changer de compte dans la page Détails et AMP ; informations d'identification."]
+
+
+
+== Autres identifiants AWS
+
+Il existe deux façons d'ajouter des identifiants AWS supplémentaires.
+
+
+
+=== Ajoutez des identifiants AWS à un connecteur existant
+
+Si vous souhaitez lancer Cloud Volumes ONTAP sur différents comptes AWS, vous pouvez l'un ou l'autre link:task-adding-aws-accounts.html["Fournir des clés AWS pour un utilisateur IAM ou le numéro ARN d'un rôle dans un compte de confiance"]. L'image suivante montre deux comptes supplémentaires, l'un avec des autorisations par le biais d'un rôle IAM dans un compte de confiance et l'autre avec les clés AWS d'un utilisateur IAM :
+
+image:diagram_permissions_multiple_aws.png["Image conceptuelle qui affiche deux comptes supplémentaires. Chaque groupe dispose d'une politique IAM, l'un est rattaché à l'utilisateur IAM et l'autre est associé à un rôle IAM."]
+
+Vous le feriez alors link:task-adding-aws-accounts.html#adding-aws-accounts-to-cloud-manager["Ajoutez les informations d'identification du compte à BlueXP"] En spécifiant le nom de ressource Amazon (ARN) du rôle IAM ou les clés AWS pour l'utilisateur IAM.
+
+Après avoir ajouté un autre ensemble d'informations d'identification, vous pouvez les passer lors de la création d'un nouvel environnement de travail :
+
+image:screenshot_accounts_switch_aws.png["Capture d'écran indiquant la sélection entre les comptes fournisseurs de services cloud après avoir cliqué sur changer de compte dans la page Détails etamp ; informations d'identification."]
+
+
+
+=== Ajoutez des informations d'identification AWS directement à BlueXP
+
+L'ajout de nouvelles informations d'identification AWS à BlueXP fournit les autorisations nécessaires pour créer et gérer un environnement de travail FSX pour ONTAP ou pour créer un connecteur.
+
+
+
+== Qu'en est-il des déploiements Marketplace et des déploiements sur site ?
+
+Les sections ci-dessus décrivent la méthode de déploiement recommandée pour le connecteur, qui provient de BlueXP. Vous pouvez également déployer un connecteur dans AWS à partir du link:task-launching-aws-mktp.html["AWS Marketplace"] et vous le pouvez link:task-installing-linux.html["Installer le connecteur sur site"].
+
+Si vous utilisez Marketplace, des autorisations sont fournies de la même manière. Il vous suffit de créer et de configurer manuellement le rôle IAM, puis de fournir des autorisations pour tous les comptes supplémentaires.
+
+Pour les déploiements sur site, vous ne pouvez pas configurer de rôle IAM pour le système BlueXP, mais vous pouvez fournir des autorisations exactement comme pour d'autres comptes AWS.
+
+
+
+== Comment faire tourner mes identifiants AWS en toute sécurité ?
+
+Comme décrit ci-dessus, BlueXP vous permet de fournir des identifiants AWS de diverses manières : un rôle IAM associé à l'instance Connector, en assumant un rôle IAM dans un compte de confiance ou en fournissant des clés d'accès AWS.
+
+Avec les deux premières options, BlueXP utilise AWS Security Token Service pour obtenir des informations d'identification temporaires qui tournent en permanence. Ce processus est la meilleure pratique--il automatique et sécurisé.
+
+Si vous fournissez des clés d'accès AWS BlueXP, vous devez les mettre à jour régulièrement dans BlueXP. Il s'agit d'un processus entièrement manuel.

@@ -1,0 +1,161 @@
+---
+sidebar: sidebar 
+permalink: reference-connector-default-config.html 
+keywords: linux, user name, operating system, installation files, installation folder, folder, log, logs, service, mysql, packages, linux 
+summary: Si vous devez dépanner le connecteur, il peut vous aider à comprendre sa configuration. 
+---
+= Configuration par défaut du connecteur
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Vous voudrez peut-être en savoir plus sur le connecteur avant de le déployer ou pour résoudre d'autres problèmes.
+
+
+
+== Configuration par défaut avec accès à Internet
+
+Les informations de configuration suivantes s'appliquent si vous avez déployé le connecteur depuis BlueXP, depuis le Marketplace de votre fournisseur de services cloud ou si vous avez installé manuellement le connecteur sur un hôte Linux sur site disposant d'un accès Internet.
+
+
+
+=== Détails d'AWS
+
+Si vous avez déployé le connecteur depuis BlueXP ou depuis le marché du fournisseur cloud, remarque :
+
+* Le type d'instance EC2 est t3.XLarge.
+* Le système d'exploitation de l'image est Red Hat Enterprise Linux 7.6 (HVM).
++
+Le système d'exploitation n'inclut pas d'interface graphique. Vous devez utiliser un terminal pour accéder au système.
+
+* Le nom d'utilisateur de l'instance Linux EC2 est utilisateur ec2.
+* Le disque système par défaut est un disque gp2 de 100 Gio.
+
+
+
+
+=== Détails d'Azure
+
+Si vous avez déployé le connecteur depuis BlueXP ou depuis le marché du fournisseur cloud, remarque :
+
+* Le type de machine virtuelle est DS3 v2.
+* Le système d'exploitation de l'image est CentOS 7.6.
++
+Le système d'exploitation n'inclut pas d'interface graphique. Vous devez utiliser un terminal pour accéder au système.
+
+* Le disque système par défaut est un disque SSD premium de 100 Gio.
+
+
+
+
+=== Détails sur Google Cloud
+
+Si vous avez déployé le connecteur depuis BlueXP ou depuis le marché du fournisseur cloud, remarque :
+
+* L'instance de machine virtuelle est n2-standard-4.
+* Le système d'exploitation de l'image est Red Hat Enterprise Linux 8.6.
++
+Le système d'exploitation n'inclut pas d'interface graphique. Vous devez utiliser un terminal pour accéder au système.
+
+* Le disque système par défaut est un disque persistant SSD de 100 Gio.
+
+
+
+
+=== Dossier d'installation
+
+Le dossier d'installation du connecteur se trouve à l'emplacement suivant :
+
+/opt/application/netapp/cloudmanager
+
+
+
+=== Fichiers journaux
+
+Les fichiers journaux sont contenus dans les dossiers suivants :
+
+* /opt/application/netapp/cloudmanager/log
++
+Les journaux de ce dossier fournissent des détails sur les images Connector et docker.
+
+* /opt/application/netapp/cloudmanager/docker_ocm/data/log
++
+Les journaux de ce dossier fournissent des détails sur les services Cloud et le service BlueXP qui s'exécute sur le connecteur.
+
+
+
+
+
+=== Service des connecteurs
+
+* Le service BlueXP est nommé ocm.
+* Le service occm dépend du service MySQL.
++
+Si le service MySQL est en panne, le service occm est également en panne.
+
+
+
+
+
+=== Packs
+
+BlueXP installe les modules suivants sur l'hôte Linux, s'ils ne sont pas déjà installés :
+
+* 7Zip
+* AWSCLI
+* Docker
+* Java
+* Kubectl
+* MySQL
+* Tridentctl
+* Tirer
+* Wget
+
+
+
+
+=== Ports
+
+Le connecteur utilise les ports suivants sur l'hôte Linux :
+
+* 80 pour l'accès HTTP
+* 443 pour l'accès HTTPS
+* 3306 pour la base de données BlueXP
+* 8080 pour le proxy API BlueXP
+* 8666 pour l'API du Gestionnaire de services
+* 8777 pour l'API du service de conteneurs Health-Checker
+
+
+
+
+== Configuration par défaut sans accès à Internet
+
+La configuration suivante s'applique si vous avez installé manuellement le connecteur sur un hôte Linux sur site qui n'a pas accès à Internet. link:task-install-connector-onprem-no-internet.html["En savoir plus sur cette option d'installation"].
+
+* Le dossier d'installation du connecteur se trouve à l'emplacement suivant :
++
+/opt/application/netapp/ds
+
+* Les fichiers journaux sont contenus dans les dossiers suivants :
++
+/var/lib/docker/volumes/ds_ocmdata/_data/log
+
++
+Les journaux de ce dossier fournissent des détails sur les images Connector et docker.
+
+* Tous les services s'exécutent dans des conteneurs docker
++
+Ces services dépendent du service d'exécution docker exécuté
+
+* Le connecteur utilise les ports suivants sur l'hôte Linux :
++
+** 80 pour l'accès HTTP
+** 443 pour l'accès HTTPS
+
+
+

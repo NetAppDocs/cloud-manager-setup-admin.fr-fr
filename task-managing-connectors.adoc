@@ -1,0 +1,277 @@
+---
+sidebar: sidebar 
+permalink: task-managing-connectors.html 
+keywords: managing connectors, uninstall connector, switch connectors, switch between connectors, go to local UI, local interface, local connector, local cloud manager 
+summary: 'Après avoir créé un ou plusieurs connecteurs, vous pouvez les gérer en passant d"un connecteur à l"autre, en vous connectant à l"interface utilisateur locale s"exécutant sur un connecteur, et plus encore.' 
+---
+= Gestion des connecteurs existants
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Après avoir créé un ou plusieurs connecteurs, vous pouvez les gérer en passant d'un connecteur à l'autre, en vous connectant à l'interface utilisateur locale s'exécutant sur un connecteur, et plus encore.
+
+
+
+== Basculer entre les connecteurs
+
+Si vous avez plusieurs connecteurs, vous pouvez passer de l'un à l'autre pour voir les environnements de travail associés à un connecteur spécifique.
+
+Imaginons par exemple que vous travaillez dans un environnement multicloud. Vous avez peut-être un connecteur dans AWS et un autre dans Google Cloud. Il faudrait basculer entre ces connecteurs pour gérer les systèmes Cloud Volumes ONTAP présents dans ces clouds.
+
+.Étape
+. Cliquez sur la liste déroulante *Connector*, sélectionnez un autre connecteur, puis cliquez sur *Switch*.
++
+image:screenshot_connector_switch.gif["Capture d'écran affichant l'icône du connecteur dans l'en-tête et l'action basculer."]
+
++
+BlueXP actualise et affiche les environnements de travail associés au connecteur sélectionné.
+
+
+
+
+
+== Accédez à l'interface utilisateur locale
+
+Bien que vous devriez effectuer presque toutes les tâches à partir de l'interface utilisateur SaaS, une interface utilisateur locale est toujours disponible sur le connecteur. Si vous accédez à BlueXP à partir d'une région du gouvernement ou d'un site qui ne dispose pas d'un accès Internet sortant, vous devez utiliser l'interface utilisateur locale s'exécutant sur le connecteur.
+
+.Étapes
+. Ouvrez un navigateur Web et entrez l'URL suivante :
++
+https://_ipaddress_[]
+
++
+_Ipaddress_ peut être localhost, une adresse IP privée ou une adresse IP publique, selon la configuration de l'hôte. Par exemple, si le connecteur est dans le Cloud public sans adresse IP publique, vous devez entrer une adresse IP privée à partir d'un hôte qui a une connexion à l'hôte du connecteur.
+
+. Entrez votre nom d'utilisateur et votre mot de passe pour vous connecter.
+
+
+
+
+== Téléchargez ou envoyez un message AutoSupport
+
+En cas de problème, les équipes NetApp peuvent vous demander d'envoyer un message AutoSupport au support NetApp à des fins de dépannage.
+
+.Étapes
+. Connectez-vous à l'interface utilisateur locale du connecteur, comme décrit dans la section ci-dessus.
+. Dans le coin supérieur droit de la console BlueXP, cliquez sur l'icône aide et sélectionnez *support*.
++
+image:screenshot-help-support.png["Capture d'écran du menu aide où support est la première option répertoriée"]
+
+. Cliquez sur *connecteur*.
+. Selon le mode d'envoi des informations au support NetApp, choisissez l'une des options suivantes :
++
+.. Sélectionnez l'option pour télécharger le message AutoSupport sur votre ordinateur local. Vous pouvez ensuite l'envoyer au support NetApp selon la méthode qui vous convient.
+.. Cliquez sur *Envoyer AutoSupport* pour envoyer directement le message au support NetApp.
+
+
++
+image:screenshot-connector-autosupport.png["Capture d'écran du tableau de bord du support indiquant où les utilisateurs peuvent cliquer pour télécharger et envoyer des messages AutoSupport"]
+
+
+
+
+
+== Connectez-vous à la machine virtuelle Linux
+
+Si vous devez vous connecter à la machine virtuelle Linux sur laquelle s'exécute le connecteur, vous pouvez utiliser les options de connectivité disponibles auprès de votre fournisseur de cloud.
+
+
+
+=== AWS
+
+Lorsque vous avez créé l'instance Connector dans AWS, vous avez fourni une clé d'accès AWS et une clé secrète. Vous pouvez utiliser cette paire de clés vers SSH à l'instance.
+
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstances.html["AWS Docs : connectez-vous à votre instance Linux"^]
+
+
+
+=== Azure
+
+Lorsque vous avez créé la machine virtuelle Connector dans Azure, vous avez choisi de vous authentifier avec un mot de passe ou une clé publique SSH. Utiliser la méthode d'authentification que vous avez choisie pour vous connecter à la machine virtuelle.
+
+https://docs.microsoft.com/en-us/azure/virtual-machines/linux/mac-create-ssh-keys#ssh-into-your-vm["Azure Docs : connexion SSH à votre machine virtuelle"^]
+
+
+
+=== Google Cloud
+
+Vous ne pouvez pas spécifier de méthode d'authentification lorsque vous créez un connecteur dans Google Cloud. Vous pouvez toutefois vous connecter à l'instance de machine virtuelle Linux à l'aide de Google Cloud Console ou de Google Cloud CLI (gCloud).
+
+https://cloud.google.com/compute/docs/instances/connecting-to-instance["Google Cloud Docs : connectez-vous aux machines virtuelles Linux"^]
+
+
+
+== Appliquer les mises à jour de sécurité
+
+Mettez à jour le système d'exploitation sur le connecteur pour vous assurer qu'il a été corrigé avec les dernières mises à jour de sécurité.
+
+.Étapes
+. Accéder au shell CLI sur l'hôte du connecteur.
+. Exécutez les commandes suivantes avec des privilèges élevés :
++
+[source, cli]
+----
+sudo -s
+service service-manager stop
+yum -y update –-security
+service service-manager start
+----
+
+
+
+
+== Modifiez l'adresse IP d'un connecteur
+
+Si votre entreprise l'exige, vous pouvez modifier l'adresse IP interne et l'adresse IP publique de l'instance de connecteur qui est automatiquement attribuée par votre fournisseur de cloud.
+
+.Étapes
+. Suivez les instructions de votre fournisseur de cloud pour modifier l'adresse IP locale ou l'adresse IP publique (ou les deux) de l'instance de connecteur.
+. Si vous avez modifié l'adresse IP publique et que vous devez vous connecter à l'interface utilisateur locale s'exécutant sur le connecteur, redémarrez l'instance de connecteur pour enregistrer la nouvelle adresse IP avec BlueXP.
+. Si vous avez modifié l'adresse IP privée, mettez à jour l'emplacement de sauvegarde des fichiers de configuration Cloud Volumes ONTAP de manière à ce que les sauvegardes soient envoyées à la nouvelle adresse IP privée sur le connecteur.
++
+.. Exécutez la commande suivante depuis l'interface de ligne de commande de Cloud Volumes ONTAP pour supprimer la cible de sauvegarde actuelle :
++
+[source, cli]
+----
+system configuration backup settings modify -destination ""
+----
+.. Allez à BlueXP et ouvrez l'environnement de travail.
+.. Cliquez sur le menu et sélectionnez *Avancé > sauvegarde de la configuration*.
+.. Cliquez sur *définir la cible de sauvegarde*.
+
+
+
+
+
+
+== Modifier les URI d'un connecteur
+
+Ajouter et supprimer les URI d'un connecteur.
+
+.Étapes
+. Cliquez sur la liste déroulante *Connector* dans l'en-tête BlueXP.
+. Cliquez sur *gérer les connecteurs*.
+. Cliquez sur le menu d'action d'un connecteur et cliquez sur *Modifier URI*.
+. Ajoutez et supprimez des URI, puis cliquez sur *appliquer*.
+
+
+
+
+== Corrigez les échecs de téléchargement lors de l'utilisation d'une passerelle Google Cloud NAT
+
+Le connecteur télécharge automatiquement les mises à jour logicielles pour Cloud Volumes ONTAP. Le téléchargement peut échouer si votre configuration utilise une passerelle NAT Google Cloud. Vous pouvez corriger ce problème en limitant le nombre de pièces dans lesquelles l'image logicielle est divisée. Cette étape doit être effectuée à l'aide de l'API BlueXP.
+
+.Étape
+. Soumettre une demande PUT à /ocm/config au format JSON suivant :
+
+
+[source]
+----
+{
+  "maxDownloadSessions": 32
+}
+----
+La valeur de _maxDownloadSessions_ peut être 1 ou n'importe quel entier supérieur à 1. Si la valeur est 1, l'image téléchargée ne sera pas divisée.
+
+Notez que 32 est un exemple de valeur. La valeur que vous devez utiliser dépend de votre configuration NAT et du nombre de sessions que vous pouvez avoir simultanément.
+
+https://docs.netapp.com/us-en/cloud-manager-automation/cm/api_ref_resources.html#occmconfig["En savoir plus sur l'appel API /ocm/config"^].
+
+
+
+== Mettez à niveau le connecteur sur site sans accès à Internet
+
+Si vous link:task-install-connector-onprem-no-internet.html["Installez le connecteur sur un hôte sur site qui ne dispose pas d'un accès Internet"], Vous pouvez mettre à niveau le connecteur lorsqu'une version plus récente est disponible sur le site de support NetApp.
+
+Le connecteur doit redémarrer pendant le processus de mise à niveau pour que l'interface utilisateur ne soit pas disponible pendant la mise à niveau.
+
+.Étapes
+. Téléchargez le logiciel du connecteur à partir du https://mysupport.netapp.com/site/products/all/details/cloud-manager/downloads-tab["Site de support NetApp"^].
+. Copiez le programme d'installation sur l'hôte Linux.
+. Attribuez des autorisations pour exécuter le script.
++
+[source, cli]
+----
+chmod +x /path/cloud-manager-connector-offline-v3.9.14
+----
+. Exécutez le script d'installation :
++
+[source, cli]
+----
+sudo /path/cloud-manager-connector-offline-v3.9.14
+----
+. Une fois la mise à niveau terminée, vous pouvez vérifier la version du connecteur en accédant à *aide > support > connecteur*.
+
+
+.Qu'en est-il des mises à niveau logicielles sur les hôtes disposant d'un accès Internet ?
+****
+Le connecteur met automatiquement à jour son logiciel avec la dernière version, tant qu'il dispose d'un accès Internet sortant pour obtenir la mise à jour du logiciel.
+
+****
+
+
+== Retirer les connecteurs de BlueXP
+
+Si un connecteur est inactif, vous pouvez le retirer de la liste des connecteurs dans BlueXP. Vous pouvez le faire si vous avez supprimé la machine virtuelle Connector ou si vous avez désinstallé le logiciel Connector.
+
+Notez ce qui suit sur le retrait d'un connecteur :
+
+* Cette action ne supprime pas la machine virtuelle.
+* Cette action ne peut pas être rétablie -- une fois que vous avez supprimé un connecteur de BlueXP, vous ne pouvez pas l'ajouter à nouveau
+
+
+.Étapes
+. Cliquez sur la liste déroulante *Connector* dans l'en-tête BlueXP.
+. Cliquez sur *gérer les connecteurs*.
+. Cliquez sur le menu d'action d'un connecteur inactif et cliquez sur *Supprimer le connecteur*.
++
+image:screenshot_connector_remove.gif["Capture d'écran du widget connecteur dans lequel vous pouvez supprimer un connecteur inactif."]
+
+. Entrez le nom du connecteur à confirmer, puis cliquez sur Supprimer.
+
+
+BlueXP supprime le connecteur de ses enregistrements.
+
+
+
+== Désinstallez le logiciel du connecteur
+
+Désinstallez le logiciel du connecteur pour résoudre les problèmes ou pour supprimer définitivement le logiciel de l'hôte. Les étapes que vous devez utiliser dépendent de l'installation ou non du connecteur sur un hôte disposant d'un accès Internet ou sur un hôte d'un réseau restreint ne disposant pas d'un accès Internet.
+
+
+
+=== Désinstallation à partir d'un hôte disposant d'un accès à Internet
+
+Le connecteur en ligne inclut un script de désinstallation que vous pouvez utiliser pour désinstaller le logiciel.
+
+.Étape
+. À partir de l'hôte Linux, exécutez le script de désinstallation :
++
+*/opt/application/netapp/cloudmanager/bin/uninstall.sh [silencieux]*
+
++
+_silent_ exécute le script sans vous demander de confirmer.
+
+
+
+
+
+=== Désinstallation à partir d'un hôte sans accès à Internet
+
+Utilisez ces commandes si vous avez téléchargé le logiciel Connector depuis le site de support NetApp et l'avez installé dans un réseau restreint qui ne dispose pas d'un accès Internet.
+
+.Étape
+. Depuis l'hôte Linux, exécutez les commandes suivantes :
++
+[source, cli]
+----
+docker-compose -f /opt/application/netapp/ds/docker-compose.yml down -v
+rm -rf /opt/application/netapp/ds
+----
+

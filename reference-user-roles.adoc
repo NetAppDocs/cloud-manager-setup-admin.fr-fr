@@ -1,0 +1,79 @@
+---
+sidebar: sidebar 
+permalink: reference-user-roles.html 
+keywords: user, users, roles, role, task, permission, permissions, tasks, admin, Account Admin, Workspace Admin, Cloud Compliance Viewer, Cloud Data Sense, SnapCenter Admin 
+summary: 'Les rôles Administrateur de compte, Administrateur d"espace de travail, Visionneuse de conformité et Administrateur SnapCenter fournissent des autorisations spécifiques aux utilisateurs.' 
+---
+= Rôles
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Les rôles Administrateur de compte, Administrateur d'espace de travail, Visionneuse de conformité et Administrateur SnapCenter fournissent des autorisations spécifiques aux utilisateurs.
+
+Le rôle Compliance Viewer permet l'accès en lecture seule à Cloud Data SENSE.
+
+[cols="24,19,19,19,19"]
+|===
+| Tâche | Administrateur du compte | Administrateur de l'espace de travail | Visionneuse de conformité | Admin SnapCenter 
+
+
+| Gérer les environnements de travail | Oui. | Oui. | Non | Non 
+
+
+| Activer les services dans les environnements de travail | Oui. | Oui. | Non | Non 
+
+
+| Afficher l'état de la réplication des données | Oui. | Oui. | Non | Non 
+
+
+| Afficher la chronologie | Oui. | Oui. | Non | Non 
+
+
+| Basculer entre les espaces de travail | Oui. | Oui. | Oui. | Non 
+
+
+| Afficher les résultats de l'acquisition de détection de données | Oui. | Oui. | Oui. | Non 
+
+
+| Supprimer les environnements de travail | Oui. | Non | Non | Non 
+
+
+| Connectez les clusters Kubernetes aux environnements de travail | Oui. | Non | Non | Non 
+
+
+| Recevoir le rapport Cloud Volumes ONTAP | Oui. | Non | Non | Non 
+
+
+| Créer des connecteurs | Oui. | Non | Non | Non 
+
+
+| Gestion des comptes NetApp | Oui. | Non | Non | Non 
+
+
+| Gérer les identifiants | Oui. | Non | Non | Non 
+
+
+| Modifiez les paramètres BlueXP | Oui. | Non | Non | Non 
+
+
+| Afficher et gérer le tableau de bord du support | Oui. | Non | Non | Non 
+
+
+| Supprimez les environnements de travail de BlueXP | Oui. | Non | Non | Non 
+
+
+| Installez un certificat HTTPS | Oui. | Non | Non | Non 
+
+
+| Utiliser le service SnapCenter | Oui. | Oui. | Non | Oui. 
+|===
+.Liens connexes
+* link:task-setting-up-netapp-accounts.html["Configuration d'espaces de travail et d'utilisateurs sur le compte NetApp"]
+* link:task-managing-netapp-accounts.html["Gestion des espaces de travail et des utilisateurs sur le compte NetApp"]
+

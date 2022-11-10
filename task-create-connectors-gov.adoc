@@ -1,0 +1,32 @@
+---
+sidebar: sidebar 
+permalink: task-create-connectors-gov.html 
+keywords: government region, gov, govcloud, connector 
+summary: 'Si vous travaillez dans une région gouvernementale, vous devez déployer un connecteur sur le marché de votre fournisseur cloud ou utiliser la méthode d"installation manuelle. Vous ne pouvez pas déployer le connecteur dans une région gouvernementale à partir du site Web SaaS de BlueXP.' 
+---
+= Créer un connecteur dans une région gouvernementale
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Si vous travaillez dans une région gouvernementale, vous devez déployer un connecteur à partir du marché de votre fournisseur de cloud ou installer manuellement le logiciel Connector sur un hôte Linux existant. Vous ne pouvez pas déployer le connecteur dans une région gouvernementale à partir du site Web SaaS de BlueXP.
+
+Utilisez l'un des liens suivants pour afficher les instructions de création d'un connecteur :
+
+* link:task-launching-aws-mktp.html#create-the-connector-in-an-aws-government-region["Créez un connecteur à partir d'AWS Marketplace"]
+* https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-getting-started-aws-c2s.html["Créer un connecteur et une Cloud Volumes ONTAP dans l'environnement C2S AWS"^]
+* link:task-launching-azure-mktp.html["Créez un connecteur à partir d'Azure Marketplace"]
+* link:task-installing-linux.html["Installez un connecteur sur votre propre hôte Linux"]
++
+Pour les installations manuelles sur votre propre hôte Linux, vous devez utiliser le programme d'installation en ligne pour installer le connecteur sur un hôte ayant accès à Internet. Un programme d'installation séparé « hors ligne » est disponible pour le connecteur, mais il est uniquement pris en charge sur les sites sur site qui ne disposent pas d'un accès Internet. Elle n'est pas soutenue par les régions gouvernementales.
+
+
+
+Une fois le connecteur déployé, vous pouvez accéder à BlueXP en ouvrant votre navigateur Web et en vous connectant à l'adresse IP de l'instance Connector : https://_ipaddress_[]
+
+Comme le connecteur a été déployé dans une région du gouvernement, il n'est pas accessible à partir de https://cloudmanager.netapp.com[].

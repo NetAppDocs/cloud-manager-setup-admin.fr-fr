@@ -1,0 +1,21 @@
+---
+sidebar: sidebar 
+permalink: concept-my-opportunities.html 
+keywords: discover, discovering fsx, discover fsx, discovering, my opportunities, opportunities 
+summary: 'Dans le Canvas, l"onglet My Opportunities vous permet de centraliser les ressources que vous pouvez ajouter à BlueXP pour assurer la cohérence des services de données et des opérations dans votre environnement multicloud hybride.' 
+---
+= Mes opportunités
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Sur le Canvas, l'onglet *Mes opportunités* fournit un emplacement centralisé pour découvrir les ressources existantes que vous pouvez ajouter à BlueXP afin de garantir la cohérence des services de données et des opérations dans votre environnement multicloud hybride.
+
+Actuellement, My Opportunities vous permet de découvrir les systèmes de fichiers FSX existants pour les systèmes de fichiers ONTAP dans votre compte AWS.
+
+https://docs.netapp.com/us-en/cloud-manager-fsx-ontap/use/task-creating-fsx-working-environment.html#discover-using-my-opportunities["Découvrez comment découvrir FSX pour ONTAP à l'aide de Mes opportunités"^]

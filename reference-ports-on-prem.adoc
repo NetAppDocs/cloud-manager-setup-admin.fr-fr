@@ -1,0 +1,30 @@
+---
+sidebar: sidebar 
+permalink: reference-ports-on-prem.html 
+keywords: networking, network, requirements, ports, on-prem, linux, http, https 
+summary: 'Le connecteur utilise les ports entrants suivants lorsqu"il est installé manuellement sur un hôte Linux sur site.' 
+---
+= Ports pour le connecteur sur site
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Le connecteur utilise les ports _Inbound_ suivants lorsqu'il est installé manuellement sur un hôte Linux sur site.
+
+Ces règles entrantes s'appliquent aux deux modèles de déploiement du connecteur sur site, installé avec accès à Internet ou sans accès à Internet.
+
+[cols="10,10,80"]
+|===
+| Protocole | Port | Objectif 
+
+
+| HTTP | 80 | Fournit un accès HTTP à partir des navigateurs Web du client vers l'interface utilisateur locale 
+
+
+| HTTPS | 443 | Fournit un accès HTTPS à partir des navigateurs Web du client vers l'interface utilisateur locale 
+|===

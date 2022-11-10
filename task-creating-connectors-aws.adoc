@@ -1,0 +1,303 @@
+---
+sidebar: sidebar 
+permalink: task-creating-connectors-aws.html 
+keywords: fsx for ontap, iam, user role, create connector in aws, launch connector in aws, deploy connector in aws, aws connector, connector aws, connector permissions 
+summary: Un compte BlueXP Admin doit déployer un connecteur avant de pouvoir utiliser la plupart des fonctionnalités BlueXP. BlueXP peut ainsi gérer les ressources et les processus au sein de votre environnement de cloud public. 
+---
+= Créez un connecteur dans AWS à partir de BlueXP
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Un administrateur de compte BlueXP doit déployer un _Connector_ avant de pouvoir utiliser la plupart des fonctions BlueXP. BlueXP peut ainsi gérer les ressources et les processus au sein de votre environnement de cloud public. link:concept-connectors.html["Apprenez quand un connecteur est nécessaire"].
+
+Cette page explique comment créer un connecteur dans AWS directement à partir de BlueXP. link:concept-connectors.html#how-to-create-a-connector["Découvrez d'autres méthodes de déploiement d'un connecteur"].
+
+Ces étapes doivent être réalisées par un utilisateur qui a le rôle d'administrateur de compte. Un administrateur d'espace de travail ne peut pas créer de connecteur.
+
+
+
+== Démarrage rapide
+
+Pour commencer rapidement, suivez ces étapes ou faites défiler jusqu'aux sections restantes pour obtenir de plus amples informations.
+
+[role="quick-margin-para"]
+Pour lancer le connecteur dans AWS, BlueXP doit s'authentifier auprès d'AWS en assumant un rôle IAM ou en utilisant les clés d'accès AWS. Dans les deux cas, une règle IAM est requise.
+
+[role="quick-margin-para"]
+ an IAM policy,Afficher le rôle IAM ou  up AWS authentication,suivez les instructions étape par étape.
+
+[role="quick-margin-para"]
+Vous avez besoin d'un VPC et d'un sous-réseau avec un accès Internet sortant à des terminaux spécifiques. Si un proxy HTTP est requis pour l'Internet sortant, vous aurez besoin de l'adresse IP, des identifiants et du certificat HTTPS.
+
+[role="quick-margin-para"]
+ up networking,Afficher les besoins en matière de mise en réseau.
+
+[role="quick-margin-para"]
+Cliquez sur la liste déroulante connecteur, sélectionnez *Ajouter connecteur* et suivez les invites.
+
+[role="quick-margin-para"]
+ a Connector,Suivez les instructions étape par étape.
+
+
+
+== Configuration de l'authentification AWS
+
+BlueXP doit s'authentifier auprès d'AWS avant de pouvoir déployer l'instance de connecteur dans votre VPC. Vous pouvez choisir l'une des méthodes d'authentification suivantes :
+
+* BlueXP assume un rôle IAM qui dispose des autorisations requises
+* Fournissez une clé d'accès AWS et une clé secrète pour un utilisateur IAM qui dispose des autorisations nécessaires
+
+
+Dans les deux cas, vous devez d'abord commencer par créer une stratégie IAM qui inclut les autorisations requises.
+
+
+
+=== Créer une règle IAM
+
+Cette politique contient uniquement les autorisations nécessaires pour lancer l'instance Connector dans AWS à partir de BlueXP. N'utilisez pas cette politique dans d'autres situations.
+
+Lorsque BlueXP crée le connecteur, il applique un nouvel ensemble d'autorisations à l'instance Connector qui permet au connecteur de gérer les ressources de votre environnement de cloud public.
+
+.Étapes
+. Accédez à la console IAM AWS.
+. Cliquez sur *stratégies > Créer une stratégie*.
+. Cliquez sur *JSON*.
+. Copiez et collez la stratégie suivante :
++
+[source, json]
+----
+{
+    "Version": "2012-10-17",
+    "Statement": [{
+            "Effect": "Allow",
+            "Action": [
+                "iam:CreateRole",
+                "iam:DeleteRole",
+                "iam:PutRolePolicy",
+                "iam:CreateInstanceProfile",
+                "iam:DeleteRolePolicy",
+                "iam:AddRoleToInstanceProfile",
+                "iam:RemoveRoleFromInstanceProfile",
+                "iam:DeleteInstanceProfile",
+                "iam:PassRole",
+                "ec2:DescribeInstanceStatus",
+                "ec2:RunInstances",
+                "ec2:ModifyInstanceAttribute",
+                "ec2:CreateSecurityGroup",
+                "ec2:DeleteSecurityGroup",
+                "ec2:DescribeSecurityGroups",
+                "ec2:RevokeSecurityGroupEgress",
+                "ec2:AuthorizeSecurityGroupEgress",
+                "ec2:AuthorizeSecurityGroupIngress",
+                "ec2:RevokeSecurityGroupIngress",
+                "ec2:CreateNetworkInterface",
+                "ec2:DescribeNetworkInterfaces",
+                "ec2:DeleteNetworkInterface",
+                "ec2:ModifyNetworkInterfaceAttribute",
+                "ec2:DescribeSubnets",
+                "ec2:DescribeVpcs",
+                "ec2:DescribeDhcpOptions",
+                "ec2:DescribeKeyPairs",
+                "ec2:DescribeRegions",
+                "ec2:DescribeInstances",
+                "ec2:CreateTags",
+                "ec2:DescribeImages",
+                "cloudformation:CreateStack",
+                "cloudformation:DeleteStack",
+                "cloudformation:DescribeStacks",
+                "cloudformation:DescribeStackEvents",
+                "cloudformation:ValidateTemplate",
+                "ec2:AssociateIamInstanceProfile",
+                "ec2:DescribeIamInstanceProfileAssociations",
+                "ec2:DisassociateIamInstanceProfile",
+                "iam:GetRole",
+                "iam:TagRole",
+                "iam:ListRoles",
+                "kms:ListAliases"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ec2:TerminateInstances"
+            ],
+            "Condition": {
+                "StringLike": {
+                    "ec2:ResourceTag/OCCMInstance": "*"
+                }
+            },
+            "Resource": [
+                "arn:aws:ec2:*:*:instance/*"
+            ]
+        }
+    ]
+}
+----
+. Cliquez sur *Suivant* et ajoutez des balises, si nécessaire.
+. Cliquez sur *Suivant* et entrez un nom et une description.
+. Cliquez sur *Créer une stratégie*.
+
+
+Joignez la politique à un rôle IAM que BlueXP peut assumer ou à un utilisateur IAM.
+
+
+
+=== Configurer un rôle IAM
+
+Configurez un rôle IAM que BlueXP peut prendre en compte pour déployer le connecteur dans AWS.
+
+.Étapes
+. Accédez à la console IAM AWS dans le compte cible.
+. Sous gestion des accès, cliquez sur *rôles > Créer un rôle* et suivez les étapes pour créer le rôle.
++
+Assurez-vous de faire ce qui suit :
+
++
+** Sous *Type d'entité approuvée*, sélectionnez *compte AWS*.
+** Sélectionnez *un autre compte AWS* et saisissez l'ID du compte BlueXP SaaS : 952013314444
+** Sélectionnez la stratégie que vous avez créée dans la section précédente.
+
+
+. Après avoir créé le rôle, copiez le rôle ARN afin de pouvoir le coller dans BlueXP lorsque vous créez le connecteur.
+
+
+Le rôle IAM dispose désormais des autorisations requises.
+
+
+
+=== Configurer les autorisations pour un utilisateur IAM
+
+Lorsque vous créez un connecteur, vous pouvez fournir une clé d'accès AWS et une clé secrète pour un utilisateur IAM qui dispose des autorisations requises pour déployer l'instance de connecteur.
+
+.Étapes
+. Dans la console IAM AWS, cliquez sur *utilisateurs*, puis sélectionnez le nom d'utilisateur.
+. Cliquez sur *Ajouter des autorisations > attacher des stratégies existantes directement*.
+. Sélectionnez la stratégie que vous avez créée.
+. Cliquez sur *Suivant*, puis sur *Ajouter des autorisations*.
+. Assurez-vous d'avoir accès à une clé d'accès et à une clé secrète pour l'utilisateur IAM.
+
+
+L'utilisateur AWS dispose désormais des autorisations nécessaires pour créer le connecteur à partir de BlueXP. Vous devez spécifier les clés d'accès AWS pour cet utilisateur lorsque BlueXP vous le demande.
+
+
+
+== Configurer la mise en réseau
+
+Configurez votre réseau de sorte que le connecteur puisse gérer les ressources et les processus au sein de votre environnement de cloud public. En dehors de la présence d'un VPC et d'un sous-réseau pour le connecteur, vous devez vous assurer que les exigences suivantes sont respectées.
+
+
+
+=== Connexion aux réseaux cibles
+
+Un connecteur nécessite une connexion réseau au type d’environnement de travail que vous créez et aux services que vous prévoyez d’activer.
+
+Par exemple, si vous installez un connecteur sur le réseau de votre entreprise, vous devez configurer une connexion VPN sur le VPC dans lequel vous lancez Cloud Volumes ONTAP.
+
+
+
+=== Accès Internet sortant
+
+Le connecteur nécessite un accès Internet sortant pour gérer les ressources et les processus au sein de votre environnement de cloud public.
+
+[cols="2*"]
+|===
+| Terminaux | Objectif 
+
+
+| \https://support.netapp.com | Pour obtenir des informations sur les licences et envoyer des messages AutoSupport au support NetApp. 
+
+
+| \https://*.cloudmanager.cloud.netapp.com \https://cloudmanager.cloud.netapp.com | Pour fournir des fonctions et des services SaaS dans BlueXP. 
+
+
+| \https://cloudmanagerinfraprod.azurecr.io \https://*.blob.core.windows.net | Pour mettre à niveau le connecteur et ses composants Docker. 
+|===
+
+
+=== Serveur proxy
+
+Si votre organisation nécessite le déploiement d'un proxy HTTP pour tout le trafic Internet sortant, obtenez les informations suivantes concernant votre proxy HTTP :
+
+* Adresse IP
+* Informations d'identification
+* Certificat HTTPS
+
+
+
+
+=== Groupe de sécurité
+
+Il n'y a pas de trafic entrant vers le connecteur, sauf si vous le lancez ou si le connecteur est utilisé comme proxy pour les messages AutoSupport. HTTP et HTTPS permettent l'accès au link:concept-connectors.html#the-local-user-interface["Interface utilisateur locale"], que vous utiliserez dans de rares circonstances. SSH n'est nécessaire que si vous devez vous connecter à l'hôte pour le dépannage.
+
+
+
+=== Limitation de l'adresse IP
+
+Il existe un conflit possible avec des adresses IP dans la plage 172. link:reference-limitations.html["En savoir plus sur cette limitation"].
+
+
+
+== Créer un connecteur
+
+BlueXP vous permet de créer un connecteur dans AWS directement à partir de son interface utilisateur.
+
+.Étapes
+. Si vous créez votre premier environnement de travail, cliquez sur *Ajouter un environnement de travail* et suivez les invites. Sinon, cliquez sur la liste déroulante *Connector* et sélectionnez *Add Connector*.
++
+image:screenshot_connector_add.gif["Capture d'écran affichant l'icône du connecteur dans l'en-tête et l'action Ajouter un connecteur."]
+
+. Choisissez *Amazon Web Services* comme fournisseur de cloud et cliquez sur *Continuer*.
+. Sur la page *déploiement d'un connecteur*, consultez les détails de ce dont vous aurez besoin. Vous avez deux options :
++
+.. Cliquez sur *Continuer* pour préparer le déploiement à l'aide du guide d'utilisation du produit. Chaque étape du guide du produit inclut les informations contenues sur cette page de la documentation.
+.. Cliquez sur *passer au déploiement* si vous avez déjà préparé en suivant les étapes de cette page.
+
+
+. Suivez les étapes de l'assistant pour créer le connecteur :
++
+** *Soyez prêt*: Passez en revue ce dont vous aurez besoin.
+** *Informations d'identification AWS* : spécifiez votre région AWS puis choisissez une méthode d'authentification, qui est soit un rôle IAM que BlueXP peut assumer, soit une clé d'accès AWS et une clé secrète.
++
+
+TIP: Si vous choisissez *supposons rôle*, vous pouvez créer le premier ensemble d'informations d'identification à partir de l'assistant de déploiement de connecteur. Tout ensemble supplémentaire d'informations d'identification doit être créé à partir de la page informations d'identification. Ils seront ensuite disponibles à partir de l'assistant dans une liste déroulante. link:task-adding-aws-accounts.html["Découvrez comment ajouter des identifiants supplémentaires"].
+
+** *Détails* : fournir des détails sur le connecteur.
++
+*** Entrez un nom pour l'instance.
+*** Ajoutez des balises personnalisées (métadonnées) à l'instance.
+*** Choisissez si vous souhaitez que BlueXP crée un nouveau rôle avec les autorisations requises, ou si vous souhaitez sélectionner un rôle existant que vous avez configuré avec link:reference-permissions-aws.html["les autorisations requises"].
+*** Indiquez si vous souhaitez chiffrer les disques EBS du connecteur. Vous pouvez utiliser la clé de chiffrement par défaut ou utiliser une clé personnalisée.
+
+
+** *Network* : spécifiez un VPC, un sous-réseau et une paire de clés pour l'instance, choisissez d'activer ou non une adresse IP publique et, éventuellement, spécifiez une configuration proxy.
++
+Assurez-vous que vous disposez de la paire de clés appropriée à utiliser avec le connecteur. Sans paire de clés, vous ne pourrez pas accéder à la machine virtuelle Connector.
+
+** *Groupe de sécurité* : choisissez de créer ou non un nouveau groupe de sécurité ou de sélectionner un groupe de sécurité existant qui autorise l'accès HTTP, HTTPS et SSH entrant.
+** *Review* : consultez vos sélections pour vérifier que votre configuration est correcte.
+
+
+. Cliquez sur *Ajouter*.
++
+L'instance doit être prête dans environ 7 minutes. Vous devez rester sur la page jusqu'à ce que le processus soit terminé.
+
+
+
+Si vous disposez de compartiments Amazon S3 sur le même compte AWS que celui sur lequel vous avez créé le connecteur, l'environnement de travail Amazon S3 s'affiche automatiquement sur la fenêtre Canvas. link:task-viewing-amazon-s3.html["Découvrez ce que vous pouvez faire dans cet environnement de travail"].
+
+
+
+== Ouvrez le port 3128 pour les messages AutoSupport
+
+Si vous prévoyez de déployer des systèmes Cloud Volumes ONTAP dans un sous-réseau où aucune connexion Internet sortante n'est disponible, BlueXP configure automatiquement Cloud Volumes ONTAP pour utiliser le connecteur comme serveur proxy.
+
+La seule condition est de s'assurer que le groupe de sécurité du connecteur autorise les connexions _entrantes_ sur le port 3128. Vous devrez ouvrir ce port après le déploiement du connecteur.
+
+Si vous utilisez le groupe de sécurité par défaut pour Cloud Volumes ONTAP, aucune modification n'est nécessaire pour son groupe de sécurité. Mais si vous prévoyez de définir des règles de trafic sortant strictes pour Cloud Volumes ONTAP, vous devrez également vous assurer que le groupe de sécurité Cloud Volumes ONTAP autorise les connexions _sortantes_ sur le port 3128.

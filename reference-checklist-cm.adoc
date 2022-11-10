@@ -1,0 +1,167 @@
+---
+sidebar: sidebar 
+permalink: reference-checklist-cm.html 
+keywords: networking overview, networking requirements, endpoints, urls, get started, getting started, deployment 
+summary: 'Utilisez cette liste de contrôle pour comprendre ce dont vous avez besoin pour être opérationnel avec BlueXP dans un déploiement typique où le connecteur dispose d"un accès Internet sortant.' 
+---
+= Checklist de mise en route
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Utilisez cette liste de contrôle pour comprendre ce dont vous avez besoin pour être opérationnel avec BlueXP dans un déploiement typique où le connecteur dispose d'un accès Internet sortant.
+
+Un login:: Pour vous connecter à BlueXP, vous pouvez utiliser vos identifiants du site de support NetApp ou vous inscrire à une connexion au cloud NetApp à l'aide de votre e-mail et de votre mot de passe. link:task-logging-in.html["En savoir plus sur la connexion"].
+Accès au réseau à partir d'un navigateur Web vers plusieurs noeuds finaux:: L'interface utilisateur BlueXP est accessible à partir d'un navigateur Web. Lorsque vous utilisez l'interface utilisateur BlueXP, il contacte plusieurs points de terminaison pour effectuer les tâches de gestion des données. La machine exécutant le navigateur Web doit disposer de connexions aux points finaux suivants.
++
+--
+[cols="2*"]
+|===
+| Terminaux | Objectif 
+
+
+| \http://cloudmanager.netapp.com | Votre navigateur Web contacte cette URL lors de l'utilisation de l'interface utilisateur SaaS. 
+
+
+ a| 
+Services AWS (amazonaws.com):
+
+* CloudFormation
+* Cogito
+* Cloud de calcul élastique (EC2)
+* Service de gestion des clés (KMS)
+* Service de jetons de sécurité (STS)
+* Service de stockage simple (S3)
+
+| Nécessaire pour déployer un connecteur depuis BlueXP dans AWS. Le point final exact dépend de la région dans laquelle vous déployez le connecteur. https://docs.aws.amazon.com/general/latest/gr/rande.html["Reportez-vous à la documentation AWS pour plus de détails."^] 
+
+
+| \https://management.azure.com \https://login.microsoftonline.com | Nécessaire au déploiement d'un connecteur depuis BlueXP dans la plupart des régions Azure. 
+
+
+| \https://management.microsoftazure.de \https://login.microsoftonline.de | Nécessaire au déploiement d'un connecteur depuis BlueXP dans les régions d'Azure Allemagne. 
+
+
+| \https://management.usgovcloudapi.net \https://login.microsoftonline.com | Nécessaire au déploiement d'un connecteur de BlueXP dans les régions Azure Government. 
+
+
+| \https://www.googleapis.com | Nécessaire pour déployer un connecteur depuis BlueXP dans Google Cloud. 
+
+
+| \https://signin.b2c.netapp.com | Requis pour mettre à jour les identifiants du site de support NetApp (NSS) ou pour ajouter de nouvelles informations d'identification NSS à BlueXP. 
+
+
+| \https://netapp-cloud-account.auth0.com \https://cdn.auth0.com \https://services.cloud.netapp.com | Votre navigateur Web se connecte à ces points de terminaison pour une authentification utilisateur centralisée via BlueXP. 
+
+
+| \https://widget.intercom.io | Vous bénéficiez d'un chat en ligne pour discuter avec des experts du cloud NetApp. 
+
+
+| Adresse IP du connecteur  a| 
+Dans la plupart des cas, vous devez travailler avec BlueXP à partir de l'interface utilisateur SaaS, mais link:concept-connectors.html#the-local-user-interface["Si vous utilisez l'interface utilisateur locale"], Vous devez ensuite saisir l'adresse IP de l'hôte à partir d'un navigateur Web.
+
+Selon la connectivité à votre fournisseur de cloud, utilisez l'IP privée ou une adresse IP publique attribuée à l'hôte :
+
+* Une adresse IP privée fonctionne si vous disposez d'un VPN et d'un accès direct à votre réseau virtuel
+* Un IP public fonctionne dans tous les scénarios de mise en réseau
+
+
+Dans les deux cas, sécurisez l'accès au réseau en veillant à ce que les règles de groupe de sécurité autorisent l'accès à partir des adresses IP ou des sous-réseaux autorisés uniquement.
+
+|===
+--
+Mise en réseau sortante pour un connecteur:: Une fois connecté à BlueXP, un administrateur de compte BlueXP devra déployer un _Connector_ dans un fournisseur cloud ou dans votre réseau local. BlueXP peut ainsi gérer les ressources et les processus au sein de votre environnement de cloud public. Notez qu'un connecteur est nécessaire pour la plupart, mais pas pour tous les services et fonctionnalités de BlueXP. link:concept-connectors.html["En savoir plus sur les connecteurs et leur fonctionnement"].
++
+--
+* L'emplacement réseau où vous déployez le connecteur doit disposer d'une connexion Internet sortante.
++
+Le connecteur nécessite un accès Internet sortant pour contacter les terminaux suivants afin de gérer les ressources et les processus au sein de votre environnement de cloud public.
+
++
+[cols="2*"]
+|===
+| Terminaux | Objectif 
+
+
+| \https://support.netapp.com | Pour obtenir des informations sur les licences et envoyer des messages AutoSupport au support NetApp. 
+
+
+| \https://*.cloudmanager.cloud.netapp.com \https://cloudmanager.cloud.netapp.com | Pour fournir des fonctions et des services SaaS dans BlueXP. 
+
+
+| \https://cloudmanagerinfraprod.azurecr.io \https://*.blob.core.windows.net | Pour mettre à niveau le connecteur et ses composants Docker. 
+|===
+* Si vous choisissez d'installer manuellement le connecteur sur votre propre hôte Linux (et non directement à partir de l'interface BlueXP), le programme d'installation du connecteur nécessite l'accès aux points de terminaison suivants pendant le processus d'installation :
++
+** \https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+** \https://s3.amazonaws.com/aws-cli/awscli-bundle.zip
+** \https://*.blob.core.windows.net ou \https://hub.docker.com
++
+L'hôte peut essayer de mettre à jour les packages du système d'exploitation lors de l'installation. L'hôte peut contacter différents sites de mise en miroir pour ces packages OS.
+
+
+
+* Il n'y a pas de trafic entrant vers le connecteur, sauf si vous le lancez.
++
+HTTP (80) et HTTPS (443) permettent d'accéder à l'interface utilisateur locale que vous utiliserez dans de rares circonstances. SSH (22) n'est nécessaire que si vous devez vous connecter à l'hôte pour le dépannage.
+
+
+
+--
+Les autorisations du fournisseur cloud:: Vous devez disposer d'un compte disposant des autorisations pour déployer le connecteur dans votre fournisseur de cloud directement à partir de BlueXP.
++
+--
+
+NOTE: Il existe d'autres façons de créer un connecteur : vous pouvez créer un connecteur à partir du link:task-launching-aws-mktp.html["AWS Marketplace"], le link:task-launching-azure-mktp.html["Azure Marketplace"], ou vous pouvez link:task-installing-linux.html["installez manuellement le logiciel"].
+
+[cols="15,55,30"]
+|===
+| Emplacement | Étapes générales | Étapes détaillées 
+
+
+| AWS  a| 
+. Utilisez un fichier JSON qui inclut les autorisations requises pour créer une règle IAM dans AWS.
+. Associez la règle à un rôle IAM ou à un utilisateur IAM.
+. Lorsque vous créez le connecteur, fournissez BlueXP avec l'ARN du rôle IAM ou la clé d'accès AWS et la clé secrète pour l'utilisateur IAM.
+
+| link:task-creating-connectors-aws.html["Cliquez ici pour afficher les étapes détaillées"]. 
+
+
+| Azure  a| 
+. Utilisez un fichier JSON qui inclut les autorisations requises pour créer un rôle personnalisé dans Azure.
+. Attribuez le rôle à l'utilisateur qui créera le connecteur à partir de BlueXP.
+. Lorsque vous créez le connecteur, connectez-vous avec le compte Microsoft qui dispose des autorisations requises (l'invite de connexion qui est détenue et hébergée par Microsoft).
+
+| link:task-creating-connectors-azure.html["Cliquez ici pour afficher les étapes détaillées"]. 
+
+
+| Google Cloud  a| 
+. Utilisez un fichier YAML qui inclut les autorisations requises pour créer un rôle personnalisé dans Google Cloud.
+. Reliez ce rôle à l'utilisateur qui créera le connecteur à partir de BlueXP.
+. Si vous envisagez d'utiliser Cloud Volumes ONTAP, configurez un compte de service disposant des autorisations requises.
+. Activez les API Google Cloud.
+. Lorsque vous créez le connecteur, connectez-vous avec le compte Google qui dispose des autorisations requises (l'invite de connexion est détenue et hébergée par Google).
+
+| link:task-creating-connectors-gcp.html["Cliquez ici pour afficher les étapes détaillées"]. 
+|===
+--
+Mise en réseau pour des services individuels:: Maintenant que votre configuration est terminée, vous êtes prêt à utiliser les services disponibles depuis BlueXP. Notez que chaque service présente ses propres exigences réseau. Pour plus de détails, reportez-vous aux pages suivantes.
++
+--
+* https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/reference-networking-aws.html["Cloud Volumes ONTAP pour AWS"^]
+* https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/reference-networking-azure.html["Cloud Volumes ONTAP pour Azure"^]
+* https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/reference-networking-gcp.html["Cloud Volumes ONTAP pour GCP"^]
+* https://docs.netapp.com/us-en/cloud-manager-replication/task-replicating-data.html["Réplication des données entre les systèmes ONTAP"^]
+* https://docs.netapp.com/us-en/cloud-manager-data-sense/index.html["Déployer des solutions Cloud Data est logique"^]
+* https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html["Clusters ONTAP sur site"^]
+* https://docs.netapp.com/us-en/cloud-manager-tiering/index.html["Tiering dans le cloud"^]
+* https://docs.netapp.com/us-en/cloud-manager-backup-restore/index.html["La sauvegarde dans le cloud"^]
+
+
+--
+

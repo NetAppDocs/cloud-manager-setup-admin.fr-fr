@@ -1,0 +1,103 @@
+---
+sidebar: sidebar 
+permalink: reference-limitations.html 
+keywords: limitations, active directory, ad, iscsi, key managers, ip address, govcloud, BlueXP, Cloud Volumes ONTAP, days, running, Connectors should remain running 
+summary: Les limitations connues identifient les plateformes, les périphériques ou les fonctions qui ne sont pas pris en charge par cette version du produit, ou qui ne fonctionnent pas correctement avec elle. Examinez attentivement ces limites. 
+---
+= Limites connues
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Les limitations connues identifient les plateformes, les périphériques ou les fonctions qui ne sont pas pris en charge par cette version du produit, ou qui ne fonctionnent pas correctement avec elle. Examinez attentivement ces limites.
+
+Ces limitations sont spécifiques à la configuration et à l'administration de BlueXP : le connecteur, la plate-forme SaaS, et plus encore.
+
+
+
+== Limitations du connecteur
+
+
+
+=== Conflit possible avec les adresses IP dans la plage 172
+
+BlueXP déploie le connecteur avec deux interfaces qui ont des adresses IP dans les plages 172.17.0.0/16 et 172.18.0.0/16.
+
+Si votre réseau dispose d'un sous-réseau configuré avec l'une ou l'autre de ces plages, il se peut que vous ayez des défaillances de connectivité de BlueXP. Par exemple, la découverte de clusters ONTAP sur site dans BlueXP peut échouer.
+
+Consultez l'article de la base de connaissances link:https://kb.netapp.com/Advice_and_Troubleshooting/Cloud_Services/Cloud_Manager/Cloud_Manager_shows_inactive_as_Connector_IP_range_in_172.x.x.x_conflict_with_docker_network["Conflit IP connecteur BlueXP avec le réseau existant"] Pour obtenir des instructions sur la modification de l’adresse IP des interfaces du connecteur.
+
+
+
+=== Seul un serveur proxy HTTP est pris en charge
+
+Si vos stratégies d'entreprise nécessitent l'utilisation d'un serveur proxy pour toutes les communications HTTP vers Internet, vous devez configurer vos connecteurs pour utiliser ce serveur proxy HTTP. Le serveur proxy peut se trouver dans le cloud ou dans votre réseau.
+
+BlueXP ne prend pas en charge l'utilisation d'un proxy HTTPS avec le connecteur.
+
+
+
+=== Le décryptage SSL n'est pas pris en charge
+
+BlueXP ne prend pas en charge les configurations de pare-feu pour lesquelles le décryptage SSL est activé. Si le décryptage SSL est activé, des messages d'erreur apparaissent dans BlueXP et l'instance de connecteur s'affiche comme inactive.
+
+Pour une sécurité améliorée, vous avez la possibilité de link:task-installing-https-cert.html["Installation d'un certificat HTTPS signé par une autorité de certification (CA)"].
+
+
+
+=== Page blanche lors du chargement de l'interface utilisateur locale
+
+Si vous chargez l'interface utilisateur locale pour un connecteur, il est possible que l'interface utilisateur ne s'affiche pas parfois, et il vous suffit d'obtenir une page vide.
+
+Ce problème est lié à un problème de mise en cache. La solution consiste à utiliser une session de navigateur Web privée ou incognito.
+
+
+
+=== Les hôtes Linux partagés ne sont pas pris en charge
+
+Le connecteur n'est pas pris en charge sur une machine virtuelle partagée avec d'autres applications. La machine virtuelle doit être dédiée au logiciel de connecteur.
+
+
+
+=== agents et extensions tiers
+
+Les agents tiers ou les extensions VM ne sont pas pris en charge sur la VM Connector.
+
+
+
+== Limites de SaaS
+
+
+
+=== La plateforme SaaS est désactivée pour les régions du secteur public
+
+Si vous déployez un connecteur dans une région AWS GovCloud, une région Azure Government ou une région Azure DoD, l'accès à BlueXP est disponible uniquement via l'adresse IP hôte d'un connecteur. L'accès à la plateforme SaaS est désactivé pour l'ensemble du compte.
+
+Cela signifie que seuls les utilisateurs privilégiés qui peuvent accéder au VPC/vNet interne de l'utilisateur final peuvent utiliser l'interface utilisateur ou l'API de BlueXP.
+
+Il est à noter que les seuls services pris en charge dans ces régions sont Cloud Volumes ONTAP, Cloud Backup, Cloud Data Sense et la réplication. Aucun autre service NetApp n'est pris en charge dans les régions du secteur public.
+
+link:task-managing-connectors.html#access-the-local-ui["Découvrez comment accéder à l'interface utilisateur locale sur le connecteur"].
+
+
+
+== Restrictions du marché
+
+
+
+=== Le paiement à l'utilisation n'est pas disponible pour les partenaires Azure et Google Cloud
+
+Si vous êtes un partenaire de fournisseur de solutions cloud Microsoft ou un partenaire Google Cloud, les abonnements avec paiement basé sur l'utilisation de NetApp ne sont pas disponibles. Vous devez acheter une licence et déployer des solutions clouds NetApp avec une licence BYOL.
+
+Les abonnements avec le paiement à l'utilisation ne sont pas disponibles pour les services cloud NetApp suivants :
+
+* Cloud Volumes ONTAP
+* Tiering dans le cloud
+* La sauvegarde dans le cloud
+* Sens des données cloud
+

@@ -1,0 +1,42 @@
+---
+sidebar: sidebar 
+permalink: task-viewing-gcp-storage.html 
+keywords: google cloud storage buckets, google cloud storage, google cloud storage working environment 
+summary: Après avoir installé un connecteur dans Google Cloud, BlueXP peut automatiquement découvrir des informations sur les compartiments Google Cloud qui résident dans le compte Google où le connecteur est installé. Un environnement de travail Google Cloud Storage est ajouté à Canvas pour vous permettre de visualiser ces informations. 
+---
+= Afficher les compartiments de stockage Google Cloud
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Après avoir installé un connecteur dans Google Cloud, BlueXP peut automatiquement découvrir des informations sur les compartiments Google Cloud Storage qui résident dans le compte Google où le connecteur est installé. Un environnement de travail Google Cloud Storage est ajouté à Canvas pour vous permettre de visualiser ces informations.
+
+Vous trouverez des informations détaillées sur vos compartiments Google Cloud Storage : l'emplacement, l'état d'accès, la classe de stockage, la capacité totale et utilisée, entre autres. Ces compartiments peuvent être utilisés comme destinations pour les opérations Cloud Backup, Cloud Tiering ou Cloud Sync.
+
+.Étapes
+. link:task-creating-connectors-gcp.html["Installer un connecteur"] Dans le compte Google où vous souhaitez consulter vos compartiments Google Cloud Storage.
+. Dans le menu de navigation, sélectionnez *stockage > Canvas*.
++
+Vous devriez voir automatiquement un environnement de travail Google Cloud Storage peu après.
+
++
+image:screenshot-gcp-cloud-storage-we.png["Copie d'écran d'un environnement de travail Google Cloud Storage."]
+
+. Cliquez sur l'environnement de travail et sélectionnez une action dans le volet droit.
++
+image:screenshot-gcp-cloud-storage-actions.png["Copie d'écran affichant le volet actions une fois que vous avez sélectionné un environnement de travail Google Cloud Storage. Le volet affiche le nombre total de compartiments et une action pour l'utilisation du service de synchronisation."]
+
+. Cliquez sur *Synchroniser les données* pour synchroniser les données vers ou depuis des compartiments Google Cloud Storage.
++
+Pour plus de détails, voir https://docs.netapp.com/us-en/cloud-manager-sync/concept-cloud-sync.html["La présentation du service Cloud Sync"^].
+
+. Cliquez sur *entrer environnement de travail* pour afficher les détails des rubriques de votre compte Google.
++
+image:screenshot-gcp-cloud-storage-details.png["Une capture d'écran présente les détails d'un environnement de travail Google Cloud Storage : le nombre total de compartiments, de capacité et d'emplacements, puis un tableau présentant des informations détaillées sur chaque compartiment."]
+
+

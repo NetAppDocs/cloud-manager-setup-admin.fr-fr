@@ -1,0 +1,170 @@
+---
+sidebar: sidebar 
+permalink: task-installing-linux.html 
+keywords: install connector, manually install connector, install connector software, installation, installing, linux, installer, software, on prem, on-prem, silent, configurations, ec2, vm, ports, ram, operating system, os, host, requirement, requirements, hypervisor, disk, space, mysql, centos, rhel, red hat, cpu, disk space 
+summary: 'La manière la plus courante de créer un connecteur est directement depuis BlueXP ou depuis le marché d"un fournisseur cloud. Mais vous avez la possibilité de télécharger et d"installer le logiciel Connector sur un hôte Linux existant de votre réseau ou dans le cloud.' 
+---
+= Installez le connecteur sur un hôte Linux existant ayant accès à Internet
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+La manière la plus courante de créer un connecteur est directement depuis BlueXP ou depuis le marché d'un fournisseur cloud. Mais vous avez la possibilité de télécharger et d'installer le logiciel Connector sur un hôte Linux existant de votre réseau ou dans le cloud. Ces étapes sont spécifiques aux hôtes disposant d'un accès Internet.
+
+link:concept-connectors.html["Découvrez d'autres méthodes de déploiement d'un connecteur"].
+
+
+NOTE: Pour créer un système Cloud Volumes ONTAP dans Google Cloud, vous devez disposer d'un connecteur exécuté dans Google Cloud. Vous ne pouvez pas utiliser un connecteur exécuté sur AWS, Azure ou sur site.
+
+
+
+== Vérifiez les besoins de l'hôte
+
+Le logiciel du connecteur doit être exécuté sur un hôte qui répond à des exigences spécifiques du système d'exploitation, de la RAM, des ports, etc.
+
+Un hôte dédié est requis:: Le connecteur n'est pas pris en charge sur un hôte partagé avec d'autres applications. L'hôte doit être un hôte dédié.
+CPU:: 4 cœurs ou 4 CPU virtuels
+RAM:: 14 GO
+Type d'instance AWS EC2:: Type d'instance qui répond aux exigences relatives au CPU et à la RAM indiquées ci-dessus. Nous recommandons une instance t3.XLarge.
+Taille des machines virtuelles Azure:: Type d'instance qui répond aux exigences relatives au CPU et à la RAM indiquées ci-dessus. Nous recommandons DS3 v2.
+Type de machine GCP:: Type d'instance qui répond aux exigences relatives au CPU et à la RAM indiquées ci-dessus. Nous recommandons n2-standard-4.
++
+--
+Ce connecteur est pris en charge dans Google Cloud sur une instance de machine virtuelle avec un système d'exploitation pris en charge https://cloud.google.com/compute/shielded-vm/docs/shielded-vm["Fonctionnalités MV blindées"^]
+
+--
+Systèmes d'exploitation pris en charge::
++
+--
+* CentOS 7.6
+* CentOS 7.7
+* CentOS 7.8
+* CentOS 7.9
+* Red Hat Enterprise Linux 7.6
+* Red Hat Enterprise Linux 7.7
+* Red Hat Enterprise Linux 7.8
+* Red Hat Enterprise Linux 7.9
++
+Le système Red Hat Enterprise Linux doit être enregistré avec Red Hat Subscription Management. S'il n'est pas enregistré, le système ne peut pas accéder aux référentiels pour mettre à jour les logiciels tiers requis pendant l'installation du connecteur.
+
++
+Le connecteur est pris en charge sur les versions en anglais de ces systèmes d'exploitation.
+
+
+
+--
+Hyperviseur:: Un hyperviseur bare Metal ou hébergé certifié pour exécuter CentOS ou Red Hat Enterprise Linuxhttps://access.redhat.com/certified-hypervisors["Solution Red Hat : quels hyperviseurs sont certifiés pour l'exécution de Red Hat Enterprise Linux ?"^]
+Espace disque dans /opt:: 100 Gio d'espace doit être disponible
+Espace disque dans /var:: 20 Gio d'espace doit être disponible
+Accès Internet sortant:: Le programme d'installation du connecteur doit accéder aux URL suivantes pendant le processus d'installation :
++
+--
+* \https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+* \https://s3.amazonaws.com/aws-cli/awscli-bundle.zip
+* \https://*.blob.core.windows.net ou \https://hub.docker.com
++
+L'hôte peut essayer de mettre à jour les packages du système d'exploitation lors de l'installation. L'hôte peut contacter différents sites de mise en miroir pour ces packages OS.
+
+
+
+--
+
+
+
+
+== Poser le connecteur
+
+Après avoir vérifié que vous disposez d'un hôte Linux pris en charge, vous pouvez obtenir le logiciel Connector, puis l'installer.
+
+Les privilèges root sont requis pour installer le connecteur.
+
+.Description de la tâche
+* L'installation installe les outils de ligne de commande AWS (awscli), afin d'activer les procédures de reprise à partir du support NetApp.
++
+Si vous recevez un message indiquant que l'installation de awscli a échoué, vous pouvez ignorer le message en toute sécurité. Le connecteur peut fonctionner sans outils.
+
+* Le programme d'installation disponible sur le site du support NetApp peut être une version antérieure. Après l'installation, le connecteur se met automatiquement à jour si une nouvelle version est disponible.
+
+
+.Étapes
+. Téléchargez le logiciel du connecteur à partir du https://mysupport.netapp.com/site/products/all/details/cloud-manager/downloads-tab["Site de support NetApp"^], Puis copiez-le sur l'hôte Linux.
++
+Pour obtenir de l'aide sur la connexion et la copie du fichier vers une instance EC2 dans AWS, reportez-vous à la section http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstancesLinux.html["Documentation AWS : connexion à votre instance Linux à l'aide de SSH"^].
+
+. Attribuez des autorisations pour exécuter le script.
++
+[source, cli]
+----
+chmod +x OnCommandCloudManager-V3.9.19.sh
+----
+. Exécutez le script d'installation.
++
+Si vous disposez d'un serveur proxy, vous devez entrer les paramètres de commande comme indiqué ci-dessous. Le programme d'installation ne vous invite pas à fournir des informations sur un proxy.
+
++
+[source, cli]
+----
+ ./OnCommandCloudManager-V3.9.19.sh [silent] [proxy=ipaddress] [proxyport=port] [proxyuser=user_name] [proxypwd=password]
+----
++
+_silent_ exécute l'installation sans vous demander des informations.
+
++
+_proxy_ est requis si l'hôte est derrière un serveur proxy.
+
++
+_proxyport_ est le port du serveur proxy.
+
++
+_proxyuser_ est le nom d'utilisateur du serveur proxy, si une authentification de base est requise.
+
++
+_proxypwd_ est le mot de passe du nom d'utilisateur que vous avez spécifié.
+
+. Sauf si vous avez spécifié le paramètre silencieux, entrez *y* pour poursuivre l'installation.
++
+Le connecteur est maintenant installé. À la fin de l'installation, le service connecteur (ocm) redémarre deux fois si vous avez spécifié un serveur proxy.
+
+. Ouvrez un navigateur Web et entrez l'URL suivante :
++
+https://_ipaddress_[]
+
++
+_Ipaddress_ peut être localhost, une adresse IP privée ou une adresse IP publique, selon la configuration de l'hôte. Par exemple, si le connecteur est dans le Cloud public sans adresse IP publique, vous devez entrer une adresse IP privée à partir d'un hôte qui a une connexion à l'hôte du connecteur.
+
+. S'inscrire ou se connecter.
+. Si vous avez installé le connecteur dans Google Cloud, configurez un compte de service disposant des autorisations nécessaires à BlueXP pour créer et gérer des systèmes Cloud Volumes ONTAP dans des projets.
++
+.. https://cloud.google.com/iam/docs/creating-custom-roles#iam-custom-roles-create-gcloud["Créer un rôle dans GCP"^] qui inclut les autorisations définies dans le link:reference-permissions-gcp.html["Règle de connecteur pour GCP"].
+.. https://cloud.google.com/iam/docs/creating-managing-service-accounts#creating_a_service_account["Créez un compte de service GCP et appliquez le rôle personnalisé que vous venez de créer"^].
+.. https://cloud.google.com/compute/docs/access/create-enable-service-accounts-for-instances#changeserviceaccountandscopes["Associer ce compte de service à la VM Connector"^].
+.. Si vous souhaitez déployer Cloud Volumes ONTAP dans d'autres projets, https://cloud.google.com/iam/docs/granting-changing-revoking-access#granting-console["Accordez l'accès en ajoutant le compte de service avec le rôle BlueXP à ce projet"^]. Vous devrez répéter cette étape pour chaque projet.
+
+
+. Une fois connecté, configurez BlueXP :
++
+.. Spécifiez le compte NetApp à associer au connecteur.
++
+link:concept-netapp-accounts.html["En savoir plus sur les comptes NetApp"].
+
+.. Entrez un nom pour le système.
++
+image:screenshot_set_up_cloud_manager.gif["Copie d'écran affichant l'écran de configuration, qui vous permet de sélectionner un compte NetApp et de nommer le système."]
+
+
+
+
+
+Le connecteur est désormais installé et configuré avec votre compte NetApp. BlueXP utilisera automatiquement ce connecteur lorsque vous créez de nouveaux environnements de travail.
+
+Configurez des autorisations pour que BlueXP puisse gérer les ressources et les processus au sein de votre environnement de cloud public :
+
+* AWS : link:task-adding-aws-accounts.html["Configurez un compte AWS, puis ajoutez-le à BlueXP"]
+* Azure : link:task-adding-azure-accounts.html["Configurez un compte Azure, puis ajoutez-le à BlueXP"]
+* Google Cloud : voir étape 7 ci-dessus
+

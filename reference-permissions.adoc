@@ -1,0 +1,71 @@
+---
+sidebar: sidebar 
+permalink: reference-permissions.html 
+keywords: permissions, actions 
+summary: Pour utiliser les fonctionnalités et services de BlueXP, vous devez fournir des autorisations pour que BlueXP puisse effectuer des opérations dans votre environnement cloud. Utilisez les liens de cette page pour accéder rapidement aux autorisations requises dans BlueXP. 
+---
+= Résumé des autorisations pour BlueXP
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Pour utiliser les fonctionnalités et services de BlueXP, vous devez fournir des autorisations pour que BlueXP puisse effectuer des opérations dans votre environnement cloud. Utilisez les liens de cette page pour accéder rapidement aux autorisations dont vous avez besoin en fonction de votre objectif.
+
+
+
+== Autorisations AWS
+
+[cols="25,60,40"]
+|===
+| Objectif | Description | Lien 
+
+
+| Déploiement de connecteurs | L'utilisateur qui crée un connecteur depuis BlueXP a besoin d'autorisations spécifiques pour déployer l'instance dans AWS. | link:task-creating-connectors-aws.html["Créez un connecteur dans AWS à partir de BlueXP"] 
+
+
+| Fonctionnement du connecteur | Lorsque BlueXP lance le connecteur, il attache une stratégie à l'instance qui fournit les autorisations nécessaires pour gérer les ressources et les processus de votre compte AWS. Vous devez définir vous-même la stratégie si vous link:task-launching-aws-mktp.html["Lancez un connecteur sur le Marketplace"] ou si vous link:task-adding-aws-accounts.html#add-credentials-to-a-connector["Ajoutez des identifiants AWS à un connecteur"]. Vous devez également vous assurer que la stratégie est à jour lorsque de nouvelles autorisations sont ajoutées dans les versions suivantes. | link:reference-permissions-aws.html["Autorisations AWS pour le connecteur"] 
+
+
+| Fonctionnement du Cloud Volumes ONTAP | Un rôle IAM doit être associé à chaque nœud Cloud Volumes ONTAP dans AWS. Il en va de même pour le médiateur HA. L'option par défaut est de permettre à BlueXP de créer les rôles IAM pour vous, mais vous pouvez utiliser votre propre. | https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-set-up-iam-roles.html["Découvrez comment configurer vous-même les rôles IAM"^] 
+|===
+
+
+== Autorisations Azure
+
+[cols="25,60,40"]
+|===
+| Objectif | Description | Lien 
+
+
+| Déploiement de connecteurs | Lorsque vous déployez un connecteur depuis BlueXP, vous devez utiliser un compte ou un service principal Azure disposant des autorisations pour déployer la machine virtuelle Connector dans Azure. | link:task-creating-connectors-azure.html["Créez un connecteur dans Azure à partir de BlueXP"] 
+
+
+| Fonctionnement du connecteur  a| 
+Lorsque BlueXP déploie la machine virtuelle Connector dans Azure, il crée un rôle personnalisé qui fournit les autorisations requises pour gérer les ressources et les processus au sein de cet abonnement Azure.
+
+Vous devez définir vous-même le rôle personnalisé si vous le souhaitez link:task-launching-azure-mktp.html["Lancez un connecteur sur le Marketplace"] ou si vous link:task-adding-azure-accounts.html#adding-additional-azure-credentials-to-cloud-manager["Ajoutez des identifiants Azure à un connecteur"].
+
+Vous devez également vous assurer que la stratégie est à jour lorsque de nouvelles autorisations sont ajoutées dans les versions suivantes.
+ a| 
+link:reference-permissions-azure.html["Autorisations Azure pour le connecteur"]
+
+|===
+
+
+== Autorisations Google Cloud
+
+[cols="25,60,40"]
+|===
+| Objectif | Description | Lien 
+
+
+| Déploiement de connecteurs | L'utilisateur Google Cloud qui déploie un connecteur depuis BlueXP a besoin d'autorisations spécifiques pour déployer le connecteur dans Google Cloud. | link:task-creating-connectors-gcp.html#set-up-permissions-to-deploy-the-connector["Configurez les autorisations de déploiement du connecteur"] 
+
+
+| Fonctionnement du connecteur | Le compte de service de l'instance de VM Connector doit disposer d'autorisations spécifiques pour les opérations quotidiennes. Vous devez associer le compte de service au connecteur lorsque vous le déployez depuis BlueXP. Vous devez également vous assurer que la stratégie est à jour lorsque de nouvelles autorisations sont ajoutées dans les versions suivantes. | link:task-creating-connectors-gcp.html#set-up-a-service-account-for-the-connector["Configurez un compte de service pour le connecteur"] 
+|===

@@ -1,0 +1,107 @@
+---
+sidebar: sidebar 
+permalink: task-adding-gcp-accounts.html 
+keywords: permissions, gcp, marketplace, gcp subscription, subscription, gcp marketplace, subscribe, data tiering, tiering, setup, requirements, account for data tiering, account for tiering, interoperable, interoperability, interoperable storage access keys, access keys 
+summary: 'Vous pouvez gérer les informations d"identification associées à l"instance de VM Connector.' 
+---
+= Gestion des informations d'identification et des abonnements Google Cloud pour BlueXP
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Vous pouvez gérer les informations d'identification associées à l'instance de VM Connector.
+
+
+
+== Association d'un abonnement Marketplace aux informations d'identification GCP
+
+Lorsque vous déployez un connecteur dans GCP, BlueXP crée un ensemble d'informations d'identification par défaut qui sont associées à l'instance de VM connecteur. Il s'agit des informations d'identification utilisées par BlueXP pour déployer Cloud Volumes ONTAP.
+
+Vous pouvez à tout moment modifier l'abonnement Marketplace associé à ces informations d'identification. Cet abonnement vous permet de créer un système Cloud Volumes ONTAP basé sur l'utilisation et d'utiliser d'autres services cloud NetApp.
+
+.Étapes
+. Dans le coin supérieur droit de la console BlueXP, cliquez sur l'icône Paramètres et sélectionnez *informations d'identification*.
+. Cliquez sur le menu d'action correspondant à un ensemble d'informations d'identification, puis sélectionnez *associer un abonnement*.
++
+image:screenshot_gcp_add_subscription.png["Capture d'écran du menu d'action pour un ensemble d'informations d'identification existantes."]
+
+. Sélectionnez un projet et un abonnement Google Cloud dans la liste déroulante.
++
+image:screenshot_gcp_associate.gif["Copie d'écran d'un projet Google Cloud et de l'abonnement sélectionnés pour les identifiants Google Cloud."]
+
+. Cliquez sur *associé*.
+. Si vous n'avez pas encore d'abonnement, cliquez sur *Ajouter un abonnement* et suivez les étapes ci-dessous pour créer un nouvel abonnement.
++
+
+NOTE: Avant de terminer les étapes suivantes, assurez-vous que vous disposez des deux privilèges d'administrateur de facturation dans votre compte Google Cloud ainsi que d'une connexion BlueXP.
+
+. Redécouvrez les étapes de l'abonnement et cliquez sur *Continuer*.
++
+image:screenshot_gcp_sub_popup.png["Capture d'écran d'une fenêtre contextuelle d'abonnement."]
+
+. Après avoir été redirigé vers le https://console.cloud.google.com/marketplace/product/netapp-cloudmanager/cloud-manager["Page NetApp BlueXP sur Google Cloud Marketplace"^], assurez-vous que le projet correct est sélectionné dans le menu de navigation supérieur.
++
+image:screenshot_gcp_cvo_marketplace.png["Capture d'écran de la page du marché GCP CVO."]
+
+. Cliquez sur *Subscribe*.
+. Sélectionnez le compte de facturation approprié et acceptez les conditions générales.
++
+image:screenshot_gcp_terms_and_conditions.png["Capture d'écran des conditions générales de GCP"]
+
+. Cliquez sur *Subscribe*.
++
+Cette étape envoie votre demande de transfert à NetApp.
+
+. Dans la boîte de dialogue contextuelle, cliquez sur *s'inscrire auprès de NetApp, Inc.* pour être redirigé vers le site Web NetApp BlueXP.
++
+image:screenshot_gcp_marketplace_register.png["Capture d'écran d'une fenêtre contextuelle d'enregistrement."]
+
++
+
+NOTE: Cette étape doit être terminée pour lier l'abonnement GCP à votre compte NetApp. Le processus de liaison d'un abonnement n'est pas terminé tant que vous n'êtes pas redirigé à partir de cette page, puis vous connecter à BlueXP.
+
+. Après avoir été redirigé vers BlueXP, connectez-vous ou inscrivez-vous, puis cliquez sur *Done* pour continuer.
++
+L'abonnement GCP sera lié à tous les comptes NetApp auxquels vous êtes associé.
+
++
+image:screenshot_gcp_sub_mapping.png["Copie d'écran permettant de mapper un abonnement GCP sur un compte NetApp."]
+
++
+
+NOTE: Si un membre de votre entreprise a déjà souscrit à l'abonnement NetApp BlueXP à partir de votre compte de facturation, vous serez redirigé vers https://cloud.netapp.com/ontap-cloud?x-gcp-marketplace-token=["La page Cloud Volumes ONTAP sur le site web de BlueXP"^] à la place. Si cela est inattendu, contactez votre équipe commerciale NetApp. Google n'autorise qu'un seul abonnement par compte de facturation Google.
+
+. Une fois ce processus terminé, revenez à la page d'informations d'identification dans BlueXP et sélectionnez ce nouvel abonnement.
++
+image:screenshot_gcp_associate.gif["Capture d'écran de la page d'affectation d'abonnement."]
+
+
+
+
+
+== Dépannage du processus d'abonnement Marketplace
+
+Parfois, l'abonnement à Cloud Volumes ONTAP via Google Cloud Marketplace peut devenir fragmenté en raison d'autorisations incorrectes ou accidentellement ne suivant pas la redirection vers le site Web BlueXP. Dans ce cas, procédez comme suit pour terminer le processus d'abonnement.
+
+.Étapes
+. Accédez au https://console.cloud.google.com/marketplace/product/netapp-cloudmanager/cloud-manager["Page NetApp BlueXP sur Google Cloud Marketplace"^] pour vérifier l'état de la commande. Si la page indique *Manage on Provider*, faites défiler la page vers le bas et cliquez sur *Manage Orders*.
++
+image:screenshot_gcp_manage_orders.png["Capture d'écran de la page Marketplace post-abonnement."]
+
++
+.. Si la commande affiche une coche verte et que cela est inattendu, il est possible que quelqu'un d'autre de l'entreprise utilisant le même compte de facturation soit déjà abonné. Si cela est inattendu ou si vous avez besoin des détails de cet abonnement, contactez votre équipe commerciale NetApp.
++
+image:screenshot_gcp_green_marketplace.png["Copie d'écran d'un droit accepté."]
+
+.. Si la commande affiche une horloge et l'état *en attente*, revenez à la page Marketplace et choisissez *gérer sur fournisseur* pour terminer le processus comme indiqué ci-dessus.
++
+image:screenshot_gcp_pending_marketplace.png["Copie d'écran d'un droit de marché en attente."]
+
+
+
+

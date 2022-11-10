@@ -1,0 +1,78 @@
+---
+sidebar: sidebar 
+permalink: task-manage-subscriptions.html 
+keywords: digital wallet, subscriptions, paygo subscriptions, contracts, annual contracts 
+summary: 'Lorsque vous vous abonnez à BlueXP depuis le marché d"un fournisseur de services Cloud, vous êtes redirigé vers le site Web BlueXP où vous devez enregistrer votre abonnement et l"associer à des comptes spécifiques. Après votre inscription, vous pouvez gérer chaque abonnement à partir du porte-monnaie numérique.' 
+---
+= Gérer les abonnements et les contrats PAYGO
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Lorsque vous vous abonnez à BlueXP depuis le marché d'un fournisseur de services Cloud, vous êtes redirigé vers le site Web BlueXP où vous devez enregistrer votre abonnement et l'associer à des comptes spécifiques. Après votre inscription, vous pouvez gérer chaque abonnement à partir du porte-monnaie numérique.
+
+
+
+== Afficher vos abonnements
+
+Le porte-monnaie numérique fournit des informations détaillées sur chaque abonnement PAYGO et contrat annuel associé à votre compte BlueXP et à Astra (Astra utilise le service de facturation de BlueXP).
+
+.Étapes
+. Dans le menu de navigation BlueXP, sélectionnez *gouvernance > porte-monnaie numérique*.
+. Sélectionnez *abonnements*.
++
+Vous ne verrez que les abonnements associés au compte que vous consultez actuellement.
+
+. Lorsque vous affichez les informations relatives à vos abonnements, vous pouvez interagir avec les détails du tableau comme suit :
++
+** Développez une ligne pour afficher plus de détails.
++
+image:screenshot-subscriptions-expand.png["Capture d'écran de l'onglet abonnements du porte-monnaie numérique dans laquelle vous pouvez sélectionner la flèche à la fin d'une ligne pour la développer."]
+
+** Cliquez sur image:icon-column-selector.png["l'icône plus à l'extrémité de l'en-tête de la table"] pour choisir les colonnes qui s'affichent dans le tableau.
++
+Notez que les colonnes Term et Auto Renew n'apparaissent pas par défaut. La colonne Renouvellement automatique affiche les informations de renouvellement des contrats Azure uniquement.
+
+
+
++
+Notez ce qui suit à propos de ce que vous voyez dans le tableau :
+
++
+Date de début:: La date de début est la date à laquelle vous avez correctement associé l'abonnement à votre compte et que la facturation a commencé.
+S/O:: Si vous voyez N/A dans le tableau, les informations ne sont pas disponibles dans l'API du fournisseur de cloud pour le moment.
+Contrats::
++
+--
+** Si vous développez les détails d'un contrat, le porte-monnaie numérique affiche les éléments disponibles pour votre plan actuel : les options et unités du contrat (capacité ou nombre de nœuds).
+** Le porte-monnaie numérique identifie la date de fin et indique si le contrat sera bientôt renouvelé ou s'il a déjà pris fin.
+** Si vous avez souscrit un contrat AWS et que vous avez modifié l'une des options du contrat après la date de début, veillez à valider les options de contrat depuis AWS.
+
+
+--
+
+
+
+
+
+
+== Gérez vos abonnements
+
+Vous pouvez gérer vos abonnements à partir du porte-monnaie numérique en renommant un abonnement et en choisissant les comptes associés à l'abonnement.
+
+Par exemple, disons que vous avez deux comptes et que chacun est facturé par le biais d'abonnements distincts. Vous pouvez dissocier un abonnement de l'un des comptes afin que les utilisateurs de ce compte ne choisissent pas accidentellement l'abonnement incorrect lors de la création d'un environnement de travail Cloud Volume ONTAP.
+
+.Étapes
+. Dans le menu de navigation BlueXP, sélectionnez *gouvernance > porte-monnaie numérique*.
+. Sélectionnez *abonnements*.
+. Cliquez sur le menu d'action de la ligne correspondant à l'abonnement que vous souhaitez gérer.
++
+image:screenshot-subscription-menu.png["Capture d'écran du menu d'action pour un abonnement."]
+
+. Vous pouvez renommer l'abonnement ou gérer les comptes NetApp associés à cet abonnement.
+

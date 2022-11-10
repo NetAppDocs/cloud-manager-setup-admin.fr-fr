@@ -1,0 +1,548 @@
+---
+sidebar: sidebar 
+permalink: task-creating-connectors-gcp.html 
+keywords: create connector in gcp, launch connector in gcp, deploy connector in gcp, gcp connector, connector gcp, connector permissions 
+summary: Un compte BlueXP Admin doit déployer un connecteur avant de pouvoir utiliser la plupart des fonctionnalités BlueXP. BlueXP peut ainsi gérer les ressources et les processus au sein de votre environnement de cloud public. 
+---
+= Créez un connecteur dans Google Cloud à partir de BlueXP
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Un administrateur de compte BlueXP doit déployer un _Connector_ avant de pouvoir utiliser la plupart des fonctions BlueXP. link:concept-connectors.html["Apprenez quand un connecteur est nécessaire"]. BlueXP peut ainsi gérer les ressources et les processus au sein de votre environnement de cloud public.
+
+Cette page explique comment créer un connecteur dans Google Cloud directement à partir de BlueXP. link:concept-connectors.html#how-to-create-a-connector["Découvrez d'autres méthodes de déploiement d'un connecteur"].
+
+Ces étapes doivent être réalisées par un utilisateur qui a le rôle d'administrateur de compte. Un administrateur d'espace de travail ne peut pas créer de connecteur.
+
+
+TIP: Lorsque vous créez votre premier environnement de travail Cloud Volumes ONTAP, BlueXP vous invite à créer un connecteur si vous n'en avez pas encore.
+
+
+
+== Démarrage rapide
+
+Pour commencer rapidement, suivez ces étapes ou faites défiler jusqu'aux sections restantes pour obtenir de plus amples informations.
+
+.<span class=« image »><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png"[] alt=« one »></span> définissez les autorisations
+* Assurez-vous que votre compte Google Cloud dispose des autorisations appropriées en créant et en attachant un rôle personnalisé.
++
+ up permissions to deploy the Connector.
+
+* Lorsque vous créez la machine virtuelle Connector, vous devez l'associer à un compte de service. Ce compte de service doit avoir un rôle personnalisé qui dispose d'autorisations pour gérer des ressources dans Google Cloud.
++
+ up a service account for the Connector.
+
+* Si vous utilisez un VPC partagé, configurez des autorisations dans le projet de service et le projet hôte.
++
+ up shared VPC permissions.
+
+
+
+[role="quick-margin-para"]
+Vous avez besoin d'un VPC et d'un sous-réseau avec un accès Internet sortant à des terminaux spécifiques. Si un proxy HTTP est requis pour l'Internet sortant, vous aurez besoin de l'adresse IP, des identifiants et du certificat HTTPS.
+
+[role="quick-margin-para"]
+ up networking,Afficher les besoins en matière de mise en réseau.
+
+.<span class=« image »><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png"[] alt=« trois »></span> Activer les API Google Cloud
+* API Cloud Deployment Manager V2
+* API de journalisation cloud
+* API Cloud Resource Manager
+* API du moteur de calcul
+* API de gestion des identités et des accès
+
+
+[role="quick-margin-para"]
+Cliquez sur la liste déroulante connecteur, sélectionnez *Ajouter connecteur* et suivez les invites.
+
+[role="quick-margin-para"]
+ a Connector,Suivez les instructions étape par étape.
+
+
+
+== Configurez les autorisations
+
+Des autorisations sont requises pour les éléments suivants :
+
+* L'utilisateur qui va déployer la machine virtuelle de connecteur
+* Un compte de service que vous devez connecter à la machine virtuelle Connector pendant le déploiement
+* Des autorisations VPC partagées, si vous utilisez un VPC partagé pour déployer des ressources dans un projet de service
+
+
+
+
+=== Configurez les autorisations de déploiement du connecteur
+
+Avant de déployer un connecteur, vous devez vous assurer que votre compte Google Cloud dispose des autorisations appropriées.
+
+.Étapes
+. https://cloud.google.com/iam/docs/creating-custom-roles#iam-custom-roles-create-gcloud["Créer un rôle personnalisé"^] qui inclut les autorisations suivantes :
++
+[source, yaml]
+----
+title: Connector deployment policy
+description: Permissions for the user who deploys the Connector from BlueXP
+stage: GA
+includedPermissions:
+- compute.disks.create
+- compute.disks.get
+- compute.disks.list
+- compute.disks.setLabels
+- compute.disks.use
+- compute.firewalls.create
+- compute.firewalls.delete
+- compute.firewalls.get
+- compute.firewalls.list
+- compute.globalOperations.get
+- compute.images.get
+- compute.images.getFromFamily
+- compute.images.list
+- compute.images.useReadOnly
+- compute.instances.attachDisk
+- compute.instances.create
+- compute.instances.get
+- compute.instances.list
+- compute.instances.setDeletionProtection
+- compute.instances.setLabels
+- compute.instances.setMachineType
+- compute.instances.setMetadata
+- compute.instances.setTags
+- compute.instances.start
+- compute.instances.updateDisplayDevice
+- compute.machineTypes.get
+- compute.networks.get
+- compute.networks.list
+- compute.networks.updatePolicy
+- compute.projects.get
+- compute.regions.get
+- compute.regions.list
+- compute.subnetworks.get
+- compute.subnetworks.list
+- compute.zoneOperations.get
+- compute.zones.get
+- compute.zones.list
+- deploymentmanager.compositeTypes.get
+- deploymentmanager.compositeTypes.list
+- deploymentmanager.deployments.create
+- deploymentmanager.deployments.delete
+- deploymentmanager.deployments.get
+- deploymentmanager.deployments.list
+- deploymentmanager.manifests.get
+- deploymentmanager.manifests.list
+- deploymentmanager.operations.get
+- deploymentmanager.operations.list
+- deploymentmanager.resources.get
+- deploymentmanager.resources.list
+- deploymentmanager.typeProviders.get
+- deploymentmanager.typeProviders.list
+- deploymentmanager.types.get
+- deploymentmanager.types.list
+- resourcemanager.projects.get
+- compute.instances.setServiceAccount
+- iam.serviceAccounts.list
+----
+. Reliez le rôle personnalisé à l'utilisateur qui déploiera le connecteur depuis BlueXP.
+
+
+L'utilisateur Google Cloud dispose désormais des autorisations nécessaires pour créer le connecteur.
+
+
+
+=== Configurez un compte de service pour le connecteur
+
+Un compte de service est requis pour fournir au connecteur l'autorisation requise pour gérer les ressources dans Google Cloud. Vous allez associer ce compte de service à la machine virtuelle Connector lors de sa création.
+
+Les autorisations du compte de service sont différentes des autorisations que vous avez définies dans la section précédente.
+
+.Étapes
+. https://cloud.google.com/iam/docs/creating-custom-roles#iam-custom-roles-create-gcloud["Créer un rôle personnalisé"^] qui inclut les autorisations suivantes :
++
+[source, yaml]
+----
+title: NetApp BlueXP
+description: Permissions for the service account associated with the Connector instance.
+stage: GA
+includedPermissions:
+- iam.serviceAccounts.actAs
+- compute.regionBackendServices.create
+- compute.regionBackendServices.get
+- compute.regionBackendServices.list
+- compute.networks.updatePolicy
+- compute.backendServices.create
+- compute.addresses.list
+- compute.disks.create
+- compute.disks.createSnapshot
+- compute.disks.delete
+- compute.disks.get
+- compute.disks.list
+- compute.disks.setLabels
+- compute.disks.use
+- compute.firewalls.create
+- compute.firewalls.delete
+- compute.firewalls.get
+- compute.firewalls.list
+- compute.globalOperations.get
+- compute.images.get
+- compute.images.getFromFamily
+- compute.images.list
+- compute.images.useReadOnly
+- compute.instances.addAccessConfig
+- compute.instances.attachDisk
+- compute.instances.create
+- compute.instances.delete
+- compute.instances.detachDisk
+- compute.instances.get
+- compute.instances.getSerialPortOutput
+- compute.instances.list
+- compute.instances.setDeletionProtection
+- compute.instances.setLabels
+- compute.instances.setMachineType
+- compute.instances.setMetadata
+- compute.instances.setTags
+- compute.instances.start
+- compute.instances.stop
+- compute.instances.updateDisplayDevice
+- compute.machineTypes.get
+- compute.networks.get
+- compute.networks.list
+- compute.projects.get
+- compute.regions.get
+- compute.regions.list
+- compute.snapshots.create
+- compute.snapshots.delete
+- compute.snapshots.get
+- compute.snapshots.list
+- compute.snapshots.setLabels
+- compute.subnetworks.get
+- compute.subnetworks.list
+- compute.subnetworks.use
+- compute.subnetworks.useExternalIp
+- compute.zoneOperations.get
+- compute.zones.get
+- compute.zones.list
+- compute.instances.setServiceAccount
+- deploymentmanager.compositeTypes.get
+- deploymentmanager.compositeTypes.list
+- deploymentmanager.deployments.create
+- deploymentmanager.deployments.delete
+- deploymentmanager.deployments.get
+- deploymentmanager.deployments.list
+- deploymentmanager.manifests.get
+- deploymentmanager.manifests.list
+- deploymentmanager.operations.get
+- deploymentmanager.operations.list
+- deploymentmanager.resources.get
+- deploymentmanager.resources.list
+- deploymentmanager.typeProviders.get
+- deploymentmanager.typeProviders.list
+- deploymentmanager.types.get
+- deploymentmanager.types.list
+- logging.logEntries.list
+- logging.privateLogEntries.list
+- resourcemanager.projects.get
+- storage.buckets.create
+- storage.buckets.delete
+- storage.buckets.get
+- storage.buckets.list
+- cloudkms.cryptoKeyVersions.useToEncrypt
+- cloudkms.cryptoKeys.get
+- cloudkms.cryptoKeys.list
+- cloudkms.keyRings.list
+- storage.buckets.update
+- iam.serviceAccounts.getIamPolicy
+- iam.serviceAccounts.list
+- storage.objects.get
+- storage.objects.list
+- monitoring.timeSeries.list
+- storage.buckets.getIamPolicy
+----
+. https://cloud.google.com/iam/docs/creating-managing-service-accounts#creating_a_service_account["Créez un compte de service Google Cloud et appliquez le rôle personnalisé que vous venez de créer"^].
+. Si vous souhaitez déployer Cloud Volumes ONTAP dans d'autres projets, https://cloud.google.com/iam/docs/granting-changing-revoking-access#granting-console["Accordez l'accès en ajoutant le compte de service avec le rôle BlueXP à ce projet"^]. Vous devrez répéter cette étape pour chaque projet.
+
+
+Le compte de service de la machine virtuelle Connector est configuré.
+
+
+
+=== Configurez les autorisations VPC partagées
+
+Si vous utilisez un VPC partagé pour déployer des ressources dans un projet de service, vous devez disposer des autorisations suivantes. Ce tableau est fourni à titre de référence et votre environnement doit refléter la table des autorisations lorsque la configuration IAM est terminée.
+
+[cols="10,10,10,20,20,30"]
+|===
+| Identité | Créateur | Hébergé dans | Autorisations de projet de service | Autorisations de projet hôte | Objectif 
+
+
+| Compte Google utilisé pour déployer le connecteur | Personnalisées | Projet de service  a| 
+* link:task-creating-connectors-gcp.html#set-up-permissions-to-deploy-the-connector["Les autorisations trouvées dans cette section ci-dessus"]
+
+ a| 
+* compute.networkUser
+
+| Déploiement du connecteur dans le projet de service 
+
+
+| Connecteur de compte de service | Personnalisées | Projet de service  a| 
+* link:task-creating-connectors-gcp.html#set-up-a-service-account-for-the-connector["Les autorisations trouvées dans cette section ci-dessus"]
+
+ a| 
+* compute.networkUser
+* deploymentmanager.editor
+
+| Déploiement et maintenance de Cloud Volumes ONTAP et des services dans le projet de service 
+
+
+| Compte de service Cloud Volumes ONTAP | Personnalisées | Projet de service  a| 
+* storage.admin
+* Membre: Compte de service BlueXP à partir de serviceAccount.user
+
+| S/O | (Facultatif) pour le Tiering des données et la sauvegarde dans le cloud 
+
+
+| Agent de service Google API | Google Cloud | Projet de service  a| 
+* Editeur (par défaut)
+
+ a| 
+* compute.networkUser
+
+| Interagit avec les API Google Cloud pour le compte du déploiement. Permet à BlueXP d'utiliser le réseau partagé. 
+
+
+| Compte de service par défaut Google Compute Engine | Google Cloud | Projet de service  a| 
+* Editeur (par défaut)
+
+ a| 
+* compute.networkUser
+
+| Déploie les instances Google Cloud et l'infrastructure de calcul pour le compte du déploiement. Permet à BlueXP d'utiliser le réseau partagé. 
+|===
+Remarques :
+
+. deploymentmanager.Editor est uniquement requis au niveau du projet hôte si vous ne passez pas de règles de pare-feu au déploiement et que vous choisissez de laisser BlueXP les créer pour vous. BlueXP créera un déploiement dans le projet hôte qui contient la règle de pare-feu VPC0 si aucune règle n'est spécifiée.
+. Firewall.create et firewall.delete ne sont nécessaires que si vous ne passez pas de règles de pare-feu au déploiement et que vous choisissez de laisser BlueXP les créer pour vous. Ces autorisations résident dans le fichier .yaml du compte BlueXP. Si vous déployez une paire HA à l'aide d'un VPC partagé, ces autorisations seront utilisées pour créer les règles de pare-feu pour VPC1, 2 et 3. Pour tous les autres déploiements, ces autorisations seront également utilisées pour créer des règles pour VPC0.
+. Pour le Tiering des données, le compte de service de Tiering doit avoir le rôle serviceAccount.user sur le compte de service, et pas seulement au niveau du projet. Actuellement, si vous attribuez serviceAccount.user au niveau du projet, les autorisations ne s'affichent pas lorsque vous interrogez le compte de service avec getIAMPolicy.
+
+
+
+
+== Configurer la mise en réseau
+
+Configurez votre réseau de sorte que le connecteur puisse gérer les ressources et les processus au sein de votre environnement de cloud public. En dehors de la présence d'un VPC et d'un sous-réseau pour le connecteur, vous devez vous assurer que les exigences suivantes sont respectées.
+
+
+
+=== Connexion aux réseaux cibles
+
+Un connecteur nécessite une connexion réseau au type d’environnement de travail que vous créez et aux services que vous prévoyez d’activer.
+
+Par exemple, si vous installez un connecteur sur le réseau de votre entreprise, vous devez configurer une connexion VPN sur le VPC dans lequel vous lancez Cloud Volumes ONTAP.
+
+
+
+=== Accès Internet sortant
+
+Le connecteur nécessite un accès Internet sortant pour gérer les ressources et les processus au sein de votre environnement de cloud public.
+
+[cols="2*"]
+|===
+| Terminaux | Objectif 
+
+
+| \https://support.netapp.com | Pour obtenir des informations sur les licences et envoyer des messages AutoSupport au support NetApp. 
+
+
+| \https://*.cloudmanager.cloud.netapp.com \https://cloudmanager.cloud.netapp.com | Pour fournir des fonctions et des services SaaS dans BlueXP. 
+
+
+| \https://cloudmanagerinfraprod.azurecr.io \https://*.blob.core.windows.net | Pour mettre à niveau le connecteur et ses composants Docker. 
+|===
+
+
+=== Serveur proxy
+
+Si votre organisation nécessite le déploiement d'un proxy HTTP pour tout le trafic Internet sortant, obtenez les informations suivantes concernant votre proxy HTTP :
+
+* Adresse IP
+* Informations d'identification
+* Certificat HTTPS
+
+
+
+
+=== Groupe de sécurité
+
+Il n'y a pas de trafic entrant vers le connecteur, sauf si vous le lancez ou si le connecteur est utilisé comme proxy pour les messages AutoSupport. HTTP et HTTPS permettent l'accès au link:concept-connectors.html#the-local-user-interface["Interface utilisateur locale"], que vous utiliserez dans de rares circonstances. SSH n'est nécessaire que si vous devez vous connecter à l'hôte pour le dépannage.
+
+
+
+=== Limitation de l'adresse IP
+
+Il existe un conflit possible avec des adresses IP dans la plage 172. link:reference-limitations.html["En savoir plus sur cette limitation"].
+
+
+
+== Activez les API Google Cloud
+
+Plusieurs API sont nécessaires pour déployer le connecteur et Cloud Volumes ONTAP.
+
+.Étape
+. https://cloud.google.com/apis/docs/getting-started#enabling_apis["Activez les API Google Cloud suivantes dans votre projet"^].
++
+** API Cloud Deployment Manager V2
+** API de journalisation cloud
+** API Cloud Resource Manager
+** API du moteur de calcul
+** API de gestion des identités et des accès
+
+
+
+
+
+
+== Créer un connecteur
+
+Créez un connecteur dans Google Cloud directement à partir de l'interface utilisateur BlueXP ou en utilisant gcloud.
+
+[role="tabbed-block"]
+====
+.BlueXP
+--
+. Si vous créez votre premier environnement de travail, cliquez sur *Ajouter un environnement de travail* et suivez les invites. Sinon, cliquez sur la liste déroulante *Connector* et sélectionnez *Add Connector*.
++
+image:screenshot_connector_add.gif["Capture d'écran affichant l'icône du connecteur dans l'en-tête et l'action Ajouter un connecteur."]
+
+. Choisissez *Google Cloud Platform* comme fournisseur de cloud.
+. Sur la page *déploiement d'un connecteur*, consultez les détails de ce dont vous aurez besoin. Vous avez deux options :
++
+.. Cliquez sur *Continuer* pour préparer le déploiement à l'aide du guide d'utilisation du produit. Chaque étape du guide du produit inclut les informations contenues sur cette page de la documentation.
+.. Cliquez sur *passer au déploiement* si vous avez déjà préparé en suivant les étapes de cette page.
+
+
+. Suivez les étapes de l'assistant pour créer le connecteur :
++
+** Si vous y êtes invité, connectez-vous à votre compte Google, qui devrait disposer des autorisations requises pour créer l'instance de machine virtuelle.
++
+Le formulaire est détenu et hébergé par Google. Vos identifiants ne sont pas fournis à NetApp.
+
+** *Détails* : saisissez un nom pour l'instance de machine virtuelle, spécifiez des balises, sélectionnez un projet, puis sélectionnez le compte de service qui dispose des autorisations requises (reportez-vous à la section ci-dessus pour plus de détails).
+** *Location* : spécifiez une région, une zone, un VPC et un sous-réseau pour l'instance.
+** *Réseau* : permet d'activer ou non une adresse IP publique et de spécifier éventuellement une configuration proxy.
+** *Politique de pare-feu* : Choisissez si vous souhaitez créer une nouvelle politique de pare-feu ou si vous souhaitez sélectionner une politique de pare-feu existante qui autorise l'accès HTTP, HTTPS et SSH entrant.
+** *Review* : consultez vos sélections pour vérifier que votre configuration est correcte.
+
+
+. Cliquez sur *Ajouter*.
++
+L'instance doit être prête dans environ 7 minutes. Vous devez rester sur la page jusqu'à ce que le processus soit terminé.
+
+
+
+--
+.gcloud
+--
+. Connectez-vous au SDK gcloud à l'aide de la méthodologie que vous préférez.
++
+Dans nos exemples, nous allons utiliser un shell local avec le SDK gcloud installé, mais vous pouvez utiliser le Google Cloud Shell natif dans la console Google Cloud.
+
++
+Pour plus d'informations sur le kit de développement logiciel Google Cloud, rendez-vous sur le link:https://cloud.google.com/sdk["Page de documentation du SDK Google Cloud"^].
+
+. Vérifiez que vous êtes connecté en tant qu'utilisateur disposant des autorisations requises définies dans la section ci-dessus :
++
+[source, bash]
+----
+gcloud auth list
+----
++
+Le résultat doit indiquer les éléments suivants où le compte d'utilisateur * est le compte d'utilisateur souhaité pour être connecté en tant que :
+
++
+[listing]
+----
+Credentialed Accounts
+ACTIVE  ACCOUNT
+     some_user_account@domain.com
+*    desired_user_account@domain.com
+To set the active account, run:
+ $ gcloud config set account `ACCOUNT`
+Updates are available for some Cloud SDK components. To install them,
+please run:
+$ gcloud components update
+----
+. Exécutez le `gcloud compute instances create` commande :
++
+[source, bash]
+----
+gcloud compute instances create <instance-name>
+  --machine-type=n2-standard-4
+  --image-project=netapp-cloudmanager
+  --image-family=cloudmanager
+  --scopes=cloud-platform
+  --project=<project>
+  --service-account=<<service-account>
+  --zone=<zone>
+  --no-address
+  --tags <network-tag>
+  --network <network-path>
+  --subnet <subnet-path>
+  --boot-disk-kms-key <kms-key-path>
+----
++
+nom de l'instance:: Nom d'instance souhaité pour l'instance de VM.
+projet:: (Facultatif) le projet où vous souhaitez déployer la machine virtuelle.
+compte de service:: Compte de service spécifié dans la sortie de l'étape 2.
+zone:: La zone où vous souhaitez déployer la machine virtuelle
+pas d'adresse:: (Facultatif) aucune adresse IP externe n'est utilisée (vous avez besoin d'un NAT ou d'un proxy cloud pour acheminer le trafic vers l'Internet public)
+balise réseau:: (Facultatif) Ajouter un marquage réseau pour lier une règle de pare-feu à l'aide de balises à l'instance de connecteur
+chemin du réseau:: (Facultatif) Ajoutez le nom du réseau dans lequel déployer le connecteur (pour un VPC partagé, vous avez besoin du chemin complet)
+chemin-sous-réseau:: (Facultatif) Ajouter le nom du sous-réseau dans lequel déployer le connecteur (pour un VPC partagé, vous devez disposer du chemin complet)
+km-key-path:: (Facultatif) Ajouter une clé KMS pour chiffrer les disques du connecteur (les autorisations IAM doivent également être appliquées)
++
+--
+Pour plus d'informations sur ces indicateurs, visitez le link:https://cloud.google.com/sdk/gcloud/reference/compute/instances/create["Documentation du kit de développement logiciel de calcul Google Cloud"^].
+
+--
+
+
++
+L'exécution de la commande déploie le connecteur à l'aide de l'image de référence NetApp. L'instance de connecteur et le logiciel doivent s'exécuter dans environ cinq minutes.
+
+. Ouvrez un navigateur Web à partir d'un hôte connecté à l'instance Connector et saisissez l'URL suivante :
++
+https://_ipaddress_[]
+
+. Une fois connecté, configurez le connecteur :
++
+.. Spécifiez le compte NetApp à associer au connecteur.
++
+link:concept-netapp-accounts.html["En savoir plus sur les comptes NetApp"].
+
+.. Entrez un nom pour le système.
++
+image:screenshot_set_up_cloud_manager.gif["Copie d'écran montrant l'écran de configuration de connecteur qui permet de sélectionner un compte NetApp et de nommer le système."]
+
+
+
+
+
+--
+====
+Le connecteur est désormais installé et configuré avec votre compte NetApp. BlueXP utilisera automatiquement ce connecteur lorsque vous créez de nouveaux environnements de travail. Mais si vous avez plus d'un connecteur, vous devrez le faire link:task-managing-connectors.html["basculer entre eux"].
+
+Si vous disposez de compartiments Google Cloud Storage dans le même compte Google Cloud sur lequel vous avez créé le connecteur, un environnement de travail Google Cloud Storage s'affiche automatiquement sur la toile. link:task-viewing-gcp-storage.html["Découvrez ce que vous pouvez faire dans cet environnement de travail"].
+
+
+
+== Ouvrez le port 3128 pour les messages AutoSupport
+
+Si vous prévoyez de déployer des systèmes Cloud Volumes ONTAP dans un sous-réseau où aucune connexion Internet sortante n'est disponible, BlueXP configure automatiquement Cloud Volumes ONTAP pour utiliser le connecteur comme serveur proxy.
+
+La seule condition est de s'assurer que le groupe de sécurité du connecteur autorise les connexions _entrantes_ sur le port 3128. Vous devrez ouvrir ce port après le déploiement du connecteur.
+
+Si vous utilisez le groupe de sécurité par défaut pour Cloud Volumes ONTAP, aucune modification n'est nécessaire pour son groupe de sécurité. Mais si vous prévoyez de définir des règles de trafic sortant strictes pour Cloud Volumes ONTAP, vous devrez également vous assurer que le groupe de sécurité Cloud Volumes ONTAP autorise les connexions _sortantes_ sur le port 3128.

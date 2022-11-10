@@ -1,0 +1,42 @@
+---
+sidebar: sidebar 
+permalink: task-viewing-azure-blob.html 
+keywords: blob storage, blob working environment, azure blob storage accounts, azure blob working environment 
+summary: 'Une fois que vous avez installé un connecteur dans Azure, BlueXP peut détecter automatiquement des informations sur les comptes de stockage Azure qui résident dans les abonnements Azure où le connecteur est installé. Un environnement de travail Azure Blob est ajouté à Canvas pour vous permettre d"afficher ces informations.' 
+---
+= Affichage de vos comptes Azure Blob
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Une fois que vous avez installé un connecteur dans Azure, BlueXP peut détecter automatiquement des informations sur les comptes de stockage Azure qui résident dans les abonnements Azure où le connecteur est installé. Un environnement de travail Azure Blob est ajouté à Canvas pour vous permettre d'afficher ces informations.
+
+Vous pouvez afficher des informations détaillées sur vos comptes de stockage Azure, notamment l'emplacement, le groupe de ressources, la capacité totale et utilisée, etc. Ces comptes peuvent être utilisés comme destinations pour les opérations Cloud Backup, Cloud Tiering ou Cloud Sync.
+
+.Étapes
+. link:task-creating-connectors-azure.html["Installer un connecteur"] Dans le compte Azure où vous voulez afficher vos comptes de stockage Azure
+. Dans le menu de navigation, sélectionnez *stockage > Canvas*.
++
+Vous devriez voir automatiquement un environnement de travail Azure Blob peu de temps après.
+
++
+image:screenshot-azure-blob-we.png["Copie d'écran d'un environnement de travail Azure Blob."]
+
+. Cliquez sur l'environnement de travail et sélectionnez une action dans le volet droit.
++
+image:screenshot-azure-actions.png["Capture d'écran affichant le volet actions après avoir sélectionné un environnement de travail Azure Blob. Le volet affiche le nombre total de comptes de stockage et une action pour l'utilisation du service Sync."]
+
+. Cliquez sur *Synchroniser les données* pour synchroniser les données vers ou depuis le stockage Azure Blob.
++
+Pour plus de détails, voir https://docs.netapp.com/us-en/cloud-manager-sync/concept-cloud-sync.html["La présentation du service Cloud Sync"^].
+
+. Cliquez sur *entrer environnement de travail* pour afficher les détails sur les comptes de stockage Azure dans vos blobs Azure.
++
+image:screenshot-azure-blob-details.png["Une capture d'écran présente les détails d'un environnement de travail Azure Blob : nombre total de comptes de stockage, nombre total d'emplacements, groupes de ressources, capacité totale et utilisée, etc."]
+
+

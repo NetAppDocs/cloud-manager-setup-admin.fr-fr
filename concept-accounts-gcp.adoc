@@ -1,0 +1,45 @@
+---
+sidebar: sidebar 
+permalink: concept-accounts-gcp.html 
+keywords: cloud provider accounts, gcp, gcp accounts, google cloud platform, google accounts, google cloud platform accounts, permissions, tiering, data tiering, account for data tiering, account for tiering, project, projects, add project, select new project, gcp project, google project, google cloud project 
+summary: Un compte de service fournit à BlueXP des autorisations de déploiement et de gestion de systèmes Cloud Volumes ONTAP dans le même projet que le connecteur, ou dans des projets différents. 
+---
+= Projets, autorisations et comptes Google Cloud
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Un compte de service fournit à BlueXP des autorisations de déploiement et de gestion de systèmes Cloud Volumes ONTAP dans le même projet que le connecteur, ou dans des projets différents.
+
+
+
+== Projet et autorisations pour BlueXP
+
+Avant de déployer Cloud Volumes ONTAP dans Google Cloud, vous devez d'abord déployer un connecteur dans un projet Google Cloud. Il ne peut pas s'exécuter sur site ou dans un autre fournisseur cloud.
+
+Deux ensembles d'autorisations doivent être en place avant de déployer un connecteur directement depuis BlueXP :
+
+. Vous devez déployer un connecteur à l'aide d'un compte Google disposant des autorisations nécessaires pour lancer l'instance VM Connector à partir de BlueXP.
+. Lorsque vous déployez le connecteur, vous êtes invité à sélectionner un https://cloud.google.com/iam/docs/service-accounts["compte de service"^] Pour l'instance de VM. BlueXP obtient les autorisations du compte de service pour créer et gérer des systèmes Cloud Volumes ONTAP en votre nom. Les autorisations sont fournies en ajoutant un rôle personnalisé au compte de service.
+
+
+Nous avons configuré deux fichiers YAML qui incluent les autorisations requises pour l'utilisateur et le compte de service. link:task-creating-connectors-gcp.html["Découvrez comment utiliser les fichiers YAML pour configurer les autorisations"].
+
+L'image suivante décrit les conditions d'autorisation décrites aux numéros 1 et 2 ci-dessus :
+
+image:diagram_permissions_gcp.png["Image conceptuelle décrivant les conditions d'autorisation requises pour google et les comptes de service pour déployer Cloud Volumes ONTAP."]
+
+
+
+== Projet pour Cloud Volumes ONTAP
+
+Cloud Volumes ONTAP peut résider dans le même projet que le connecteur ou dans un autre projet. Pour déployer Cloud Volumes ONTAP dans un autre projet, vous devez d'abord ajouter le compte de service Connector et le rôle à ce projet.
+
+* link:task-creating-connectors-gcp.html#setting-up-gcp-permissions-to-create-a-connector["Découvrez comment configurer un compte de service"]
+* https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-deploying-gcp.html["Découvrez comment déployer Cloud Volumes ONTAP dans GCP et sélectionner un projet"^]
+

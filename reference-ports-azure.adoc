@@ -1,0 +1,82 @@
+---
+sidebar: sidebar 
+permalink: reference-ports-azure.html 
+keywords: ports, security group, http, https, inbound, outbound 
+summary: Le groupe de sécurité Azure pour le connecteur nécessite à la fois des règles entrantes et sortantes. 
+---
+= Règles de groupe de sécurité dans Azure
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Le groupe de sécurité Azure pour le connecteur nécessite à la fois des règles entrantes et sortantes.
+
+
+
+== Règles entrantes
+
+[cols="3*"]
+|===
+| Protocole | Port | Objectif 
+
+
+| SSH | 22 | Fournit un accès SSH à l'hôte du connecteur 
+
+
+| HTTP | 80 | Fournit un accès HTTP à partir des navigateurs Web du client vers l'interface utilisateur locale 
+
+
+| HTTPS | 443 | Fournit un accès HTTPS à partir des navigateurs Web du client vers l'interface utilisateur locale et des connexions à partir de l'instance Cloud Data Sense 
+
+
+| TCP | 3128 | Permet à Cloud Volumes ONTAP d'accéder à Internet pour l'envoi des messages AutoSupport au support NetApp. Vous devez ouvrir ce port manuellement après le déploiement.  server for AutoSupport messages,En savoir plus sur le serveur proxy du connecteur. 
+
+
+| TCP | 9060 | Il est possible d'activer et d'utiliser Cloud Data Sense et Cloud Backup dans les déploiements dans le cloud pour les administrations publiques. Ce port est également requis pour Cloud Backup si vous désactivez l'interface SaaS dans votre compte BlueXP. 
+|===
+
+
+== Règles de sortie
+
+Le groupe de sécurité prédéfini pour le connecteur ouvre tout le trafic sortant. Si cela est acceptable, suivez les règles de base de l'appel sortant. Si vous avez besoin de règles plus rigides, utilisez les règles de sortie avancées.
+
+
+
+=== Règles de base pour les appels sortants
+
+Le groupe de sécurité prédéfini pour le connecteur inclut les règles de trafic sortant suivantes.
+
+[cols="3*"]
+|===
+| Protocole | Port | Objectif 
+
+
+| Tous les protocoles TCP | Tout | Tout le trafic sortant 
+
+
+| Tous les protocoles UDP | Tout | Tout le trafic sortant 
+|===
+
+
+=== Règles de sortie avancées
+
+Si vous avez besoin de règles rigides pour le trafic sortant, vous pouvez utiliser les informations suivantes pour ouvrir uniquement les ports requis pour la communication sortante par le connecteur.
+
+
+NOTE: L'adresse IP source est l'hôte du connecteur.
+
+[cols="5*"]
+|===
+| Service | Protocole | Port | Destination | Objectif 
+
+
+| Appels API et AutoSupport | HTTPS | 443 | LIF de gestion de cluster ONTAP et Internet sortant | Appels d'API vers Azure et ONTAP, vers le cloud Data Sense, vers le service ransomware et envoi de messages AutoSupport à NetApp 
+
+
+| DNS | UDP | 53 | DNS | Utilisé pour la résolution DNS par BlueXP 
+|===

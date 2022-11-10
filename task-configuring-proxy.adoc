@@ -1,0 +1,78 @@
+---
+sidebar: sidebar 
+permalink: task-configuring-proxy.html 
+keywords: proxy, proxy server, proxy, internet, HTTP, http, https 
+summary: 'Si vos stratégies d"entreprise nécessitent l"utilisation d"un serveur proxy pour toutes les communications HTTP vers Internet, vous devez configurer vos connecteurs pour utiliser ce serveur proxy HTTP. Le serveur proxy peut se trouver dans le cloud ou dans votre réseau.' 
+---
+= Configuration d'un connecteur pour utiliser un serveur proxy HTTP
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Si vos stratégies d'entreprise nécessitent l'utilisation d'un serveur proxy pour toutes les communications HTTP vers Internet, vous devez configurer vos connecteurs pour qu'ils utilisent un serveur proxy HTTP. Le serveur proxy peut se trouver dans le cloud ou dans votre réseau.
+
+
+NOTE: BlueXP ne prend pas en charge l'utilisation d'un proxy HTTPS avec le connecteur.
+
+La configuration du connecteur pour utiliser un serveur proxy HTTP fournit un accès Internet sortant si une adresse IP publique ou une passerelle NAT n'est pas disponible. Ce serveur proxy fournit uniquement le connecteur avec une connexion sortante. Il n'offre aucune connectivité pour les systèmes Cloud Volumes ONTAP.
+
+Si les systèmes Cloud Volumes ONTAP ne disposent pas d'une connexion Internet sortante pour envoyer des messages AutoSupport, BlueXP configure automatiquement ces systèmes Cloud Volumes ONTAP pour utiliser un serveur proxy inclus avec le connecteur. La seule condition est de s'assurer que le groupe de sécurité du connecteur autorise les connexions entrantes sur le port 3128. Vous devrez ouvrir ce port après le déploiement du connecteur.
+
+
+
+== Activez un proxy sur un connecteur
+
+Lorsque vous configurez un connecteur pour utiliser un serveur proxy, ce connecteur et les systèmes Cloud Volumes ONTAP qu'il gère (y compris les médiateurs HA) utilisent tous le serveur proxy.
+
+Notez que cette opération redémarre le connecteur. Assurez-vous que le connecteur n'effectue aucune opération avant de continuer.
+
+.Étapes
+. link:task-logging-in.html["Connectez-vous à l'interface BlueXP SaaS"^] À partir d'une machine dotée d'une connexion réseau à l'instance de connecteur.
++
+Si le connecteur n'est pas doté d'une adresse IP publique, vous aurez besoin d'une connexion VPN ou vous devrez vous connecter à partir d'un hôte de secours situé sur le même réseau que le connecteur.
+
+. Cliquez sur la liste déroulante *Connector*, puis cliquez sur *allez à l'interface utilisateur locale* pour un connecteur spécifique.
++
+image:screenshot_connector_local_ui.gif["Capture d'écran affichant l'icône du connecteur dans l'en-tête et l'action aller à l'interface utilisateur locale."]
+
++
+L'interface BlueXP exécutée sur le connecteur se charge dans un nouvel onglet de navigateur.
+
+. Dans le coin supérieur droit de la console BlueXP, cliquez sur l'icône Paramètres, puis sélectionnez *Paramètres du connecteur*.
++
+image:screenshot_settings_icon.gif["Capture d'écran affichant l'icône Paramètres dans le coin supérieur droit de la console BlueXP."]
+
+. Sous *général*, cliquez sur *Configuration du proxy HTTP*.
+. Configurez le proxy :
++
+.. Cliquez sur *Activer proxy*.
+.. Spécifiez le serveur à l'aide de la syntaxe http://_address:port_[]
+.. Spécifiez un nom d'utilisateur et un mot de passe si une authentification de base est requise pour le serveur
+.. Cliquez sur *Enregistrer*.
++
+
+NOTE: BlueXP ne prend pas en charge les mots de passe comprenant le caractère @.
+
+
+
+
+
+
+
+== Activation du trafic API direct
+
+Si vous avez configuré un serveur proxy, vous pouvez envoyer des appels API directement à BlueXP sans passer par le proxy. Cette option est prise en charge avec des connecteurs s'exécutant dans AWS, dans Azure ou dans Google Cloud.
+
+.Étapes
+. Dans le coin supérieur droit de la console BlueXP, cliquez sur l'icône Paramètres, puis sélectionnez *Paramètres du connecteur*.
++
+image:screenshot_settings_icon.gif["Capture d'écran affichant l'icône Paramètres dans le coin supérieur droit de la console BlueXP."]
+
+. Sous *général*, cliquez sur *support Direct API Traffic*.
+. Cochez la case pour activer l'option, puis cliquez sur *Enregistrer*.
+

@@ -1,0 +1,27 @@
+---
+sidebar: sidebar 
+permalink: reference-whats-next.html 
+keywords: get started, create working environments, manage settings 
+summary: Maintenant que vous vous êtes connecté et que vous avez configuré BlueXP, les utilisateurs peuvent commencer à créer et découvrir des environnements de travail. 
+---
+= Par où aller plus loin
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Maintenant que vous vous êtes connecté et que vous avez configuré BlueXP, les utilisateurs peuvent commencer à créer et découvrir des environnements de travail.
+
+* https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-getting-started-aws.html["Commencez avec Cloud Volumes ONTAP pour AWS"^]
+* https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-getting-started-azure.html["Commencez avec Cloud Volumes ONTAP pour Azure"^]
+* https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-getting-started-gcp.html["Lancez-vous avec Cloud Volumes ONTAP pour Google Cloud"^]
+* https://docs.netapp.com/us-en/cloud-manager-azure-netapp-files/task-quick-start.html["Configurer Azure NetApp Files"^]
+* https://docs.netapp.com/us-en/cloud-manager-fsx-ontap/start/task-getting-started-fsx.html["Configurer Amazon FSX pour ONTAP"^]
+* https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-service-aws/task-manage-cvs-aws.html["Configuration d'Cloud Volumes Service pour AWS"^]
+* https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html["Découvrez un cluster ONTAP sur site"^]
+* link:task-viewing-amazon-s3.html["Découvrez vos compartiments Amazon S3"]
+

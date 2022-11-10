@@ -1,0 +1,122 @@
+---
+sidebar: sidebar 
+permalink: task-setting-up-netapp-accounts.html 
+keywords: account settings, workspaces, Connector, account admin, workspace admin, users, associate, disassociate, add user, add users, user management, administer, user, management, account, user account, user accounts, create workspace, add workspace, setup workspace, workspace, Connector, manage Connector, manage workspace, associate Connector 
+summary: 'Lorsque vous vous connectez à BlueXP pour la première fois, vous êtes invité à créer un compte NetApp. Ce compte assure la colocation et vous permet d"organiser les utilisateurs et les ressources dans des espaces de travail isolés.' 
+---
+= Configurez des espaces de travail et des utilisateurs sur votre compte NetApp
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Lorsque vous vous connectez à BlueXP pour la première fois, vous êtes invité à créer un _compte NetApp_. Ce compte fournit la colocation et vous permet d'organiser les utilisateurs et les ressources dans des _espaces de travail_ isolés.
+
+link:concept-netapp-accounts.html["Découvrez comment fonctionnent les comptes NetApp"].
+
+Configurez votre compte NetApp afin que les utilisateurs puissent accéder à BlueXP et accéder aux environnements de travail dans un espace de travail. Il vous suffit d'ajouter un seul utilisateur ou plusieurs utilisateurs et espaces de travail.
+
+
+
+== Ajouter des espaces de travail
+
+Dans BlueXP, les espaces de travail vous permettent d'isoler un ensemble d'environnements de travail d'autres environnements de travail et d'autres utilisateurs. Par exemple, vous pouvez créer deux espaces de travail et associer des utilisateurs distincts à chaque espace de travail.
+
+.Étapes
+. En haut de https://cloudmanager.netapp.com["BlueXP"^], Cliquez sur le menu déroulant *compte*.
++
+image:screenshot-account-settings-menu.png["Capture d'écran qui montre l'option Paramètres du compte dans la bannière supérieure de BlueXP."]
+
+. Cliquez sur *gérer le compte* en regard du compte actuellement sélectionné.
++
+image:screenshot-manage-account-settings.png["Capture d'écran affichant l'option gérer les paramètres du compte disponible dans la liste déroulante compte."]
+
+. Cliquez sur *espaces de travail*.
+. Cliquez sur *Ajouter un nouvel espace de travail*.
+. Entrez un nom pour l'espace de travail et cliquez sur *Ajouter*.
+
+
+Si un administrateur d'espace de travail doit accéder à cet espace de travail, vous devez associer l'utilisateur. Vous devez également associer des connecteurs à l'espace de travail pour que les administrateurs de l'espace de travail puissent utiliser ces connecteurs.
+
+
+
+== Ajouter des utilisateurs
+
+Associez les utilisateurs à votre compte NetApp pour qu'ils puissent créer et gérer des environnements de travail dans BlueXP.
+
+.Étapes
+. Si l'utilisateur ne l'a pas déjà fait, demandez-lui d'aller à https://cloud.netapp.com["Site Web NetApp BlueXP"^] et s'inscrire.
+. En haut de https://cloudmanager.netapp.com["BlueXP"^], Cliquez sur le menu déroulant *compte* et cliquez sur *gérer compte*.
++
+image:screenshot-manage-account-settings.png["Capture d'écran affichant l'option gérer les paramètres du compte disponible dans la liste déroulante compte."]
+
+. Dans l'onglet membres, cliquez sur *associer utilisateur*.
+. Entrez l'adresse e-mail de l'utilisateur et sélectionnez un rôle pour l'utilisateur :
++
+** *Administrateur de compte*: Peut effectuer n'importe quelle action dans BlueXP.
+** *Workspace Admin* : permet de créer et de gérer des ressources dans des espaces de travail attribués.
+** *Compliance Viewer* : peut uniquement afficher les informations de gouvernance et de conformité de Cloud Data Sense et générer des rapports pour les espaces de travail auxquels ils sont autorisés à accéder.
+** *Admin SnapCenter* : peut utiliser le service SnapCenter pour créer des sauvegardes cohérentes avec les applications et restaurer les données à l'aide de ces sauvegardes. Ce service est actuellement en version bêta.
+
+
+. Si vous avez sélectionné un compte autre que Account Admin, sélectionnez un ou plusieurs espaces de travail à associer à cet utilisateur.
++
+image:screenshot_associate_user.gif["Capture d'écran qui montre comment associer un utilisateur en sélectionnant un rôle et les espaces de travail associés."]
+
+. Cliquez sur *associé*.
+
+
+L'utilisateur doit recevoir un e-mail de la part du site Web NetApp BlueXP intitulé « Account Association ». L'e-mail inclut les informations nécessaires pour accéder à BlueXP.
+
+
+
+== Associer les administrateurs d'espace de travail aux espaces de travail
+
+Vous pouvez associer des administrateurs d'espace de travail à des espaces de travail supplémentaires à tout moment. L'association de l'utilisateur lui permet de créer et d'afficher les environnements de travail dans cet espace de travail.
+
+.Étapes
+. En haut de BlueXP, cliquez sur la liste déroulante *Account* et cliquez sur *Manage Account*.
++
+image:screenshot-manage-account-settings.png["Capture d'écran affichant l'option gérer les paramètres du compte disponible dans la liste déroulante compte."]
+
+. Dans l'onglet membres, cliquez sur le menu d'action de la ligne correspondant à l'utilisateur.
++
+image:screenshot_associate_user_workspace.png["Capture d'écran qui montre le menu d'action disponible lorsque vous passez la souris sur le nom d'un utilisateur dans la table utilisateurs."]
+
+. Cliquez sur *gérer les espaces de travail*.
+. Sélectionnez un ou plusieurs espaces de travail et cliquez sur *appliquer*.
+
+
+L'utilisateur peut désormais accéder à ces espaces de travail depuis BlueXP, tant que le connecteur était également associé aux espaces de travail.
+
+
+
+== Associer des connecteurs aux espaces de travail
+
+Vous devez associer un connecteur aux espaces de travail pour que les administrateurs d'espace de travail puissent utiliser ces connecteurs pour créer des systèmes Cloud Volumes ONTAP.
+
+Si vous ne disposez que d'administrateurs de compte, il n'est pas nécessaire d'associer le connecteur aux espaces de travail. Les administrateurs de comptes peuvent accéder à tous les espaces de travail dans BlueXP par défaut.
+
+link:concept-netapp-accounts.html#users-workspaces-and-service-connectors["En savoir plus sur les utilisateurs, les espaces de travail et les connecteurs"].
+
+.Étapes
+. En haut de BlueXP, cliquez sur la liste déroulante *Account* et cliquez sur *Manage Account*.
++
+image:screenshot-manage-account-settings.png["Capture d'écran affichant l'option gérer les paramètres du compte disponible dans la liste déroulante compte."]
+
+. Cliquez sur *connecteur*.
+. Cliquez sur *gérer les espaces de travail* pour le connecteur que vous souhaitez associer.
+. Sélectionnez un ou plusieurs espaces de travail et cliquez sur *appliquer*.
+
+
+Les administrateurs d'espace de travail peuvent désormais utiliser ces connecteurs pour créer des systèmes Cloud Volumes ONTAP.
+
+
+
+== Et la suite ?
+
+Maintenant que vous avez configuré votre compte, vous pouvez le gérer à tout moment en supprimant des utilisateurs, en gérant des espaces de travail, des connecteurs et des abonnements. link:task-managing-netapp-accounts.html["Découvrez comment gérer votre compte"].

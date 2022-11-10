@@ -1,0 +1,231 @@
+---
+sidebar: sidebar 
+permalink: reference-permissions-gcp.html 
+keywords: permissions, gcp, gcp permissions 
+summary: BlueXP nécessite des autorisations pour effectuer des actions dans votre fournisseur de cloud. Ces autorisations sont incluses dans les règles fournies par NetApp . Vous voudrez peut-être comprendre ce que BlueXP fait avec ces autorisations. 
+---
+= Autorisations Google Cloud pour le connecteur
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+BlueXP requiert des autorisations pour effectuer des actions dans Google Cloud. Ces autorisations sont incluses dans un rôle personnalisé fourni par NetApp. Vous voudrez peut-être comprendre ce que BlueXP fait avec ces autorisations.
+
+
+
+== Autorisations de compte de service
+
+Le rôle personnalisé illustré ci-dessous fournit les autorisations dont un connecteur a besoin pour gérer les ressources et les processus au sein de votre réseau Google Cloud.
+
+Vous devez appliquer ce rôle personnalisé à un compte de service rattaché à la machine virtuelle Connector. link:task-creating-connectors-gcp.html["Affichez les instructions détaillées"].
+
+Vous devez également vous assurer que le rôle est à jour lorsque de nouvelles autorisations sont ajoutées dans les versions suivantes.
+
+[source, yaml]
+----
+title: NetApp BlueXP
+description: Permissions for the service account associated with the Connector instance.
+stage: GA
+includedPermissions:
+- iam.serviceAccounts.actAs
+- compute.regionBackendServices.create
+- compute.regionBackendServices.get
+- compute.regionBackendServices.list
+- compute.networks.updatePolicy
+- compute.backendServices.create
+- compute.addresses.list
+- compute.disks.create
+- compute.disks.createSnapshot
+- compute.disks.delete
+- compute.disks.get
+- compute.disks.list
+- compute.disks.setLabels
+- compute.disks.use
+- compute.firewalls.create
+- compute.firewalls.delete
+- compute.firewalls.get
+- compute.firewalls.list
+- compute.globalOperations.get
+- compute.images.get
+- compute.images.getFromFamily
+- compute.images.list
+- compute.images.useReadOnly
+- compute.instances.addAccessConfig
+- compute.instances.attachDisk
+- compute.instances.create
+- compute.instances.delete
+- compute.instances.detachDisk
+- compute.instances.get
+- compute.instances.getSerialPortOutput
+- compute.instances.list
+- compute.instances.setDeletionProtection
+- compute.instances.setLabels
+- compute.instances.setMachineType
+- compute.instances.setMetadata
+- compute.instances.setTags
+- compute.instances.start
+- compute.instances.stop
+- compute.instances.updateDisplayDevice
+- compute.machineTypes.get
+- compute.networks.get
+- compute.networks.list
+- compute.projects.get
+- compute.regions.get
+- compute.regions.list
+- compute.snapshots.create
+- compute.snapshots.delete
+- compute.snapshots.get
+- compute.snapshots.list
+- compute.snapshots.setLabels
+- compute.subnetworks.get
+- compute.subnetworks.list
+- compute.subnetworks.use
+- compute.subnetworks.useExternalIp
+- compute.zoneOperations.get
+- compute.zones.get
+- compute.zones.list
+- compute.instances.setServiceAccount
+- deploymentmanager.compositeTypes.get
+- deploymentmanager.compositeTypes.list
+- deploymentmanager.deployments.create
+- deploymentmanager.deployments.delete
+- deploymentmanager.deployments.get
+- deploymentmanager.deployments.list
+- deploymentmanager.manifests.get
+- deploymentmanager.manifests.list
+- deploymentmanager.operations.get
+- deploymentmanager.operations.list
+- deploymentmanager.resources.get
+- deploymentmanager.resources.list
+- deploymentmanager.typeProviders.get
+- deploymentmanager.typeProviders.list
+- deploymentmanager.types.get
+- deploymentmanager.types.list
+- logging.logEntries.list
+- logging.privateLogEntries.list
+- resourcemanager.projects.get
+- storage.buckets.create
+- storage.buckets.delete
+- storage.buckets.get
+- storage.buckets.list
+- cloudkms.cryptoKeyVersions.useToEncrypt
+- cloudkms.cryptoKeys.get
+- cloudkms.cryptoKeys.list
+- cloudkms.keyRings.list
+- storage.buckets.update
+- iam.serviceAccounts.getIamPolicy
+- iam.serviceAccounts.list
+- storage.objects.get
+- storage.objects.list
+- monitoring.timeSeries.list
+- storage.buckets.getIamPolicy
+----
+
+
+== Utilisation des autorisations Google Cloud
+
+[cols="50,50"]
+|===
+| Actions | Objectif 
+
+
+| - Compute.disks.create - Compute.disks.createSnapshot - compute.disks.delete - Compute.disks.get - Compute.disks.list - compute.disks.setLabels - compute.disks.use | Pour créer et gérer des disques pour Cloud Volumes ONTAP. 
+
+
+| - compute.firewalls.create - compute.firewalls.delete - compute.firewalls.get - compute.firewalls.list | Pour créer des règles de pare-feu pour Cloud Volumes ONTAP. 
+
+
+| - Compute.globalOperations.get | Pour obtenir l'état des opérations. 
+
+
+| - Compute.images.get - Compute.images.getFromFamily - Compute.images.list - compute.images.useReadOnly | Pour obtenir les images des instances de VM. 
+
+
+| - compute.instances.attachDisk - compute.instances.detachDisk | Pour attacher et détacher les disques à Cloud Volumes ONTAP. 
+
+
+| - compute.instances.create - compute.instances.delete | Pour créer et supprimer des instances de VM Cloud Volumes ONTAP. 
+
+
+| - compute.instances.get | Pour afficher la liste des instances de VM. 
+
+
+| - compute.instances.getSerialPortOutput | Pour obtenir les journaux de la console. 
+
+
+| - compute.instances.list | Pour récupérer la liste des instances dans une zone. 
+
+
+| - compute.instances.setDeletionProtection | Pour définir la protection de suppression sur l'instance. 
+
+
+| - compute.instances.setLabels | Pour ajouter des étiquettes. 
+
+
+| - compute.instances.setMachineType - compute.instances.setMinCpuPlatform | Pour modifier le type de machine pour Cloud Volumes ONTAP. 
+
+
+| - compute.instances.setMetadata | Pour ajouter des métadonnées. 
+
+
+| - compute.instances.setTags | Pour ajouter des balises pour les règles de pare-feu. 
+
+
+| - compute.instances.start - compute.instances.stop - compute.instances.updateDisplayDevice | Pour démarrer et arrêter Cloud Volumes ONTAP. 
+
+
+| - Compute.machineTypes.get | Pour obtenir le nombre de cœurs à vérifier qoupas. 
+
+
+| - compute.projects.get | Pour prendre en charge des projets multiples. 
+
+
+| - Compute.snapshots.create - compute.snapshots.delete - Compute.snapshots.get - Compute.snapshots.list - compute.snapshots.setLabels | Pour créer et gérer des snapshots de disques persistants. 
+
+
+| - compute.networks.get - compute.networks.list - Compute.rerégions.get - Compute.rerégions.list - Compute.subNetworks.get - Compute.subNetworks.list - Compute.zoneOperations.get - Compute.zones.get - Compute.zones.zones.list | Pour obtenir les informations de mise en réseau nécessaires à la création d'une nouvelle instance de machine virtuelle Cloud Volumes ONTAP. 
+
+
+| - deploymentmanager.compositeTypes.get - deploymentmanager.compositeTypes.list - deploymentmanager.deployments.create - deploymentmanager.deployments.delete - deploymentmanager.deployments.get - deploymentmanager.deployments.list - deploymentmanager.manifestes.get - deploymentmanager.manifestes.list - deploymentmanager.Operations.get - deploymentmanager.Operations.list - deploymentmanager.resources.get - deploymentmanager.resources.list - deploymentmanager.typeProviders.get.types.deploymentmanager.deploymentmanager.deploymentlist.types.deploymentmanager.deploymentlist.deploymentmanager.deploymentmanager.Deploymenttypes.DeploymentManager.Deploymentlist.Deploymenttypes.DeploymentManager.Deployment | Pour déployer l'instance de machine virtuelle Cloud Volumes ONTAP à l'aide de Google Cloud Deployment Manager. 
+
+
+| - Logging.logEntries.list - logging.privateLogEntries.list | Pour obtenir les disques de consignation des piles. 
+
+
+| - resourcemanager.projects.get | Pour prendre en charge des projets multiples. 
+
+
+| - storage.seaux.create - storage.buckets.delete - storage.seaux.get - storage.seaux.list - storage.seaux.update | Pour créer et gérer un compartiment Google Cloud Storage pour le Tiering des données. 
+
+
+| - cloudkms.cryptoKeyVersions.useToEncrypt - cloudkms.cryptoKeys.get - cloudkms.crypKeys.list - cloudkms.keyrings.list | Pour utiliser des clés de chiffrement gérées par le client à partir du service Cloud Key Management avec Cloud Volumes ONTAP. 
+
+
+| - compute.instances.setServiceAccount - iam.serviceAccounts.actAs - iam.serviceAccounts.getIamPolicy - iam.serviceAccounts.list - Storage.objects.get - Storage.objects.list | Pour définir un compte de service sur l'instance Cloud Volumes ONTAP. Ce compte de service fournit des autorisations de Tiering des données vers un compartiment Google Cloud Storage. 
+
+
+| - compute.adresses.list | Pour récupérer les adresses d'une région lors du déploiement d'une paire haute disponibilité. 
+
+
+| - Compute.backendServices.create - Compute.régionBackendServices.create - Compute.régionBackendServices.get - Compute.régionBackendServices.list | Pour configurer un service back-end pour la distribution du trafic dans une paire HA. 
+
+
+| - compute.networks.updatePolicy | Pour appliquer des règles de pare-feu sur les VPC et les sous-réseaux d'une paire HA. 
+
+
+| - compute.subnetworks.use - compute.subnetworks.useExternalIp - compute.instances.addAccessConfig | Pour activer le sens des données du cloud. 
+
+
+| - container.cluster.get - container.cluster.list | Pour détecter les clusters Kubernetes s'exécutant dans Google Kubernetes Engine. 
+
+
+| - compute.instanceGroups.get - Compute.adresses.get | Pour créer et gérer des VM de stockage sur des paires haute disponibilité. 
+
+
+| - Monitoring.timeseries.list - Storage.seaux.getIamPolicy | Pour découvrir des compartiments Google Cloud Storage. 
+|===
