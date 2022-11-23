@@ -98,7 +98,6 @@ Le connecteur nécessite un accès Internet sortant pour contacter les terminaux
 |===
 * Si vous choisissez d'installer manuellement le connecteur sur votre propre hôte Linux (et non directement à partir de l'interface BlueXP), le programme d'installation du connecteur nécessite l'accès aux points de terminaison suivants pendant le processus d'installation :
 +
-** \https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 ** \https://s3.amazonaws.com/aws-cli/awscli-bundle.zip
 ** \https://*.blob.core.windows.net ou \https://hub.docker.com
 +

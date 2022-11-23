@@ -64,7 +64,6 @@ Espace disque dans /var:: 20 Gio d'espace doit être disponible
 Accès Internet sortant:: Le programme d'installation du connecteur doit accéder aux URL suivantes pendant le processus d'installation :
 +
 --
-* \https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 * \https://s3.amazonaws.com/aws-cli/awscli-bundle.zip
 * \https://*.blob.core.windows.net ou \https://hub.docker.com
 +

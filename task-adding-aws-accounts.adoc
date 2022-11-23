@@ -24,7 +24,7 @@ Vous pouvez ajouter des informations d'identification AWS à un connecteur exist
 
 * Ajoutez des identifiants AWS supplémentaires à un connecteur existant
 +
-Vous pouvez ajouter de nouvelles identifiants AWS à un connecteur existant pour déployer Cloud Volumes ONTAP sur un autre compte AWS à l'aide du même connecteur.  additional credentials to a Connector,Découvrez comment ajouter des identifiants AWS à un connecteur.
+L'ajout d'identifiants AWS à un connecteur existant offre les autorisations nécessaires pour gérer les ressources et les processus au sein de votre environnement de cloud public.  credentials to a Connector,Découvrez comment ajouter des identifiants AWS à un connecteur.
 
 * Ajoutez des informations d'identification AWS à BlueXP pour créer un connecteur
 +
@@ -48,9 +48,9 @@ Si vous fournissez des clés d'accès AWS BlueXP, vous devez les mettre à jour 
 
 
 
-== Ajoutez des informations d'identification supplémentaires à un connecteur
+== Ajouter des informations d'identification à un connecteur
 
-Ajoutez des identifiants AWS à un connecteur pour déployer et gérer Cloud Volumes ONTAP dans d'autres comptes AWS. Vous pouvez indiquer l'ARN d'un rôle IAM dans un autre compte ou fournir les clés d'accès AWS.
+Ajoutez des identifiants AWS à un connecteur pour qu'il dispose des autorisations nécessaires pour gérer les ressources et les processus au sein de votre environnement de cloud public. Vous pouvez indiquer l'ARN d'un rôle IAM dans un autre compte ou fournir les clés d'accès AWS.
 
 
 
@@ -59,7 +59,7 @@ Ajoutez des identifiants AWS à un connecteur pour déployer et gérer Cloud Vol
 Avant d'ajouter des identifiants AWS à un connecteur, vous devez fournir les autorisations requises. Les autorisations permettent à BlueXP de gérer les ressources et les processus au sein de ce compte AWS. La manière dont vous fournissez les autorisations dépend du fait que vous souhaitez fournir à BlueXP l'ARN d'un rôle dans un compte de confiance ou des clés AWS.
 
 
-NOTE: Lorsque vous avez déployé un connecteur depuis BlueXP, BlueXP a automatiquement ajouté des informations d'identification AWS pour le compte dans lequel vous avez déployé le connecteur. Ce compte initial n'est pas ajouté si vous avez installé manuellement le logiciel Connector sur un système existant. link:concept-accounts-aws.html["En savoir plus sur les identifiants et les autorisations AWS"].
+NOTE: Si vous avez déployé un connecteur depuis BlueXP, BlueXP a automatiquement ajouté des informations d'identification AWS pour le compte dans lequel vous avez déployé le connecteur. Ce compte initial n'est pas ajouté si vous avez déployé le connecteur depuis AWS Marketplace ou si vous avez installé manuellement le logiciel Connector sur un système existant. link:concept-accounts-aws.html["En savoir plus sur les identifiants et les autorisations AWS"].
 
 *Choix*
 
@@ -74,7 +74,7 @@ NOTE: Lorsque vous avez déployé un connecteur depuis BlueXP, BlueXP a automati
 Vous pouvez définir une relation de confiance entre le compte AWS source dans lequel vous avez déployé l'instance Connector et d'autres comptes AWS en utilisant les rôles IAM. Vous fournissez ensuite à BlueXP les rôles ARN des IAM des comptes de confiance.
 
 .Étapes
-. Accédez à la console IAM dans le compte cible sur lequel vous souhaitez déployer Cloud Volumes ONTAP.
+. Accédez à la console IAM dans le compte cible dans lequel vous souhaitez fournir le connecteur avec les autorisations.
 . Sous gestion des accès, cliquez sur *rôles > Créer un rôle* et suivez les étapes pour créer le rôle.
 +
 Assurez-vous de faire ce qui suit :
@@ -82,7 +82,7 @@ Assurez-vous de faire ce qui suit :
 +
 ** Sous *Type d'entité approuvée*, sélectionnez *compte AWS*.
 ** Sélectionnez *un autre compte AWS* et entrez l'ID du compte sur lequel réside l'instance de connecteur.
-** Créez une stratégie en copiant et en collant le contenu de link:reference-permissions-aws.html["Politique IAM pour le connecteur"].
+** Créez les politiques requises en copiant et en collant le contenu de link:reference-permissions-aws.html["Les règles IAM pour le connecteur"].
 
 
 . Copiez le rôle ARN du rôle IAM afin de pouvoir le coller ultérieurement dans BlueXP.
@@ -97,11 +97,11 @@ Le compte dispose désormais des autorisations requises. ,Vous pouvez désormais
 Si vous voulez fournir des clés BlueXP avec AWS pour un utilisateur IAM, vous devez accorder les autorisations requises à cet utilisateur. La politique de BlueXP IAM définit les actions et les ressources AWS que BlueXP est autorisé à utiliser.
 
 .Étapes
-. Dans la console IAM, créez une politique en copiant et collant le contenu de link:reference-permissions-aws.html["Politique IAM pour le connecteur"].
+. À partir de la console IAM, créez des politiques en copiant et en collant le contenu de link:reference-permissions-aws.html["Les règles IAM pour le connecteur"].
 +
 https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html["Documentation AWS : création de règles IAM"^]
 
-. Joignez la politique à un rôle IAM ou à un utilisateur IAM.
+. Associez les règles à un rôle IAM ou à un utilisateur IAM.
 +
 ** https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create.html["Documentation AWS : création de rôles IAM"^]
 ** https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html["Documentation AWS : ajout et suppression de règles IAM"^]

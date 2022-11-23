@@ -30,8 +30,8 @@ L'utilisateur IAM qui crée le connecteur doit disposer d'autorisations AWS Mark
 .Étapes
 . Configurez les autorisations dans AWS :
 +
-.. À partir de la console IAM, créez votre propre politique en copiant et en collant le contenu de link:reference-permissions-aws.html["Politique IAM pour le connecteur"].
-.. Créez un rôle IAM avec le type de rôle Amazon EC2 et associez la stratégie que vous avez créée à l'étape précédente au rôle.
+.. À partir de la console IAM, créez les politiques requises en copiant et en collant le contenu de link:reference-permissions-aws.html["Les règles IAM pour le connecteur"].
+.. Créez un rôle IAM avec le type de rôle Amazon EC2 et associez les règles créées à l'étape précédente au rôle.
 
 
 . Accédez au https://aws.amazon.com/marketplace/pp/B018REK8QG["BlueXP, page sur AWS Marketplace"^] Pour déployer le connecteur à partir d'une ami :
