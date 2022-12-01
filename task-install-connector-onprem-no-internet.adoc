@@ -38,6 +38,7 @@ Systèmes d'exploitation pris en charge::
 * Red Hat Enterprise Linux 7.7
 * Red Hat Enterprise Linux 7.8
 * Red Hat Enterprise Linux 7.9
+* Red Hat Enterprise Linux 8.6
 +
 Le système Red Hat Enterprise Linux doit être enregistré avec Red Hat Subscription Management. S'il n'est pas enregistré, le système ne peut pas accéder aux référentiels pour mettre à jour les logiciels tiers requis pendant l'installation du connecteur.
 
@@ -51,7 +52,7 @@ Hyperviseur:: Un hyperviseur bare Metal ou hébergé certifié pour exécuter Ce
 Type de disque:: Un disque SSD est requis
 Espace disque dans /opt:: 100 Gio d'espace doit être disponible
 Espace disque dans /var:: 20 Gio d'espace doit être disponible
-Moteur Docker:: Docker Engine version 19 ou ultérieure est requis sur l'hôte avant d'installer le connecteur. https://docs.docker.com/engine/install/["Voir les instructions d'installation"^].
+Moteur Docker:: Docker Engine version 19 ou ultérieure est requis sur l'hôte avant d'installer le connecteur. https://docs.docker.com/engine/install/["Voir les instructions d'installation"^]
 
 
 
@@ -69,19 +70,19 @@ Les privilèges root sont requis pour installer le connecteur.
 ----
 sudo systemctl enable docker && sudo systemctl start docker
 ----
-. Téléchargez le logiciel BlueXP à partir du https://mysupport.netapp.com/site/products/all/details/cloud-manager/downloads-tab["Site de support NetApp"^].
+. Téléchargez le logiciel du connecteur à partir du https://mysupport.netapp.com/site/products/all/details/cloud-manager/downloads-tab["Site de support NetApp"^]
 . Copiez le programme d'installation sur l'hôte Linux.
 . Attribuez des autorisations pour exécuter le script.
 +
 [source, cli]
 ----
-chmod +x /path/cloud-manager-connector-offline-v3.9.19
+chmod +x /path/cloud-manager-connector-offline-v3.9.23
 ----
 . Exécutez le script d'installation :
 +
 [source, cli]
 ----
-sudo /path/cloud-manager-connector-offline-v3.9.19
+sudo /path/cloud-manager-connector-offline-v3.9.23
 ----
 . Ouvrez un navigateur Web et entrez https://_ipaddress_[] Où _ipaddress_ est l'adresse IP de l'hôte Linux.
 +

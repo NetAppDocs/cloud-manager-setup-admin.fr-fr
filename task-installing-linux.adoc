@@ -49,6 +49,7 @@ Systèmes d'exploitation pris en charge::
 * Red Hat Enterprise Linux 7.7
 * Red Hat Enterprise Linux 7.8
 * Red Hat Enterprise Linux 7.9
+* Red Hat Enterprise Linux 8.6
 +
 Le système Red Hat Enterprise Linux doit être enregistré avec Red Hat Subscription Management. S'il n'est pas enregistré, le système ne peut pas accéder aux référentiels pour mettre à jour les logiciels tiers requis pendant l'installation du connecteur.
 
@@ -61,6 +62,7 @@ Le connecteur est pris en charge sur les versions en anglais de ces systèmes d'
 Hyperviseur:: Un hyperviseur bare Metal ou hébergé certifié pour exécuter CentOS ou Red Hat Enterprise Linuxhttps://access.redhat.com/certified-hypervisors["Solution Red Hat : quels hyperviseurs sont certifiés pour l'exécution de Red Hat Enterprise Linux ?"^]
 Espace disque dans /opt:: 100 Gio d'espace doit être disponible
 Espace disque dans /var:: 20 Gio d'espace doit être disponible
+Moteur Docker:: Docker Engine version 19 ou ultérieure est requis sur l'hôte avant d'installer le connecteur. https://docs.docker.com/engine/install/["Voir les instructions d'installation"^]
 Accès Internet sortant:: Le programme d'installation du connecteur doit accéder aux URL suivantes pendant le processus d'installation :
 +
 --
@@ -91,6 +93,12 @@ Si vous recevez un message indiquant que l'installation de awscli a échoué, vo
 
 
 .Étapes
+. Vérifiez que docker est activé et exécuté.
++
+[source, cli]
+----
+sudo systemctl enable docker && sudo systemctl start docker
+----
 . Téléchargez le logiciel du connecteur à partir du https://mysupport.netapp.com/site/products/all/details/cloud-manager/downloads-tab["Site de support NetApp"^], Puis copiez-le sur l'hôte Linux.
 +
 Pour obtenir de l'aide sur la connexion et la copie du fichier vers une instance EC2 dans AWS, reportez-vous à la section http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstancesLinux.html["Documentation AWS : connexion à votre instance Linux à l'aide de SSH"^].
@@ -99,7 +107,7 @@ Pour obtenir de l'aide sur la connexion et la copie du fichier vers une instance
 +
 [source, cli]
 ----
-chmod +x OnCommandCloudManager-V3.9.19.sh
+chmod +x OnCommandCloudManager-V3.9.23.sh
 ----
 . Exécutez le script d'installation.
 +
@@ -108,24 +116,8 @@ Si vous disposez d'un serveur proxy, vous devez entrer les paramètres de comman
 +
 [source, cli]
 ----
- ./OnCommandCloudManager-V3.9.19.sh [silent] [proxy=ipaddress] [proxyport=port] [proxyuser=user_name] [proxypwd=password]
+ ./OnCommandCloudManager-V3.9.23.sh --proxy http://occm:password@10.0.0.30:9090/ --cacert /root/rootca.pem
 ----
-+
-_silent_ exécute l'installation sans vous demander des informations.
-
-+
-_proxy_ est requis si l'hôte est derrière un serveur proxy.
-
-+
-_proxyport_ est le port du serveur proxy.
-
-+
-_proxyuser_ est le nom d'utilisateur du serveur proxy, si une authentification de base est requise.
-
-+
-_proxypwd_ est le mot de passe du nom d'utilisateur que vous avez spécifié.
-
-. Sauf si vous avez spécifié le paramètre silencieux, entrez *y* pour poursuivre l'installation.
 +
 Le connecteur est maintenant installé. À la fin de l'installation, le service connecteur (ocm) redémarre deux fois si vous avez spécifié un serveur proxy.
 

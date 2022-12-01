@@ -31,6 +31,7 @@ Vous devez également vous assurer que les règles sont à jour lorsque de nouve
 Sélectionnez votre région pour afficher les stratégies requises :
 
 .Régions standard
+[%collapsible]
 ====
 Pour les régions standard, les autorisations sont réparties entre deux règles. Deux règles sont requises en raison d'une taille maximale de caractères pour les stratégies gérées dans AWS.
 
@@ -401,6 +402,7 @@ La deuxième politique fournit des autorisations pour les services suivants :
 =====
 ====
 .GovCloud (USA)
+[%collapsible]
 ====
 [source, json]
 ----
@@ -562,6 +564,7 @@ La deuxième politique fournit des autorisations pour les services suivants :
 ----
 ====
 .Environnement C2S
+[%collapsible]
 ====
 [source, json]
 ----

@@ -118,9 +118,9 @@ Mettez à jour le système d'exploitation sur le connecteur pour vous assurer qu
 [source, cli]
 ----
 sudo -s
-service service-manager stop
+service netapp-service-manager stop
 yum -y update –-security
-service service-manager start
+service netapp-service-manager start
 ----
 
 

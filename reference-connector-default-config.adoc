@@ -108,7 +108,6 @@ BlueXP installe les modules suivants sur l'hôte Linux, s'ils ne sont pas déjà
 
 * 7Zip
 * AWSCLI
-* Docker
 * Java
 * Kubectl
 * MySQL
