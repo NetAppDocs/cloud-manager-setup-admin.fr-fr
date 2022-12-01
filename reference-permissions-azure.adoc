@@ -128,7 +128,6 @@ Vous devez également vous assurer que le rôle est à jour lorsque de nouvelles
                     "Microsoft.Compute/snapshots/delete",
                     "Microsoft.Network/privateEndpoints/delete",
                     "Microsoft.Compute/availabilitySets/delete",
-                    "Microsoft.Network/loadBalancers/delete",
                     "Microsoft.KeyVault/vaults/read",
                     "Microsoft.KeyVault/vaults/accessPolicies/write",
                     "Microsoft.Compute/diskEncryptionSets/write",
@@ -154,6 +153,7 @@ Vous devez également vous assurer que le rôle est à jour lorsque de nouvelles
                     "Microsoft.Synapse/workspaces/firewallRules/read",
                     "Microsoft.Synapse/workspaces/replaceAllIpFirewallRules/action",
                     "Microsoft.Synapse/workspaces/operationResults/read",
+                    "Microsoft.Network/publicIPAddresses/delete",
                     "Microsoft.ManagedIdentity/userAssignedIdentities/assign/action"
     ],
     "NotActions": [],
@@ -749,11 +749,19 @@ Lorsque des autorisations sont ajoutées et supprimées, nous les noterons dans 
 
 === 1er décembre 2022
 
-L'autorisation suivante a été ajoutée à la politique JSON. Elle est requise pour la sauvegarde dans le cloud et NetApp Cloud Tiering.
+Les autorisations suivantes ont été ajoutées à la politique JSON :
 
-Microsoft.Storage/storageAccounts/blobServices/containers/write
+* Microsoft.Storage/storageAccounts/blobServices/containers/write
++
+Cette autorisation est requise pour Cloud Backup et Cloud Tiering.
 
-Les autorisations suivantes ont été supprimées de la politique JSON. Ils ne sont plus nécessaires.
+* Microsoft.Network/publicIPAddresses/delete
++
+Ces autorisations sont requises pour Cloud Backup.
+
+
+
+Les autorisations suivantes ont été supprimées de la politique JSON car elles ne sont plus requises :
 
 * Microsoft.Compute/images/write
 * Microsoft.Network/loadBalancers/backendAddressPools/join/action
