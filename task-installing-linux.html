@@ -1416,7 +1416,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-11-23 17:07:33 +0000">11/23/2022</time>
+    <time datetime="2022-12-01 19:55:30 +0000">12/01/2022</time>
     
   
 
@@ -1516,6 +1516,9 @@ Pour créer un système Cloud Volumes ONTAP dans Google Cloud, vous devez dispos
 </li>
 <li>
 <p>Red Hat Enterprise Linux 7.9</p>
+</li>
+<li>
+<p>Red Hat Enterprise Linux 8.6</p>
 <div class="paragraph">
 <p>Le système Red Hat Enterprise Linux doit être enregistré avec Red Hat Subscription Management. S&#8217;il n&#8217;est pas enregistré, le système ne peut pas accéder aux référentiels pour mettre à jour les logiciels tiers requis pendant l&#8217;installation du connecteur.</p>
 </div>
@@ -1539,6 +1542,10 @@ Pour créer un système Cloud Volumes ONTAP dans Google Cloud, vous devez dispos
 <dt class="hdlist1">Espace disque dans /var</dt>
 <dd>
 <p>20 Gio d&#8217;espace doit être disponible</p>
+</dd>
+<dt class="hdlist1">Moteur Docker</dt>
+<dd>
+<p>Docker Engine version 19 ou ultérieure est requis sur l&#8217;hôte avant d&#8217;installer le connecteur. <a href="https://docs.docker.com/engine/install/" target="_blank" rel="noopener">"Voir les instructions d&#8217;installation"</a></p>
 </dd>
 <dt class="hdlist1">Accès Internet sortant</dt>
 <dd>
@@ -1592,6 +1599,14 @@ Pour créer un système Cloud Volumes ONTAP dans Google Cloud, vous devez dispos
 <div class="title">Étapes</div>
 <ol class="arabic">
 <li>
+<p>Vérifiez que docker est activé et exécuté.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">sudo systemctl enable docker &amp;&amp; sudo systemctl start docker</code></pre>
+</div>
+</div>
+</li>
+<li>
 <p>Téléchargez le logiciel du connecteur à partir du <a href="https://mysupport.netapp.com/site/products/all/details/cloud-manager/downloads-tab" target="_blank" rel="noopener">"Site de support NetApp"</a>, Puis copiez-le sur l&#8217;hôte Linux.</p>
 <div class="paragraph">
 <p>Pour obtenir de l&#8217;aide sur la connexion et la copie du fichier vers une instance EC2 dans AWS, reportez-vous à la section <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstancesLinux.html" target="_blank" rel="noopener">"Documentation AWS : connexion à votre instance Linux à l&#8217;aide de SSH"</a>.</p>
@@ -1601,7 +1616,7 @@ Pour créer un système Cloud Volumes ONTAP dans Google Cloud, vous devez dispos
 <p>Attribuez des autorisations pour exécuter le script.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-cli" data-lang="cli">chmod +x OnCommandCloudManager-V3.9.19.sh</code></pre>
+<pre class="highlight"><code class="language-cli" data-lang="cli">chmod +x OnCommandCloudManager-V3.9.23.sh</code></pre>
 </div>
 </div>
 </li>
@@ -1612,27 +1627,9 @@ Pour créer un système Cloud Volumes ONTAP dans Google Cloud, vous devez dispos
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-cli" data-lang="cli"> ./OnCommandCloudManager-V3.9.19.sh [silent] [proxy=ipaddress] [proxyport=port] [proxyuser=user_name] [proxypwd=password]</code></pre>
+<pre class="highlight"><code class="language-cli" data-lang="cli"> ./OnCommandCloudManager-V3.9.23.sh --proxy http://occm:password@10.0.0.30:9090/ --cacert /root/rootca.pem</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p><em>silent</em> exécute l&#8217;installation sans vous demander des informations.</p>
-</div>
-<div class="paragraph">
-<p><em>proxy</em> est requis si l&#8217;hôte est derrière un serveur proxy.</p>
-</div>
-<div class="paragraph">
-<p><em>proxyport</em> est le port du serveur proxy.</p>
-</div>
-<div class="paragraph">
-<p><em>proxyuser</em> est le nom d&#8217;utilisateur du serveur proxy, si une authentification de base est requise.</p>
-</div>
-<div class="paragraph">
-<p><em>proxypwd</em> est le mot de passe du nom d&#8217;utilisateur que vous avez spécifié.</p>
-</div>
-</li>
-<li>
-<p>Sauf si vous avez spécifié le paramètre silencieux, entrez <strong>y</strong> pour poursuivre l&#8217;installation.</p>
 <div class="paragraph">
 <p>Le connecteur est maintenant installé. À la fin de l&#8217;installation, le service connecteur (ocm) redémarre deux fois si vous avez spécifié un serveur proxy.</p>
 </div>
