@@ -1416,7 +1416,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-12-01 19:55:30 +0000">12/01/2022</time>
+    <time datetime="2022-12-01 22:43:33 +0000">12/01/2022</time>
     
   
 
@@ -1548,7 +1548,6 @@
                     "Microsoft.Compute/snapshots/delete",
                     "Microsoft.Network/privateEndpoints/delete",
                     "Microsoft.Compute/availabilitySets/delete",
-                    "Microsoft.Network/loadBalancers/delete",
                     "Microsoft.KeyVault/vaults/read",
                     "Microsoft.KeyVault/vaults/accessPolicies/write",
                     "Microsoft.Compute/diskEncryptionSets/write",
@@ -1574,6 +1573,7 @@
                     "Microsoft.Synapse/workspaces/firewallRules/read",
                     "Microsoft.Synapse/workspaces/replaceAllIpFirewallRules/action",
                     "Microsoft.Synapse/workspaces/operationResults/read",
+                    "Microsoft.Network/publicIPAddresses/delete",
                     "Microsoft.ManagedIdentity/userAssignedIdentities/assign/action"
     ],
     "NotActions": [],
@@ -2764,13 +2764,26 @@
 <div class="sect2">
 <h3 id="1er-décembre-2022">1er décembre 2022</h3>
 <div class="paragraph">
-<p>L&#8217;autorisation suivante a été ajoutée à la politique JSON. Elle est requise pour la sauvegarde dans le cloud et NetApp Cloud Tiering.</p>
+<p>Les autorisations suivantes ont été ajoutées à la politique JSON :</p>
 </div>
-<div class="paragraph">
+<div class="ulist">
+<ul>
+<li>
 <p>Microsoft.Storage/storageAccounts/blobServices/containers/write</p>
+<div class="paragraph">
+<p>Cette autorisation est requise pour Cloud Backup et Cloud Tiering.</p>
+</div>
+</li>
+<li>
+<p>Microsoft.Network/publicIPAddresses/delete</p>
+<div class="paragraph">
+<p>Ces autorisations sont requises pour Cloud Backup.</p>
+</div>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p>Les autorisations suivantes ont été supprimées de la politique JSON. Ils ne sont plus nécessaires.</p>
+<p>Les autorisations suivantes ont été supprimées de la politique JSON car elles ne sont plus requises :</p>
 </div>
 <div class="ulist">
 <ul>
