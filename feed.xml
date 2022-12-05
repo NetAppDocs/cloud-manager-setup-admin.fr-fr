@@ -8,16 +8,16 @@
     <description>The latest updates from NetApp Documentation</description>
     <language>fr-fr</language>
     <ttl>60</ttl>
-    <pubDate>Thu, 01 Dec 2022 22:46:00 +0000</pubDate>
-    <lastBuildDate>Thu, 01 Dec 2022 22:46:00 +0000</lastBuildDate>
+    <pubDate>Mon, 05 Dec 2022 20:22:46 +0000</pubDate>
+    <lastBuildDate>Mon, 05 Dec 2022 20:22:46 +0000</lastBuildDate>
     
     
     
     <item>
-      <title>Quoi de neuf (17 Nov 2022)</title>
-      <pubDate>Thu, 17 Nov 2022 05:12:42 +0000</pubDate>
-      <link>https://docs.netapp.com/fr-fr/cloud-manager-setup-admin/whats-new.html?time=1668661962</link>
-      <guid isPermaLink="false">Thu, 17 Nov 2022 05:12:42 +0000</guid>
+      <title>Quoi de neuf (5 Dec 2022)</title>
+      <pubDate>Mon, 05 Dec 2022 20:20:22 +0000</pubDate>
+      <link>https://docs.netapp.com/fr-fr/cloud-manager-setup-admin/whats-new.html?time=1670271622</link>
+      <guid isPermaLink="false">Mon, 05 Dec 2022 20:20:22 +0000</guid>
       <description><![CDATA[ Découvrez les nouveautés de BlueXP (anciennement Cloud Manager), qui inclut notamment les comptes NetApp, les connecteurs, les identifiants des fournisseurs cloud. ]]></description>
     </item>
     
