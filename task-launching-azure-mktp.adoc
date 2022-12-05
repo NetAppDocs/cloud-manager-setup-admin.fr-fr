@@ -77,11 +77,11 @@ image:screenshot_set_up_cloud_manager.gif["Capture d'écran présentant l'écran
 
 Le connecteur est désormais installé et configuré avec votre compte NetApp.
 
-Si le connecteur se trouve dans une région commerciale d'Azure, ouvrez un navigateur Web et rendez-vous sur https://cloudmanager.netapp.com[] Pour commencer à utiliser le connecteur avec BlueXP.
+Si le connecteur se trouve dans une région commerciale d'Azure, ouvrez un navigateur Web et rendez-vous sur https://console.bluexp.netapp.com[] Pour commencer à utiliser le connecteur avec BlueXP.
 
 Si le connecteur se trouve dans une région d'administration Azure, vous pouvez utiliser BlueXP en ouvrant votre navigateur Web et en vous connectant à l'adresse IP de l'instance de connecteur : https://_ipaddress_[]
 
-Comme le connecteur a été déployé dans une région du gouvernement, il n'est pas accessible à partir de https://cloudmanager.netapp.com[].
+Comme le connecteur a été déployé dans une région du gouvernement, il n'est pas accessible à partir de https://console.bluexp.netapp.com[].
 
 
 

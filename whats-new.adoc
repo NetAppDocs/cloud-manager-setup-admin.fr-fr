@@ -18,6 +18,24 @@ Découvrez les nouveautés de BlueXP (anciennement Cloud Manager), qui inclut no
 
 
 
+== 4 décembre 2022
+
+
+
+=== Connecteur 3.9.24
+
+* Nous avons mis à jour l'URL de la console BlueXP vers https://console.bluexp.netapp.com[]
+* Le connecteur est désormais pris en charge dans la région de Google Cloud Israël.
+* Cette version de Connector inclut également des améliorations apportées à Cloud Volumes ONTAP et des clusters ONTAP sur site.
++
+** https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/whats-new.html#4-december-2022["Découvrez les améliorations apportées à Cloud Volumes ONTAP"^]
+** https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/whats-new.html#4-december-2022["Découvrez les améliorations apportées aux clusters sur site de ONTAP"^]
+
+
+
+
+
+
 == 6 novembre 2022
 
 

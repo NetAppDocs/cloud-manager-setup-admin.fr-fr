@@ -135,7 +135,6 @@
   <block id="895677275494125470d7cc56c3ce30f8" category="paragraph">Notez que le compte 2 comprend deux connecteurs distincts. Cela peut arriver si vous disposez de systèmes dans des régions distinctes ou dans des fournisseurs cloud distincts.</block>
   <block id="f4ce5c6f553cf1da9b8dee48fe56aa08" category="inline-image-macro">Un diagramme présentant deux comptes NetApp, chacun possédant plusieurs espaces de travail et leurs administrateurs d'espace de travail associés.</block>
   <block id="f9735044d45473836ac5749fa2decf2c" category="paragraph"><block ref="f9735044d45473836ac5749fa2decf2c" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="8ef3c2a31536595615b3e212550158c6" category="summary">L'interface BlueXP est accessible via une interface utilisateur SaaS en allant à<block ref="ed21e31bd71ab546f26978ff562b5c5d" category="inline-link-rx"></block>.</block>
   <block id="55553d1b65f45713caedcf9f0b1a6042" category="doc">Connectez-vous à BlueXP</block>
   <block id="7f7cb82a5dd812c3a52b46966d21ac40" category="paragraph">BlueXP est accessible depuis votre navigateur Web via une interface utilisateur SaaS.</block>
   <block id="4141e80854c65807682dd0ff767b4228" category="inline-link-macro">Découvrez comment accéder à l'interface utilisateur locale sur le connecteur</block>
@@ -151,7 +150,6 @@
   <block id="13a0adeb2b159ac19c415adb2a302ac7" category="list-text">Si vous vous êtes inscrit en vous connectant à l'aide de vos identifiants du site de support NetApp, vous devez utiliser cette option de connexion à chaque fois.</block>
   <block id="decc333898509c715afbf4242e91a6fc" category="list-text">Si vous vous êtes inscrit en saisissant votre e-mail et votre mot de passe, vous devez entrer ces informations d'identification chaque fois que vous vous connectez.</block>
   <block id="5975f7e9036c78e6217b16f295f0ca75" category="inline-link">Console BlueXP</block>
-  <block id="fb6337cedd5ac080f746cd67bc7dda2d" category="list-text">Ouvrez un navigateur Web et accédez au<block ref="943471ca2111af739c9385f70f32e13e" category="inline-link-rx"></block></block>
   <block id="b6f593055aa7e0982c84cef15bca2d4a" category="paragraph">La page de connexion NetApp BlueXP s'affiche.</block>
   <block id="2d9d1cf392d46cf284c202c45ca6710f" category="inline-image-macro">Page de connexion pour BlueXP.</block>
   <block id="d1458c5f683deb76200e00ee241652dd" category="paragraph"><block ref="d1458c5f683deb76200e00ee241652dd" category="inline-image-macro-rx" type="image"></block></block>
@@ -675,7 +673,6 @@
   <block id="b59e275c4ece2430dff67db92845ab7f" category="list-text">Accès au réseau à partir d'un navigateur Web vers plusieurs noeuds finaux</block>
   <block id="c95a1a2056b28aaf1bf7129fe0a64e46" category="list-text">L'interface utilisateur BlueXP est accessible à partir d'un navigateur Web. Lorsque vous utilisez l'interface utilisateur BlueXP, il contacte plusieurs points de terminaison pour effectuer les tâches de gestion des données. La machine exécutant le navigateur Web doit disposer de connexions aux points finaux suivants.</block>
   <block id="b8724da75fb917e992576b17378e66b3" category="cell">Terminaux</block>
-  <block id="6c30ad01491981c7929f0130c0fa3b94" category="cell">\http://cloudmanager.netapp.com</block>
   <block id="0538fa74f685054f07476ce4440d3ce4" category="cell">Votre navigateur Web contacte cette URL lors de l'utilisation de l'interface utilisateur SaaS.</block>
   <block id="b3f4a5004c2a10094d2af8bd28589cbf" category="paragraph">Services AWS (amazonaws.com):</block>
   <block id="58e3bfbabf904de43a6a22aca509b0d8" category="list-text">CloudFormation</block>
@@ -714,8 +711,6 @@
   <block id="ffcad347e7fbe5448bc3fabe48be2db8" category="paragraph">Le connecteur nécessite un accès Internet sortant pour contacter les terminaux suivants afin de gérer les ressources et les processus au sein de votre environnement de cloud public.</block>
   <block id="8963387394e2ee3e2a5a9ba160566a58" category="cell">\https://support.netapp.com</block>
   <block id="db9e137068a05efe5440105c2494b7f1" category="cell">Pour obtenir des informations sur les licences et envoyer des messages AutoSupport au support NetApp.</block>
-  <block id="f61e4d929e921b5a3ae0bb6f78fe9b6c" category="cell">\https://*.cloudmanager.cloud.netapp.com \https://cloudmanager.cloud.netapp.com</block>
-  <block id="23486ca53d499245ebae5460cf6d10ad" category="cell">Pour fournir des fonctions et des services SaaS dans BlueXP.</block>
   <block id="554841a7559bd190d883de523464d1d1" category="cell">\https://cloudmanagerinfraprod.azurecr.io \https://*.blob.core.windows.net</block>
   <block id="065880318484084e9bfe33ea9c6a8702" category="cell">Pour mettre à niveau le connecteur et ses composants Docker.</block>
   <block id="8a4762cb5d44b37be8c41c99aa8c77d1" category="list-text">Si vous choisissez d'installer manuellement le connecteur sur votre propre hôte Linux (et non directement à partir de l'interface BlueXP), le programme d'installation du connecteur nécessite l'accès aux points de terminaison suivants pendant le processus d'installation :</block>
@@ -970,7 +965,6 @@
   <block id="8cace447f88df36aff1b15d754f25f8b" category="paragraph"><block ref="34c92eb0b80eb3e0fe9fb66053c42d9e" category="inline-link-macro-rx"></block>.</block>
   <block id="71da84f38b79ce90467a2699cf371e30" category="section-title">Interface utilisateur locale</block>
   <block id="d78e63b2e43a582b35ba2f4c0eac45bd" category="inline-link">Interface utilisateur SaaS</block>
-  <block id="08bcb1ae91400f74899c5825a1f7973c" category="paragraph">Pendant que vous devriez effectuer presque toutes les tâches à partir du<block ref="8f305b98f88a161e5a1e68aca36c2103" category="inline-link-rx"></block>, Une interface utilisateur locale est toujours disponible sur le connecteur. Cette interface est nécessaire si vous installez le connecteur dans un environnement qui n'a pas accès à Internet (comme une région du gouvernement), et pour quelques tâches qui doivent être effectuées à partir du connecteur lui-même, au lieu de l'interface SaaS :</block>
   <block id="8f1f697128124fa5f7ac3ca04e2076b2" category="inline-link-macro">Configuration d'un serveur proxy</block>
   <block id="e18fe7db665c72786571535a9d181827" category="list-text"><block ref="e18fe7db665c72786571535a9d181827" category="inline-link-macro-rx"></block></block>
   <block id="5534b7b22bef2cb909c67010ed56403f" category="list-text">Installation d'un correctif (en général, vous travaillerez avec le personnel NetApp pour installer un correctif)</block>
@@ -1079,7 +1073,6 @@
   <block id="ec37691ba98782dfd927ff958050c215" category="section-title">Ajouter des espaces de travail</block>
   <block id="03aab61534d935d87fc142bbb92ca4bf" category="paragraph">Dans BlueXP, les espaces de travail vous permettent d'isoler un ensemble d'environnements de travail d'autres environnements de travail et d'autres utilisateurs. Par exemple, vous pouvez créer deux espaces de travail et associer des utilisateurs distincts à chaque espace de travail.</block>
   <block id="9b9477e579c3b44dd623d5a6e1ea8d78" category="inline-link">BlueXP</block>
-  <block id="26bf7b429dca50c9ed066fcbc0fe8752" category="list-text">En haut de<block ref="8e669678e56bbb701f8cd491b6c6b81c" category="inline-link-rx"></block>, Cliquez sur le menu déroulant *compte*.</block>
   <block id="81da0bcfa753963ae97ffa63aa2045d3" category="inline-image-macro">Capture d'écran qui montre l'option Paramètres du compte dans la bannière supérieure de BlueXP.</block>
   <block id="0fad82c7de53b27425f25cc82c5a54c6" category="paragraph"><block ref="0fad82c7de53b27425f25cc82c5a54c6" category="inline-image-macro-rx" type="image"></block></block>
   <block id="0e220d57324e8ec19657c586d617f1b3" category="list-text">Cliquez sur *gérer le compte* en regard du compte actuellement sélectionné.</block>
@@ -1093,7 +1086,6 @@
   <block id="9d625af408216ec8b44821662bdd328d" category="paragraph">Associez les utilisateurs à votre compte NetApp pour qu'ils puissent créer et gérer des environnements de travail dans BlueXP.</block>
   <block id="2cfe7b7de2a1df6b585bf1321d37fb8a" category="inline-link">Site Web NetApp BlueXP</block>
   <block id="cbf27ab4b2fb03424fe3f78612571480" category="list-text">Si l'utilisateur ne l'a pas déjà fait, demandez-lui d'aller à<block ref="fdb05c7a4b59f57e3479646cd3510e5d" category="inline-link-rx"></block> et s'inscrire.</block>
-  <block id="d67c077f331b19ada2266abd91f9bd27" category="list-text">En haut de<block ref="8e669678e56bbb701f8cd491b6c6b81c" category="inline-link-rx"></block>, Cliquez sur le menu déroulant *compte* et cliquez sur *gérer compte*.</block>
   <block id="6ca690b81e3a9bfb83efc25638a82370" category="list-text">Dans l'onglet membres, cliquez sur *associer utilisateur*.</block>
   <block id="66305d9d43f9788034811d163f26dc58" category="list-text">Entrez l'adresse e-mail de l'utilisateur et sélectionnez un rôle pour l'utilisateur :</block>
   <block id="bc18148d37d0ca0b48c3b71b47ecdda6" category="list-text">*Administrateur de compte*: Peut effectuer n'importe quelle action dans BlueXP.</block>
@@ -1640,9 +1632,7 @@
   <block id="2bf1f619d2f890a36c270d8592ed2afc" category="inline-image-macro">Capture d'écran présentant l'écran configurer BlueXP qui vous permet de sélectionner un compte NetApp et de nommer le système.</block>
   <block id="0d815f71e04fd373dfef85f5c2a1e6b5" category="paragraph"><block ref="0d815f71e04fd373dfef85f5c2a1e6b5" category="inline-image-macro-rx" type="image"></block></block>
   <block id="ab055dd2454f72eae9c16179690384d6" category="paragraph">Le connecteur est désormais installé et configuré avec votre compte NetApp.</block>
-  <block id="a5b94789eb6c3af156b16a2f24662b9f" category="paragraph">Si le connecteur se trouve dans une région commerciale d'Azure, ouvrez un navigateur Web et rendez-vous sur<block ref="ed21e31bd71ab546f26978ff562b5c5d" category="inline-link-rx"></block> Pour commencer à utiliser le connecteur avec BlueXP.</block>
   <block id="f13f9c900e17fbd7423292fc7d7a65ef" category="paragraph">Si le connecteur se trouve dans une région d'administration Azure, vous pouvez utiliser BlueXP en ouvrant votre navigateur Web et en vous connectant à l'adresse IP de l'instance de connecteur :<block ref="e3a51e84cbbae6e45a585984f3be3fd0" category="inline-link-rx"></block></block>
-  <block id="d4d1e4d7a1862b2f824535c50d2aef05" category="paragraph">Comme le connecteur a été déployé dans une région du gouvernement, il n'est pas accessible à partir de<block ref="ed21e31bd71ab546f26978ff562b5c5d" category="inline-link-rx"></block>.</block>
   <block id="53093f6c5402328654bf860d6c52db0a" category="section-title">Octroi d'autorisations Azure</block>
   <block id="1985b326c07cdcb2a260ae0c0c6fde8d" category="inline-link">identité gérée attribuée par le système</block>
   <block id="74aac1234eeac8d40c64bd3b59349316" category="paragraph">Lorsque vous avez déployé le connecteur dans Azure, vous devez avoir activé un<block ref="3b529d5441a4ea26741352247ca08bac" category="inline-link-rx"></block>. Vous devez maintenant accorder les autorisations Azure requises en créant un rôle personnalisé, puis en attribuant le rôle à la machine virtuelle Connector pour un ou plusieurs abonnements.</block>
@@ -2071,7 +2061,6 @@
   <block id="1d30e47d408ebb4c330e626c7ae44937" category="paragraph">BlueXP comprend une interface SaaS intégrée au site Web BlueXP et des connecteurs qui gèrent Cloud Volumes ONTAP et d'autres services Cloud.</block>
   <block id="11cf550820ecd5e75ae1a9046f7f7f05" category="section-title">Services à la demande</block>
   <block id="249e471f7f9907a3aa62024b7aafe261" category="inline-link">Interface utilisateur SaaS</block>
-  <block id="efbb486f27fc185326b00038cd678e5e" category="paragraph">BlueXP est accessible via un<block ref="351552bfdbe47499e4ca9055bf0702b8" category="inline-link-rx"></block> Et les API. Cette expérience SaaS vous permet d'accéder automatiquement aux toutes dernières fonctionnalités dès leur sortie et de basculer facilement d'un compte à l'autre de vos connecteurs et de vos comptes NetApp.</block>
   <block id="7608a60c77d3b58b2fe8cdc80a69c915" category="admonition">Si vous travaillez dans un environnement où l'accès Internet sortant n'est pas disponible, vous pouvez installer le logiciel Connector dans cet environnement et accéder à l'interface utilisateur locale disponible sur le connecteur. <block ref="c5bcec7879e3189e4c7a5fdbd8b19a5b" category="inline-link-macro-rx"></block>.</block>
   <block id="8ff6e794637981d1636a228e2fd99e19" category="section-title">Site Web BlueXP</block>
   <block id="ccf2bc5e97e215334aa616cd5aae2339" category="inline-link">Le site Web BlueXP</block>
@@ -2443,7 +2432,6 @@
   <block id="4edef16b6e293b608ed729ff1b418a4a" category="list-text">*Détails avancés* : sous *profil d'instance IAM*, choisissez le rôle IAM que vous avez créé à l'étape 1.</block>
   <block id="00e3e218776ebf2123cac5b55d575b53" category="list-text">*Résumé* : consultez le résumé et cliquez sur *lancer l'instance*.</block>
   <block id="10a3df02c55e733eca6fef076545645a" category="paragraph">AWS lance le logiciel avec les paramètres spécifiés. L'instance de connecteur et le logiciel doivent s'exécuter dans environ cinq minutes.</block>
-  <block id="ec19230ae1897047839e426fa2215661" category="list-text">Ouvrez un navigateur Web et accédez à<block ref="ed21e31bd71ab546f26978ff562b5c5d" category="inline-link-rx"></block> Pour commencer à utiliser le connecteur avec BlueXP.</block>
   <block id="cb23f220e682583c8219c3f7102e6885" category="section-title">Créez le connecteur dans une région du gouvernement AWS</block>
   <block id="a03f103fcf1dd2ef39b7a65518ba20f0" category="paragraph">Pour déployer le connecteur dans une région AWS Government, vous devez accéder au service EC2 et sélectionner l'offre BlueXP depuis AWS Marketplace.</block>
   <block id="ed9be66b9d8a87806a591a3395f501d5" category="list-text">Accédez à l'offre BlueXP sur AWS Marketplace.</block>
@@ -2798,4 +2786,21 @@
   <block id="e9c8bdcc91d25115e46e6c43d23fe563" category="paragraph">Cette autorisation est requise pour Cloud Backup et Cloud Tiering.</block>
   <block id="175e0c32b0d1e82352dde70ca6ad31a2" category="paragraph">Ces autorisations sont requises pour Cloud Backup.</block>
   <block id="1ff61a19534f16f8c2b0aa752b13fb0a" category="paragraph">Les autorisations suivantes ont été supprimées de la politique JSON car elles ne sont plus requises :</block>
+  <block id="ddfa1ffd911b64694fdfa28d37b4c1be" category="paragraph">BlueXP est accessible via un<block ref="f866435f858a421b8b6b65903cff47d2" category="inline-link-rx"></block> Et les API. Cette expérience SaaS vous permet d'accéder automatiquement aux toutes dernières fonctionnalités dès leur sortie et de basculer facilement d'un compte à l'autre de vos connecteurs et de vos comptes NetApp.</block>
+  <block id="03275fa7fd8487800900fe5ed21b50b4" category="cell">\https://console.bluexp.netapp.com</block>
+  <block id="5dd0aa558dcec51bcf3ae2e8f37b895c" category="cell">\https://*.api.bluexp.netapp.com \https://api.bluexp.netapp.com \https://*.cloudmanager.cloud.netapp.com \https://cloudmanager.cloud.netapp.com</block>
+  <block id="cd93b7c43c5393a3dcd4f5f4c7da7a7f" category="cell">Pour fournir des fonctions et des services SaaS dans BlueXP. REMARQUE : le connecteur contacte actuellement « cloudmanager.cloud.netapp.com", mais il commencera à contacter « api.bluexp.netapp.com" » dans une prochaine version.</block>
+  <block id="edd4bfb900f4f2fc34b4612b22b6c5f1" category="list-text">Ouvrez un navigateur Web et accédez à<block ref="4d2f46e46f2e8a8f33bc708599ac780c" category="inline-link-rx"></block> Pour commencer à utiliser le connecteur avec BlueXP.</block>
+  <block id="e23437eeb65551eb4b29d1358abc9577" category="paragraph">Comme le connecteur a été déployé dans une région du gouvernement, il n'est pas accessible à partir de<block ref="4d2f46e46f2e8a8f33bc708599ac780c" category="inline-link-rx"></block>.</block>
+  <block id="3a9d5bd356ec8e4fc31c11150128b7ac" category="list-text">Ouvrez un navigateur Web et accédez au<block ref="a47e12f4350b725a128875f50f785a3b" category="inline-link-rx"></block></block>
+  <block id="c82f9c99ecc4a0e28a5ffb0460ebfe3a" category="paragraph">Si le connecteur se trouve dans une région commerciale d'Azure, ouvrez un navigateur Web et rendez-vous sur<block ref="4d2f46e46f2e8a8f33bc708599ac780c" category="inline-link-rx"></block> Pour commencer à utiliser le connecteur avec BlueXP.</block>
+  <block id="d926c3415252261ac99f0db859a4d7b3" category="list-text">En haut de<block ref="aee4448e61ada2b661b72a7b3097a0e5" category="inline-link-rx"></block>, Cliquez sur le menu déroulant *compte*.</block>
+  <block id="ea9ad4803fb503de0112b065d0f6d701" category="list-text">En haut de<block ref="aee4448e61ada2b661b72a7b3097a0e5" category="inline-link-rx"></block>, Cliquez sur le menu déroulant *compte* et cliquez sur *gérer compte*.</block>
+  <block id="5bdc787be44f3f39a2c12fd479233dd0" category="paragraph">Pendant que vous devriez effectuer presque toutes les tâches à partir du<block ref="aa5e73b15e0c62682878b20d8949bc7d" category="inline-link-rx"></block>, Une interface utilisateur locale est toujours disponible sur le connecteur. Cette interface est nécessaire si vous installez le connecteur dans un environnement qui n'a pas accès à Internet (comme une région du gouvernement), et pour quelques tâches qui doivent être effectuées à partir du connecteur lui-même, au lieu de l'interface SaaS :</block>
+  <block id="83ec139c80a3d5b2f11f1a94eed47cd2" category="section-title">4 décembre 2022</block>
+  <block id="9a37fbeb5352e14f2a53fe349c60ad58" category="section-title">Connecteur 3.9.24</block>
+  <block id="609db1dbd04bb2ee742cb4078546018c" category="list-text">Nous avons mis à jour l'URL de la console BlueXP vers<block ref="d4d03fd3c2a1ab003ebd5cf52ee8df58" category="inline-link-rx"></block></block>
+  <block id="4a11791a9bd4070a9cb5e2e709d06351" category="list-text">Le connecteur est désormais pris en charge dans la région de Google Cloud Israël.</block>
+  <block id="242cf97b6ce4408dde25722d6b0e37f9" category="list-text"><block ref="242cf97b6ce4408dde25722d6b0e37f9" category="inline-link-rx"></block></block>
+  <block id="4703fae8488338a7ad69a5cd4347caf3" category="list-text"><block ref="4703fae8488338a7ad69a5cd4347caf3" category="inline-link-rx"></block></block>
 </blocks>

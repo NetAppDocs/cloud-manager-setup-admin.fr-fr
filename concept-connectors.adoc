@@ -219,7 +219,7 @@ link:task-managing-connectors.html["Apprenez à passer d'un connecteur à un aut
 
 == Interface utilisateur locale
 
-Pendant que vous devriez effectuer presque toutes les tâches à partir du https://cloudmanager.netapp.com["Interface utilisateur SaaS"^], Une interface utilisateur locale est toujours disponible sur le connecteur. Cette interface est nécessaire si vous installez le connecteur dans un environnement qui n'a pas accès à Internet (comme une région du gouvernement), et pour quelques tâches qui doivent être effectuées à partir du connecteur lui-même, au lieu de l'interface SaaS :
+Pendant que vous devriez effectuer presque toutes les tâches à partir du https://console.bluexp.netapp.com["Interface utilisateur SaaS"^], Une interface utilisateur locale est toujours disponible sur le connecteur. Cette interface est nécessaire si vous installez le connecteur dans un environnement qui n'a pas accès à Internet (comme une région du gouvernement), et pour quelques tâches qui doivent être effectuées à partir du connecteur lui-même, au lieu de l'interface SaaS :
 
 * link:task-configuring-proxy.html["Configuration d'un serveur proxy"]
 * Installation d'un correctif (en général, vous travaillerez avec le personnel NetApp pour installer un correctif)
