@@ -64,6 +64,7 @@ image:screenshot_associate_user.gif["Capture d'écran qui montre comment associe
 . Cliquez sur *associé*.
 
 
+.Résultat
 L'utilisateur doit recevoir un e-mail de NetApp BlueXP intitulé « Account Association ». L'e-mail inclut les informations nécessaires pour accéder à BlueXP.
 
 
@@ -84,11 +85,12 @@ image:screenshot_associate_user_workspace.png["Capture d'écran qui montre le me
 . Cliquez sur *Disassocier utilisateur* et cliquez sur *Disassocier* pour confirmer.
 
 
+.Résultat
 L'utilisateur ne peut plus accéder aux ressources de ce compte NetApp.
 
 
 
-=== Gestion des espaces de travail d'un Workspace Admin
+=== Gestion des espaces de travail d'un administrateur d'espace de travail
 
 Vous pouvez associer et dissocier les administrateurs d'espace de travail avec des espaces de travail à tout moment. L'association de l'utilisateur lui permet de créer et d'afficher les environnements de travail dans cet espace de travail.
 
@@ -105,6 +107,7 @@ image:screenshot_associate_user_workspace.png["Capture d'écran qui montre le me
 . Sélectionnez les espaces de travail à associer à l'utilisateur et cliquez sur *appliquer*.
 
 
+.Résultat
 L'utilisateur peut désormais accéder à ces espaces de travail depuis BlueXP, tant que le connecteur était également associé aux espaces de travail.
 
 

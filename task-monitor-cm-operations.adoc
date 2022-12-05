@@ -50,7 +50,7 @@ Vous pouvez afficher les notifications en cliquant sur le signal sonore de notif
 
 image:screenshot_notification_full.png["Capture d'écran affichant la liste des notifications en cours dans le Centre de notification."]
 
-Vous pouvez également configurer BlueXP pour envoyer des notifications par e-mail afin de vous informer de l'activité système importante, même lorsque vous n'êtes pas connecté au système. Des e-mails sont envoyés à tous les utilisateurs qui font partie de votre compte cloud NetApp ou à tout autre destinataire ayant besoin de connaître certains types d'activité système. Voir  email notification settings,Définition des paramètres de notification par e-mail ci-dessous.
+Vous pouvez également configurer BlueXP pour envoyer des notifications par e-mail afin de vous informer de l'activité système importante, même lorsque vous n'êtes pas connecté au système. Des e-mails sont envoyés à tous les utilisateurs qui font partie de votre compte cloud NetApp ou à tout autre destinataire ayant besoin de connaître certains types d'activité système. Voir <<Définition des paramètres de notification par e-mail,Définition des paramètres de notification par e-mail>> ci-dessous.
 
 
 
@@ -160,4 +160,5 @@ La vérification de la chronologie peut être utile si vous devez identifier qui
 . Sous filtres, cliquez sur *Service*, activez *Tenancy* et cliquez sur *appliquer*.
 
 
+.Résultat
 La chronologie est mise à jour pour vous montrer les actions de gestion de compte.

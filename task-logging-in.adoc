@@ -18,6 +18,7 @@ BlueXP est accessible depuis votre navigateur Web via une interface utilisateur 
 
 Si vous accédez à BlueXP à partir d'une région gouvernementale ou d'un site qui n'a pas d'accès Internet sortant, vous devez vous connecter à l'interface utilisateur BlueXP qui fonctionne localement sur le connecteur. link:task-managing-connectors.html#access-the-local-ui["Découvrez comment accéder à l'interface utilisateur locale sur le connecteur"].
 
+.Options de connexion
 Vous pouvez vous connecter à BlueXP à l'aide de l'une des options suivantes :
 
 * Vos identifiants existants du site de support NetApp (NSS)
@@ -59,4 +60,5 @@ Vous recevrez ensuite un e-mail de NetApp. Cliquez sur le lien dans l'e-mail pou
 
 
 
+.Résultat
 Vous êtes maintenant connecté et pouvez commencer à utiliser BlueXP pour gérer votre infrastructure multicloud hybride.

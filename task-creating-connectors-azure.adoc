@@ -30,11 +30,11 @@ Vous avez deux options :
 
 . Connectez-vous avec votre compte Microsoft lorsque vous y êtes invité. Ce compte doit disposer d'autorisations Azure spécifiques. Il s'agit de l'option par défaut.
 +
- a Connector using your Azure account,Suivez les étapes ci-dessous pour commencer.
+<<Créez un connecteur à l'aide de votre compte Azure,Suivez les étapes ci-dessous pour commencer>>.
 
 . Fournir des détails sur une entité principale de service Azure AD. Ce service principal nécessite également des autorisations spécifiques.
 +
- a Connector using a service principal,Suivez les étapes ci-dessous pour commencer.
+<<Créer un connecteur à l'aide d'un entité de service,Suivez les étapes ci-dessous pour commencer>>.
 
 
 
@@ -256,6 +256,7 @@ NOTE: Azure SetupAsService est le nom par défaut fourni dans la stratégie de d
 
 
 
+.Résultat
 L'utilisateur Azure dispose désormais des autorisations nécessaires pour déployer le connecteur depuis BlueXP.
 
 
@@ -264,7 +265,7 @@ L'utilisateur Azure dispose désormais des autorisations nécessaires pour dépl
 
 BlueXP vous permet de créer un connecteur dans Azure directement à partir de son interface utilisateur.
 
-.Ce dont vous avez besoin, 8217;ll
+.Ce dont vous avez besoin
 * Un abonnement Azure.
 * Un vnet et un sous-réseau dans votre région Azure de votre choix.
 * Si vous ne souhaitez pas que BlueXP crée automatiquement un rôle Azure pour le connecteur, vous devrez créer votre propre rôle link:reference-permissions-azure.html["utilisation de la stratégie sur cette page"].
@@ -311,6 +312,7 @@ La machine virtuelle doit être prête en 7 minutes environ. Vous devez rester s
 
 
 
+.Une fois que vous avez terminé
 Vous devez associer un connecteur aux espaces de travail pour que les administrateurs d'espace de travail puissent utiliser ces connecteurs pour créer des systèmes Cloud Volumes ONTAP. Si vous ne disposez que d'administrateurs de compte, il n'est pas nécessaire d'associer le connecteur aux espaces de travail. Les administrateurs de comptes peuvent accéder à tous les espaces de travail dans BlueXP par défaut. link:task-setting-up-netapp-accounts.html#associating-connectors-with-workspaces["En savoir plus >>"].
 
 Si vous disposez d'un stockage Azure Blob dans le même compte Azure que celui sur lequel vous avez créé le connecteur, un environnement de travail Azure Blob s'affiche automatiquement sur la toile. link:task-viewing-azure-blob.html["Découvrez ce que vous pouvez faire dans cet environnement de travail"].
@@ -328,11 +330,11 @@ Au lieu de vous connecter avec votre compte Azure, vous avez également la possi
 Accordez les autorisations requises pour déployer un connecteur dans Azure en créant et en configurant un service principal dans Azure Active Directory et en obtenant les informations d'identification Azure requises par BlueXP.
 
 .Étapes
-.  an Azure Active Directory application.
-.  the application to a role.
-.  Windows Azure Service Management API permissions.
-.  the application ID and directory ID.
-.  a client secret.
+. <<Créez une application Azure Active Directory>>.
+. <<Attribuez l'application à un rôle>>.
+. <<Ajoutez des autorisations d'API de gestion de service Windows Azure>>.
+. <<Obtenir l'ID de l'application et l'ID du répertoire>>.
+. <<Créez un secret client>>.
 
 
 
@@ -341,6 +343,7 @@ Accordez les autorisations requises pour déployer un connecteur dans Azure en c
 
 Créez une application et une entité de service Azure Active Directory (AD) que BlueXP peut utiliser pour déployer le connecteur.
 
+.Avant de commencer
 Vous devez disposer des droits d'accès dans Azure pour créer une application Active Directory et attribuer l'application à un rôle. Pour plus de détails, reportez-vous à https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions/["Documentation Microsoft Azure : autorisations requises"^].
 
 .Étapes
@@ -360,6 +363,7 @@ image:screenshot_azure_ad.gif["Affiche le service Active Directory dans Microsof
 . Cliquez sur *Enregistrer*.
 
 
+.Résultat
 Vous avez créé l'application AD et le principal de service.
 
 
@@ -558,6 +562,7 @@ image:screenshot_azure_client_secret.gif["Copie d'écran du portail Azure prése
 
 
 
+.Résultat
 Votre principal de service est maintenant configuré et vous devez avoir copié l'ID de l'application (client), l'ID du répertoire (tenant) et la valeur du secret client. Vous devez saisir ces informations dans BlueXP lorsque vous créez le connecteur.
 
 
@@ -566,7 +571,7 @@ Votre principal de service est maintenant configuré et vous devez avoir copié 
 
 BlueXP vous permet de créer un connecteur dans Azure directement à partir de son interface utilisateur.
 
-.Ce dont vous avez besoin, 8217;ll
+.Ce dont vous avez besoin
 * Un abonnement Azure.
 * Un vnet et un sous-réseau dans votre région Azure de votre choix.
 * Détails sur un proxy HTTP, si votre organisation nécessite un proxy pour tout le trafic Internet sortant :
@@ -592,9 +597,9 @@ image:screenshot_connector_add.gif["Capture d'écran affichant l'icône du conne
 +
 .. Sous *Authentication*, cliquez sur *Active Directory Service principal* et entrez des informations sur le principal du service Azure Active Directory qui accorde les autorisations requises :
 +
-*** ID de l'application (client) : voir  the application ID and directory ID.
-*** ID de répertoire (locataire) : voir  the application ID and directory ID.
-*** Secret client : voir  a client secret.
+*** ID de l'application (client) : voir <<Obtenir l'ID de l'application et l'ID du répertoire>>.
+*** ID de répertoire (locataire) : voir <<Obtenir l'ID de l'application et l'ID du répertoire>>.
+*** Secret client : voir <<Créez un secret client>>.
 
 
 .. Cliquez sur *connexion*.
@@ -624,6 +629,7 @@ La machine virtuelle doit être prête en 7 minutes environ. Vous devez rester s
 
 
 
+.Une fois que vous avez terminé
 Vous devez associer un connecteur aux espaces de travail pour que les administrateurs d'espace de travail puissent utiliser ces connecteurs pour créer des systèmes Cloud Volumes ONTAP. Si vous ne disposez que d'administrateurs de compte, il n'est pas nécessaire d'associer le connecteur aux espaces de travail. Les administrateurs de comptes peuvent accéder à tous les espaces de travail dans BlueXP par défaut. link:task-setting-up-netapp-accounts.html#associating-connectors-with-workspaces["En savoir plus >>"].
 
 Si vous disposez d'un stockage Azure Blob dans le même compte Azure que celui sur lequel vous avez créé le connecteur, un environnement de travail Azure Blob s'affiche automatiquement sur la toile. link:task-viewing-azure-blob.html["Découvrez ce que vous pouvez faire dans cet environnement de travail"].

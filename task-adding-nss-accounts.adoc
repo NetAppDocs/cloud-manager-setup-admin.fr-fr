@@ -64,6 +64,7 @@ image:https://raw.githubusercontent.com/NetAppDocs/cloud-manager-family/main/med
 
 
 
+.Résultat
 BlueXP met à jour le compte NSS associé à Digital Advisor.
 
 
@@ -101,6 +102,7 @@ Notez ce qui suit :
 
 
 
+.Et la suite ?
 Les utilisateurs peuvent désormais sélectionner le compte lors de la création de nouveaux systèmes Cloud Volumes ONTAP, lors de l'enregistrement des systèmes Cloud Volumes ONTAP existants et lors de l'inscription au support.
 
 * https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-deploying-otc-aws.html["Lancement d'Cloud Volumes ONTAP dans AWS"^]
@@ -131,7 +133,7 @@ NetApp utilise Microsoft Azure Active Directory comme fournisseur d'identités p
 +
 Une fois le processus terminé, le compte que vous avez mis à jour doit maintenant être répertorié comme un _nouveau_ compte dans la table. La _vieille_ version du compte est toujours répertoriée dans le tableau, ainsi que toutes les associations d'environnement de travail existantes.
 
-. Si des environnements de travail Cloud Volumes ONTAP existants sont associés à l'ancienne version du compte, suivez les étapes ci-dessous à  a working environment to a different NSS account,Reliez ces environnements de travail à un autre compte NSS.
+. Si des environnements de travail Cloud Volumes ONTAP existants sont associés à l'ancienne version du compte, suivez les étapes ci-dessous à <<Associez un environnement de travail à un autre compte NSS,Reliez ces environnements de travail à un autre compte NSS>>.
 . Accédez à l'ancienne version du compte NSS, cliquez sur image:icon-action.png["Icône représentant trois points côte à côte"] Puis sélectionnez *Supprimer*.
 
 
@@ -201,6 +203,7 @@ image:screenshot-nss-display-email.png["Capture d'écran présentant le menu d'a
 
 
 
+.Résultat
 BlueXP affiche le nom d'utilisateur du site de support NetApp ainsi que l'adresse e-mail associée. Vous pouvez utiliser le bouton Copier pour copier l'adresse e-mail.
 
 
@@ -209,7 +212,7 @@ BlueXP affiche le nom d'utilisateur du site de support NetApp ainsi que l'adress
 
 Supprimez tous les comptes NSS que vous ne souhaitez plus utiliser avec BlueXP.
 
-Notez que vous ne pouvez pas supprimer un compte actuellement associé à un environnement de travail Cloud Volumes ONTAP. Vous devez d'abord  a working environment to a different NSS account,Reliez ces environnements de travail à un autre compte NSS.
+Notez que vous ne pouvez pas supprimer un compte actuellement associé à un environnement de travail Cloud Volumes ONTAP. Vous devez d'abord <<Associez un environnement de travail à un autre compte NSS,Reliez ces environnements de travail à un autre compte NSS>>.
 
 .Étapes
 . Dans le coin supérieur droit de la console BlueXP, cliquez sur l'icône aide et sélectionnez *support*.

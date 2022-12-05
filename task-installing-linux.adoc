@@ -82,6 +82,7 @@ L'hôte peut essayer de mettre à jour les packages du système d'exploitation l
 
 Après avoir vérifié que vous disposez d'un hôte Linux pris en charge, vous pouvez obtenir le logiciel Connector, puis l'installer.
 
+.Privilèges requis
 Les privilèges root sont requis pour installer le connecteur.
 
 .Description de la tâche
@@ -151,8 +152,10 @@ image:screenshot_set_up_cloud_manager.gif["Copie d'écran affichant l'écran de 
 
 
 
+.Résultat
 Le connecteur est désormais installé et configuré avec votre compte NetApp. BlueXP utilisera automatiquement ce connecteur lorsque vous créez de nouveaux environnements de travail.
 
+.Une fois que vous avez terminé
 Configurez des autorisations pour que BlueXP puisse gérer les ressources et les processus au sein de votre environnement de cloud public :
 
 * AWS : link:task-adding-aws-accounts.html["Configurez un compte AWS, puis ajoutez-le à BlueXP"]

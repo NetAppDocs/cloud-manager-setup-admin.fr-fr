@@ -24,11 +24,11 @@ Vous pouvez ajouter des informations d'identification AWS à un connecteur exist
 
 * Ajoutez des identifiants AWS supplémentaires à un connecteur existant
 +
-L'ajout d'identifiants AWS à un connecteur existant offre les autorisations nécessaires pour gérer les ressources et les processus au sein de votre environnement de cloud public.  credentials to a Connector,Découvrez comment ajouter des identifiants AWS à un connecteur.
+L'ajout d'identifiants AWS à un connecteur existant offre les autorisations nécessaires pour gérer les ressources et les processus au sein de votre environnement de cloud public. <<Ajouter des informations d'identification à un connecteur,Découvrez comment ajouter des identifiants AWS à un connecteur>>.
 
 * Ajoutez des informations d'identification AWS à BlueXP pour créer un connecteur
 +
-L'ajout de nouvelles informations d'identification AWS à BlueXP offre à BlueXP les autorisations nécessaires pour créer un connecteur.  credentials to BlueXP for creating a Connector,Découvrez comment ajouter des identifiants AWS à BlueXP.
+L'ajout de nouvelles informations d'identification AWS à BlueXP offre à BlueXP les autorisations nécessaires pour créer un connecteur. <<Ajoutez des informations d'identification à BlueXP pour créer un connecteur,Découvrez comment ajouter des identifiants AWS à BlueXP>>.
 
 * Ajoutez des informations d'identification AWS à BlueXP pour FSX pour ONTAP
 +
@@ -63,8 +63,8 @@ NOTE: Si vous avez déployé un connecteur depuis BlueXP, BlueXP a automatiqueme
 
 *Choix*
 
-*  permissions by assuming an IAM role in another account
-*  permissions by providing AWS keys
+* <<Accorder des autorisations en assumant un rôle IAM dans un autre compte>>
+* <<Accordez des autorisations en fournissant des clés AWS>>
 
 
 
@@ -88,7 +88,8 @@ Assurez-vous de faire ce qui suit :
 . Copiez le rôle ARN du rôle IAM afin de pouvoir le coller ultérieurement dans BlueXP.
 
 
-Le compte dispose désormais des autorisations requises. ,Vous pouvez désormais ajouter les informations d'identification à un connecteur.
+.Résultat
+Le compte dispose désormais des autorisations requises. <<add-the-credentials,Vous pouvez désormais ajouter les informations d'identification à un connecteur>>.
 
 
 
@@ -109,7 +110,8 @@ https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html["Do
 
 
 
-Le compte dispose désormais des autorisations requises. ,Vous pouvez désormais ajouter les informations d'identification à un connecteur.
+.Résultat
+Le compte dispose désormais des autorisations requises. <<add-the-credentials,Vous pouvez désormais ajouter les informations d'identification à un connecteur>>.
 
 
 
@@ -117,6 +119,7 @@ Le compte dispose désormais des autorisations requises. ,Vous pouvez désormais
 
 Une fois que vous avez passé un compte AWS avec les autorisations requises, vous pouvez ajouter les identifiants de ce compte à un connecteur existant. Cela vous permet de lancer des systèmes Cloud Volumes ONTAP dans ce compte à l'aide du même connecteur.
 
+.Avant de commencer
 Si vous venez de créer ces identifiants dans votre fournisseur cloud, il vous faudra quelques minutes pour les utiliser. Attendez quelques minutes avant d'ajouter les informations d'identification à BlueXP.
 
 .Étapes
@@ -138,6 +141,7 @@ Pour payer Cloud Volumes ONTAP à l'heure (PAYGO) ou par un contrat annuel, vous
 
 
 
+.Résultat
 Vous pouvez maintenant passer à un autre ensemble d'informations d'identification à partir de la page Détails et informations d'identification lors de la création d'un nouvel environnement de travail :
 
 image:screenshot_accounts_switch_aws.png["Capture d'écran indiquant la sélection entre les comptes fournisseurs de services cloud après avoir cliqué sur changer de compte dans la page Détails etamp ; informations d'identification."]
@@ -174,7 +178,8 @@ Assurez-vous de faire ce qui suit :
 . Copiez le rôle ARN du rôle IAM afin de pouvoir le coller dans BlueXP à l'étape suivante.
 
 
-Le rôle IAM dispose désormais des autorisations requises. ,Vous pouvez maintenant l'ajouter à BlueXP.
+.Résultat
+Le rôle IAM dispose désormais des autorisations requises. <<add-the-credentials-2,Vous pouvez maintenant l'ajouter à BlueXP>>.
 
 
 
@@ -182,6 +187,7 @@ Le rôle IAM dispose désormais des autorisations requises. ,Vous pouvez mainten
 
 Une fois que vous avez autorisé le rôle IAM, ajoutez le rôle ARN à BlueXP.
 
+.Avant de commencer
 Si vous venez de créer le rôle IAM, l'utilisation peut prendre quelques minutes. Attendez quelques minutes avant d'ajouter les informations d'identification à BlueXP.
 
 .Étapes
@@ -198,6 +204,7 @@ image:screenshot_settings_icon.gif["Capture d'écran affichant l'icône Paramèt
 
 
 
+.Résultat
 Vous pouvez maintenant utiliser les informations d'identification lors de la création d'un nouveau connecteur.
 
 
@@ -212,6 +219,7 @@ Deux scénarios peuvent vous être associés à un abonnement AWS Marketplace un
 * Vous souhaitez remplacer un abonnement AWS Marketplace existant par un nouvel abonnement.
 
 
+.Ce dont vous avez besoin
 Vous devez créer un connecteur avant de pouvoir modifier les paramètres BlueXP. link:concept-connectors.html#how-to-create-a-connector["Apprenez à créer un connecteur"].
 
 .Étapes

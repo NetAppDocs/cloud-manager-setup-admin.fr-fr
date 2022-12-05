@@ -217,7 +217,6 @@
   <block id="62d4c1187f5c26c9b533034e1decce4b" category="list-text">Allez à BlueXP et ouvrez l'environnement de travail.</block>
   <block id="1962304593497a2b02537345ac7be337" category="list-text">Cliquez sur le menu et sélectionnez *Avancé &gt; sauvegarde de la configuration*.</block>
   <block id="b30f3d123c465c70e2c71150136ed92d" category="list-text">Cliquez sur *définir la cible de sauvegarde*.</block>
-  <block id="0e4dffadcdac4ac871fee08c9b43fc4e" category="section-title">Modifier les URI d'un connecteur</block>
   <block id="e2729464f9bccb35f8d10ba5019f3955" category="paragraph">Ajouter et supprimer les URI d'un connecteur.</block>
   <block id="f59199a4e91ea99e7e6961a3fb8c39ad" category="list-text">Cliquez sur la liste déroulante *Connector* dans l'en-tête BlueXP.</block>
   <block id="5e6a0548d1a9b870a897fd2b63da39c6" category="list-text">Cliquez sur *gérer les connecteurs*.</block>
@@ -572,7 +571,6 @@
   <block id="82538689c7a66297973814120306d42f" category="section-title">Seul un serveur proxy HTTP est pris en charge</block>
   <block id="d4150be963d8e8a8648985d057b82c98" category="paragraph">Si vos stratégies d'entreprise nécessitent l'utilisation d'un serveur proxy pour toutes les communications HTTP vers Internet, vous devez configurer vos connecteurs pour utiliser ce serveur proxy HTTP. Le serveur proxy peut se trouver dans le cloud ou dans votre réseau.</block>
   <block id="2b82837bf5cef64e65d0df717eafd918" category="paragraph">BlueXP ne prend pas en charge l'utilisation d'un proxy HTTPS avec le connecteur.</block>
-  <block id="e65172f12d5a004e18b6be974b9871c6" category="section-title">Le décryptage SSL n'est pas pris en charge</block>
   <block id="5f06d23f83d6190c4d06ff980526b619" category="paragraph">BlueXP ne prend pas en charge les configurations de pare-feu pour lesquelles le décryptage SSL est activé. Si le décryptage SSL est activé, des messages d'erreur apparaissent dans BlueXP et l'instance de connecteur s'affiche comme inactive.</block>
   <block id="7bd92bd111bfbf23b12f73672eb0dd1c" category="inline-link-macro">Installation d'un certificat HTTPS signé par une autorité de certification (CA)</block>
   <block id="c3ce271d53cbf6a7afd137a37f4ee8d6" category="paragraph">Pour une sécurité améliorée, vous avez la possibilité de <block ref="11df3d19916b70ba1d82d33e876689bc" category="inline-link-macro-rx"></block>.</block>
@@ -1113,7 +1111,6 @@
   <block id="7d033896524ebe16495f74d9f7202783" category="paragraph"><block ref="cf2050a2914e59a752ab48465ba00e16" category="inline-link-macro-rx"></block>.</block>
   <block id="33e248648a845f8d6e538dfb02e4620f" category="list-text">Cliquez sur *gérer les espaces de travail* pour le connecteur que vous souhaitez associer.</block>
   <block id="211c1a963db0ec4433679bba9d1a1973" category="paragraph">Les administrateurs d'espace de travail peuvent désormais utiliser ces connecteurs pour créer des systèmes Cloud Volumes ONTAP.</block>
-  <block id="3f297ef15cde0668e93b35f2752fd4fd" category="section-title">Et la suite ?</block>
   <block id="a85cd5dda897ee694c0a8a7ebe893293" category="inline-link-macro">Découvrez comment gérer votre compte</block>
   <block id="e93366502d593964f54fa78a54256cef" category="paragraph">Maintenant que vous avez configuré votre compte, vous pouvez le gérer à tout moment en supprimant des utilisateurs, en gérant des espaces de travail, des connecteurs et des abonnements. <block ref="4b4f4de61b1c0103e06c096d3b330838" category="inline-link-macro-rx"></block>.</block>
   <block id="efd9710de9c698fbbeb7b7b11597f70b" category="summary">Une fois que vous avez installé un connecteur dans AWS, BlueXP peut détecter automatiquement les informations relatives aux compartiments Amazon S3 qui résident dans le compte AWS où le connecteur est installé. Un environnement de travail Amazon S3 est ajouté à Canvas pour que vous puissiez visualiser ces informations.</block>
@@ -1160,7 +1157,6 @@
   <block id="7d47c08c62bfd8717441ac37ee9dae9d" category="admonition">Lorsque vous créez votre premier environnement de travail Cloud Volumes ONTAP, BlueXP vous invite à créer un connecteur si vous n'en avez pas encore.</block>
   <block id="06ad314b340900d226b1196e1fe289e9" category="section-title">Démarrage rapide</block>
   <block id="91e06e9a9ef97681b798e2e5e007ba97" category="paragraph">Pour commencer rapidement, suivez ces étapes ou faites défiler jusqu'aux sections restantes pour obtenir de plus amples informations.</block>
-  <block id="2e984b55a3264399d03f7fc4df06df78" category="list-title">&lt;span class=« image »&gt;&lt;img src=<block ref="0c3becc25d95e48b9ca863002a042824" category="inline-link-rx"></block> alt=« one »&gt;&lt;/span&gt; définissez les autorisations</block>
   <block id="a4359ad4c0ffb5518aa6c64f29f02b5b" category="list-text">Assurez-vous que votre compte Google Cloud dispose des autorisations appropriées en créant et en attachant un rôle personnalisé.</block>
   <block id="6e1d3688abed116ca1fcde1dce3ec4f4" category="paragraph"><block ref="68a9c9d924aeef1d7ada39f0d3540b49" category="inline-xref-macro-rx"></block>.</block>
   <block id="f3644ee5935c45fc9eda641aff25c872" category="list-text">Lorsque vous créez la machine virtuelle Connector, vous devez l'associer à un compte de service. Ce compte de service doit avoir un rôle personnalisé qui dispose d'autorisations pour gérer des ressources dans Google Cloud.</block>
@@ -1170,7 +1166,6 @@
   <block id="3d19b00e58ef1af50dd7a50cb57d2a9b" category="paragraph">Vous avez besoin d'un VPC et d'un sous-réseau avec un accès Internet sortant à des terminaux spécifiques. Si un proxy HTTP est requis pour l'Internet sortant, vous aurez besoin de l'adresse IP, des identifiants et du certificat HTTPS.</block>
   <block id="0adaf59e592ea102330ecf66723d01c0" category="inline-xref">Afficher les besoins en matière de mise en réseau</block>
   <block id="e18d3aaf46d9323ec3d44fd9d3878734" category="paragraph"><block ref="77e8c70950b7db505fe53c4bcd55f41a" category="inline-xref-macro-rx"></block>.</block>
-  <block id="ecd9b46cc61d7175d5da2c42f7b70152" category="list-title">&lt;span class=« image »&gt;&lt;img src=<block ref="ddd753dc2858fe3a5582f20b300a0541" category="inline-link-rx"></block> alt=« trois »&gt;&lt;/span&gt; Activer les API Google Cloud</block>
   <block id="d82c8fcef9b6dd8fb6808c96dcbc5bb5" category="list-text">API Cloud Deployment Manager V2</block>
   <block id="1439ef482dee1b1e4b2daac93de36c44" category="list-text">API de journalisation cloud</block>
   <block id="9e636409b20980fb5089c87705851b4d" category="list-text">API Cloud Resource Manager</block>
@@ -1684,7 +1679,6 @@
   <block id="660b1fe0314b1f04b1a5427df89916e5" category="paragraph">En effet, la dissociation permet d'interdire l'accès aux ressources d'un compte NetApp.</block>
   <block id="6bd6a4807d0f305654a405a52bb8f189" category="list-text">Cliquez sur *Disassocier utilisateur* et cliquez sur *Disassocier* pour confirmer.</block>
   <block id="7892544a93f2a4d39f1ef832ba4d1eff" category="paragraph">L'utilisateur ne peut plus accéder aux ressources de ce compte NetApp.</block>
-  <block id="c467a2567dd5be7e777708d1616b892d" category="section-title">Gestion des espaces de travail d'un Workspace Admin</block>
   <block id="8ecff25aa4ee2497099b60f83bd4dde7" category="paragraph">Vous pouvez associer et dissocier les administrateurs d'espace de travail avec des espaces de travail à tout moment. L'association de l'utilisateur lui permet de créer et d'afficher les environnements de travail dans cet espace de travail.</block>
   <block id="9c3fb861370470582b50839e482bd5f9" category="list-text">Sélectionnez les espaces de travail à associer à l'utilisateur et cliquez sur *appliquer*.</block>
   <block id="7ef475b3aa654a4c77b576b7b693b979" category="section-title">Création et gestion des comptes de service</block>
@@ -1724,7 +1718,6 @@
   <block id="e6b782b96ee9fd72a275037e1f900b6f" category="list-text">Cliquez sur *Ajouter un nouvel espace de travail* pour créer un nouvel espace de travail.</block>
   <block id="9606b9dd050f482ce022efaf9f3754c9" category="list-text">Cliquez sur *Renommer* pour renommer l'espace de travail.</block>
   <block id="ca4a2e09f147267af54ea5fd1d962c6a" category="list-text">Cliquez sur *Supprimer* pour supprimer l'espace de travail.</block>
-  <block id="3bf33688db3de262b29d7aef6461deb2" category="section-title">Gestion des espaces de travail d'un connecteur</block>
   <block id="e98ed4965158505163fc6b7ffa9ba9b0" category="paragraph">Vous devez associer le connecteur aux espaces de travail pour que les administrateurs d'espace de travail puissent accéder à ces espaces de travail depuis BlueXP.</block>
   <block id="cda68882da0fbacdfcd7b3b52e15c47f" category="list-text">Sélectionnez les espaces de travail à associer au connecteur et cliquez sur *appliquer*.</block>
   <block id="95a0841b9a7d083d0e92b10bbb2d9538" category="section-title">Gestion des abonnements</block>
@@ -2206,7 +2199,6 @@
   <block id="f6d4189bf00021bb75f4f2f5b11507bf" category="paragraph">L'utilisateur Azure dispose désormais des autorisations nécessaires pour déployer le connecteur depuis BlueXP.</block>
   <block id="d1935eb90cca6ebd3015d6f8e86defe1" category="section-title">Créez le connecteur en vous connectant avec votre compte Azure</block>
   <block id="6fa0787ae77e9d276706e7cfe71c89b0" category="paragraph">BlueXP vous permet de créer un connecteur dans Azure directement à partir de son interface utilisateur.</block>
-  <block id="a711863513c11f3a6d86294acc7be0ba" category="list-title">Ce dont vous avez besoin, 8217;ll</block>
   <block id="cec61994be2c9633fc4acb202e4b9c41" category="list-text">Un abonnement Azure.</block>
   <block id="3c8e2502b00949bb2ead22830ddfa05d" category="list-text">Un vnet et un sous-réseau dans votre région Azure de votre choix.</block>
   <block id="bc3d26f932a03033b70d3ed650139a18" category="inline-link-macro">utilisation de la stratégie sur cette page</block>
@@ -2685,7 +2677,6 @@
   <block id="b530111cab51b765877bc100b0a43e1f" category="list-text">*Revue* : consultez les détails, acceptez le contrat de licence, puis cliquez sur *configurer*.</block>
   <block id="d847fd38c43b77f685712342ed5f2a9a" category="list-text">Connectez-vous à BlueXP à l'aide de l'utilisateur admin que vous venez de créer.</block>
   <block id="5ded89bfcfe21d36760adef8e81a559d" category="paragraph">Le connecteur est maintenant installé et vous pouvez commencer à utiliser les fonctions BlueXP disponibles dans un déploiement de site sombre.</block>
-  <block id="7c3983f18df54b898b386f7cf4a7d05c" category="list-title">Que dois-je faire ?&amp;#8217;s ensuite ?</block>
   <block id="cc9787ce69467700348def59db8ff725" category="inline-link">Découvrez les clusters ONTAP sur site</block>
   <block id="533c556705825be9a1a97d191373f80f" category="list-text"><block ref="533c556705825be9a1a97d191373f80f" category="inline-link-rx"></block></block>
   <block id="8160a46a5d4541efd7702f3fa8a2ecad" category="inline-link">Réplication des données entre les clusters ONTAP sur site</block>
@@ -2807,4 +2798,25 @@
   <block id="115781a0043a85f8707c5c99fd02dc75" category="paragraph">\https://cloudmanager.cloud.netapp.com</block>
   <block id="23486ca53d499245ebae5460cf6d10ad" category="paragraph">Pour fournir des fonctions et des services SaaS dans BlueXP.</block>
   <block id="7eea1027ea51763c57b7b5965f1ba900" category="admonition">Le connecteur est en train de contacter « cloudmanager.cloud.netapp.com", mais il commencera à contacter « api.bluexp.netapp.com" » dans une prochaine version.</block>
+  <block id="ffe7522d9ea3d134eb0a945275d454d7" category="paragraph-title">Privilèges requis</block>
+  <block id="8eea62084ca7e541d918e823422bd82e" category="paragraph-title">Résultat</block>
+  <block id="bd965e38a0c9cf27aa1bde099308e23f" category="paragraph-title">Une fois que vous avez terminé</block>
+  <block id="d59db7846bd10b6d60d21543df9faa9e" category="list-title">Ce dont vous avez besoin</block>
+  <block id="135b308ed83c53f1516b7c754566d1c4" category="paragraph-title">Avant de commencer</block>
+  <block id="1bc21092e961975ea4123f4414693f69" category="section-title">Le décryptage SSL n'est pas pris en charge</block>
+  <block id="06c2cea18679d64399783748fa367bdd" category="inline-image-macro">Une seule</block>
+  <block id="38850c0d5ada5706d4546808821a96d1" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block> Configurez l'authentification</block>
+  <block id="aada29daee1d64ed0fe907043855cb7e" category="inline-image-macro">Deux</block>
+  <block id="0acd6f364c67bcef47587e5727525116" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block> Configurer la mise en réseau</block>
+  <block id="ca8a2087e5557e317599344687a57391" category="inline-image-macro">Trois</block>
+  <block id="aea46324800b152c6a50caff1d14e2fc" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block> Créer le connecteur</block>
+  <block id="58eaebf972358f1cf03d386a4ade1a0f" category="paragraph-title">Et la suite ?</block>
+  <block id="eb9bb09a006b6e7bcc7d0b9525344bcf" category="section-title">Modifier les URI d'un connecteur</block>
+  <block id="62804365dc8c62cf4546f894ddfc5e1c" category="list-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block> Configurez les autorisations</block>
+  <block id="b74f07963110d8742672d27a25bb3383" category="list-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block> Activez les API Google Cloud</block>
+  <block id="981b8fcee42e1e726a67a2b9a98ea6e9" category="inline-image-macro">Quatre</block>
+  <block id="3b9dafc67ff049020d09b9ebd18aaa5d" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block> Créer le connecteur</block>
+  <block id="5ccc745272c52ce1868d5bcf2b07705a" category="section-title">Gestion des espaces de travail d'un administrateur d'espace de travail</block>
+  <block id="1cf32fb78afaf111cd4c8421dc8592a6" category="section-title">Gestion des espaces de travail d'un connecteur</block>
+  <block id="c558073ec27a1686dce5ebbe5da43092" category="paragraph-title">Options de connexion</block>
 </blocks>

@@ -61,6 +61,7 @@ Moteur Docker:: Docker Engine version 19 ou ultérieure est requis sur l'hôte a
 
 Après avoir vérifié que vous disposez d'un hôte Linux pris en charge, vous pouvez obtenir le logiciel Connector, puis l'installer.
 
+.Privilèges requis
 Les privilèges root sont requis pour installer le connecteur.
 
 .Étapes
@@ -107,9 +108,10 @@ Ce compte utilisateur s'exécute localement sur le système. Il n'y a pas de con
 . Connectez-vous à BlueXP à l'aide de l'utilisateur admin que vous venez de créer.
 
 
+.Résultat
 Le connecteur est maintenant installé et vous pouvez commencer à utiliser les fonctions BlueXP disponibles dans un déploiement de site sombre.
 
-.Que dois-je faire ?&#8217;s ensuite ?
+.Et la suite ?
 * https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html["Découvrez les clusters ONTAP sur site"^]
 * https://docs.netapp.com/us-en/cloud-manager-replication/task-replicating-data.html["Réplication des données entre les clusters ONTAP sur site"^]
 * https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-private-cloud.html["Sauvegarde des données de volumes ONTAP sur site dans StorageGRID à l'aide de Cloud Backup"^]
