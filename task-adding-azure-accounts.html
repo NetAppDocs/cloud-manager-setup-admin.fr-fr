@@ -1416,7 +1416,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-11-17 05:12:42 +0000">11/17/2022</time>
+    <time datetime="2022-12-06 09:40:36 +0000">12/06/2022</time>
     
   
 
@@ -1453,6 +1453,7 @@
 <p>BlueXP vous permet de choisir les identifiants Azure et l&#8217;abonnement Azure dans lesquels vous souhaitez déployer Cloud Volumes ONTAP. Vous ne pouvez pas sélectionner un autre abonnement Azure pour le profil d&#8217;identité gérée à moins d&#8217;associer le <a href="https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview" target="_blank" rel="noopener">"identité gérée"</a> avec ces abonnements.</p>
 </div>
 <div class="paragraph">
+<div class="title">Description de la tâche</div>
 <p>Une identité gérée est <a href="concept-accounts-azure.html">"Compte Azure initial"</a> Lorsque vous déployez un connecteur depuis BlueXP. Lorsque vous avez déployé le connecteur, BlueXP a créé le rôle opérateur BlueXP et l&#8217;a affecté à la machine virtuelle Connector.</p>
 </div>
 <div class="olist arabic">
@@ -1511,6 +1512,7 @@ BlueXP Operator est le nom par défaut fourni dans la stratégie de connecteur. 
 </ol>
 </div>
 <div class="paragraph">
+<div class="title">Résultat</div>
 <p>Lorsque vous créez un nouvel environnement de travail, vous devriez désormais pouvoir sélectionner plusieurs abonnements Azure pour le profil d&#8217;identité géré.</p>
 </div>
 <div class="paragraph">
@@ -1545,6 +1547,7 @@ Un jeu initial d&#8217;informations d&#8217;identification n&#8217;est pas ajout
 <p>BlueXP a besoin d&#8217;autorisations pour effectuer des actions dans Azure. Vous pouvez accorder les autorisations requises à un compte Azure en créant et en configurant un service principal dans Azure Active Directory et en obtenant les informations d&#8217;identification Azure requises par BlueXP.</p>
 </div>
 <div class="paragraph">
+<div class="title">Description de la tâche</div>
 <p>L&#8217;image suivante décrit comment BlueXP obtient les autorisations pour effectuer des opérations dans Azure. Un objet principal de service, lié à un ou plusieurs abonnements Azure, représente BlueXP dans Azure Active Directory et est affecté à un rôle personnalisé qui autorise les autorisations requises.</p>
 </div>
 <div class="paragraph">
@@ -1554,19 +1557,19 @@ Un jeu initial d&#8217;informations d&#8217;identification n&#8217;est pas ajout
 <div class="title">Étapes</div>
 <ol class="arabic">
 <li>
-<p>an Azure Active Directory application,Créez une application Azure Active Directory.</p>
+<p><a href="Création d&.html#8217;une application Azure Active Directory">Créez une application Azure Active Directory</a>.</p>
 </li>
 <li>
-<p>the application to a role,Attribuez l&#8217;application à un rôle.</p>
+<p><a href="Affectation de l&.html#8217;application à un rôle">Attribuez l&#8217;application à un rôle</a>.</p>
 </li>
 <li>
-<p>Windows Azure Service Management API permissions,Ajoutez des autorisations d&#8217;API de gestion de service Windows Azure.</p>
+<p><a href="Ajout d&.html#8217;autorisations d&#8217;API de gestion des services Windows Azure">Ajoutez des autorisations d&#8217;API de gestion de service Windows Azure</a>.</p>
 </li>
 <li>
-<p>the application ID and directory ID,Obtenir l&#8217;ID de l&#8217;application et l&#8217;ID du répertoire.</p>
+<p><a href="Obtention de l&.html#8217;ID d&#8217;application et de l&#8217;ID de répertoire">Obtenir l&#8217;ID de l&#8217;application et l&#8217;ID du répertoire</a>.</p>
 </li>
 <li>
-<p>a client secret,Créez un secret client.</p>
+<p><a href="Création d&.html#8217;un secret client">Créez un secret client</a>.</p>
 </li>
 </ol>
 </div>
@@ -1576,6 +1579,7 @@ Un jeu initial d&#8217;informations d&#8217;identification n&#8217;est pas ajout
 <p>Créez une application et une entité de service Azure Active Directory (AD) que BlueXP peut utiliser pour le contrôle d&#8217;accès basé sur des rôles.</p>
 </div>
 <div class="paragraph">
+<div class="title">Avant de commencer</div>
 <p>Vous devez disposer des droits d&#8217;accès dans Azure pour créer une application Active Directory et attribuer l&#8217;application à un rôle. Pour plus de détails, reportez-vous à <a href="https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions/" target="_blank" rel="noopener">"Documentation Microsoft Azure : autorisations requises"</a>.</p>
 </div>
 <div class="olist arabic">
@@ -1615,6 +1619,7 @@ Un jeu initial d&#8217;informations d&#8217;identification n&#8217;est pas ajout
 </ol>
 </div>
 <div class="paragraph">
+<div class="title">Résultat</div>
 <p>Vous avez créé l&#8217;application AD et le principal de service.</p>
 </div>
 </div>
@@ -1830,6 +1835,7 @@ Un jeu initial d&#8217;informations d&#8217;identification n&#8217;est pas ajout
 </ol>
 </div>
 <div class="paragraph">
+<div class="title">Résultat</div>
 <p>Votre principal de service est maintenant configuré et vous devez avoir copié l&#8217;ID de l&#8217;application (client), l&#8217;ID du répertoire (tenant) et la valeur du secret client. Vous devez saisir ces informations dans BlueXP lorsque vous ajoutez un compte Azure.</p>
 </div>
 </div>
@@ -1840,9 +1846,11 @@ Un jeu initial d&#8217;informations d&#8217;identification n&#8217;est pas ajout
 <p>Une fois que vous avez mis à disposition un compte Azure avec les autorisations requises, vous pouvez ajouter les informations d&#8217;identification pour ce compte à BlueXP. Cette étape vous permet de lancer Cloud Volumes ONTAP à l&#8217;aide de différentes identifiants Azure.</p>
 </div>
 <div class="paragraph">
+<div class="title">Avant de commencer</div>
 <p>Si vous venez de créer ces identifiants dans votre fournisseur cloud, il vous faudra quelques minutes pour les utiliser. Attendez quelques minutes avant d&#8217;ajouter les informations d&#8217;identification à BlueXP.</p>
 </div>
 <div class="paragraph">
+<div class="title">Ce dont vous avez besoin</div>
 <p>Vous devez créer un connecteur avant de pouvoir modifier les paramètres BlueXP. <a href="concept-connectors.html#how-to-create-a-connector">"Découvrez comment"</a>.</p>
 </div>
 <div class="olist arabic">
@@ -1866,13 +1874,13 @@ Un jeu initial d&#8217;informations d&#8217;identification n&#8217;est pas ajout
 <div class="ulist">
 <ul>
 <li>
-<p>ID de l&#8217;application (client) : voir  the application ID and directory ID.</p>
+<p>ID de l&#8217;application (client) : voir <a href="Obtention de l&.html#8217;ID d&#8217;application et de l&#8217;ID de répertoire">Obtention de l&.html</a>.</p>
 </li>
 <li>
-<p>ID de répertoire (locataire) : voir  the application ID and directory ID.</p>
+<p>ID de répertoire (locataire) : voir <a href="Obtention de l&.html#8217;ID d&#8217;application et de l&#8217;ID de répertoire">Obtention de l&.html</a>.</p>
 </li>
 <li>
-<p>Secret client : voir  a client secret.</p>
+<p>Secret client : voir <a href="Création d&.html#8217;un secret client">Création d&.html</a>.</p>
 </li>
 </ul>
 </div>
@@ -1892,6 +1900,7 @@ Un jeu initial d&#8217;informations d&#8217;identification n&#8217;est pas ajout
 </ol>
 </div>
 <div class="paragraph">
+<div class="title">Résultat</div>
 <p>Vous pouvez maintenant passer à différents ensembles d&#8217;informations d&#8217;identification à partir de la page Détails et informations d&#8217;identification <a href="https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-deploying-otc-azure.html" target="_blank" rel="noopener">"lors de la création d&#8217;un nouvel environnement de travail"</a></p>
 </div>
 <div class="paragraph">
@@ -1925,6 +1934,7 @@ Un jeu initial d&#8217;informations d&#8217;identification n&#8217;est pas ajout
 </ul>
 </div>
 <div class="paragraph">
+<div class="title">Ce dont vous avez besoin</div>
 <p>Vous devez créer un connecteur avant de pouvoir modifier les paramètres BlueXP. <a href="concept-connectors.html#how-to-create-a-connector">"Découvrez comment"</a>.</p>
 </div>
 <div class="olist arabic">

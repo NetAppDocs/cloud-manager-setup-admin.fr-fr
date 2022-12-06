@@ -1416,7 +1416,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-12-05 22:29:27 +0000">12/05/2022</time>
+    <time datetime="2022-12-06 09:40:36 +0000">12/06/2022</time>
     
   
 
@@ -1452,18 +1452,14 @@
 <ol class="arabic">
 <li>
 <p>Connectez-vous avec votre compte Microsoft lorsque vous y êtes invité. Ce compte doit disposer d&#8217;autorisations Azure spécifiques. Il s&#8217;agit de l&#8217;option par défaut.</p>
-<div class="literalblock">
-<div class="content">
-<pre>a Connector using your Azure account,Suivez les étapes ci-dessous pour commencer.</pre>
-</div>
+<div class="paragraph">
+<p><a href="Créez un connecteur à l&.html#8217;aide de votre compte Azure">Suivez les étapes ci-dessous pour commencer</a>.</p>
 </div>
 </li>
 <li>
 <p>Fournir des détails sur une entité principale de service Azure AD. Ce service principal nécessite également des autorisations spécifiques.</p>
-<div class="literalblock">
-<div class="content">
-<pre>a Connector using a service principal,Suivez les étapes ci-dessous pour commencer.</pre>
-</div>
+<div class="paragraph">
+<p><a href="Créer un connecteur à l&.html#8217;aide d&#8217;un entité de service">Suivez les étapes ci-dessous pour commencer</a>.</p>
 </div>
 </li>
 </ol>
@@ -1778,6 +1774,7 @@ Azure SetupAsService est le nom par défaut fourni dans la stratégie de déploi
 </ol>
 </div>
 <div class="paragraph">
+<div class="title">Résultat</div>
 <p>L&#8217;utilisateur Azure dispose désormais des autorisations nécessaires pour déployer le connecteur depuis BlueXP.</p>
 </div>
 </div>
@@ -1787,7 +1784,7 @@ Azure SetupAsService est le nom par défaut fourni dans la stratégie de déploi
 <p>BlueXP vous permet de créer un connecteur dans Azure directement à partir de son interface utilisateur.</p>
 </div>
 <div class="ulist">
-<div class="title">Ce dont vous avez besoin, 8217;ll</div>
+<div class="title">Ce dont vous avez besoin</div>
 <ul>
 <li>
 <p>Un abonnement Azure.</p>
@@ -1884,6 +1881,7 @@ Si vous êtes déjà connecté à un compte Azure, BlueXP utilisera automatiquem
 </ol>
 </div>
 <div class="paragraph">
+<div class="title">Une fois que vous avez terminé</div>
 <p>Vous devez associer un connecteur aux espaces de travail pour que les administrateurs d&#8217;espace de travail puissent utiliser ces connecteurs pour créer des systèmes Cloud Volumes ONTAP. Si vous ne disposez que d&#8217;administrateurs de compte, il n&#8217;est pas nécessaire d&#8217;associer le connecteur aux espaces de travail. Les administrateurs de comptes peuvent accéder à tous les espaces de travail dans BlueXP par défaut. <a href="task-setting-up-netapp-accounts.html#associating-connectors-with-workspaces">"En savoir plus &gt;&gt;"</a>.</p>
 </div>
 <div class="paragraph">
@@ -1907,19 +1905,19 @@ Si vous êtes déjà connecté à un compte Azure, BlueXP utilisera automatiquem
 <div class="title">Étapes</div>
 <ol class="arabic">
 <li>
-<p>an Azure Active Directory application.</p>
+<p><a href="#créez-une-application-azure-active-directory">Créez une application Azure Active Directory</a>.</p>
 </li>
 <li>
-<p>the application to a role.</p>
+<p><a href="Attribuez l&.html#8217;application à un rôle">Attribuez l&.html</a>.</p>
 </li>
 <li>
-<p>Windows Azure Service Management API permissions.</p>
+<p><a href="Ajoutez des autorisations d&.html#8217;API de gestion de service Windows Azure">Ajoutez des autorisations d&.html</a>.</p>
 </li>
 <li>
-<p>the application ID and directory ID.</p>
+<p><a href="Obtenir l&.html#8217;ID de l&#8217;application et l&#8217;ID du répertoire">Obtenir l&.html</a>.</p>
 </li>
 <li>
-<p>a client secret.</p>
+<p><a href="#créez-un-secret-client">Créez un secret client</a>.</p>
 </li>
 </ol>
 </div>
@@ -1929,6 +1927,7 @@ Si vous êtes déjà connecté à un compte Azure, BlueXP utilisera automatiquem
 <p>Créez une application et une entité de service Azure Active Directory (AD) que BlueXP peut utiliser pour déployer le connecteur.</p>
 </div>
 <div class="paragraph">
+<div class="title">Avant de commencer</div>
 <p>Vous devez disposer des droits d&#8217;accès dans Azure pour créer une application Active Directory et attribuer l&#8217;application à un rôle. Pour plus de détails, reportez-vous à <a href="https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions/" target="_blank" rel="noopener">"Documentation Microsoft Azure : autorisations requises"</a>.</p>
 </div>
 <div class="olist arabic">
@@ -1968,6 +1967,7 @@ Si vous êtes déjà connecté à un compte Azure, BlueXP utilisera automatiquem
 </ol>
 </div>
 <div class="paragraph">
+<div class="title">Résultat</div>
 <p>Vous avez créé l&#8217;application AD et le principal de service.</p>
 </div>
 </div>
@@ -2254,6 +2254,7 @@ Cette politique contient uniquement les autorisations nécessaires pour lancer l
 </ol>
 </div>
 <div class="paragraph">
+<div class="title">Résultat</div>
 <p>Votre principal de service est maintenant configuré et vous devez avoir copié l&#8217;ID de l&#8217;application (client), l&#8217;ID du répertoire (tenant) et la valeur du secret client. Vous devez saisir ces informations dans BlueXP lorsque vous créez le connecteur.</p>
 </div>
 </div>
@@ -2264,7 +2265,7 @@ Cette politique contient uniquement les autorisations nécessaires pour lancer l
 <p>BlueXP vous permet de créer un connecteur dans Azure directement à partir de son interface utilisateur.</p>
 </div>
 <div class="ulist">
-<div class="title">Ce dont vous avez besoin, 8217;ll</div>
+<div class="title">Ce dont vous avez besoin</div>
 <ul>
 <li>
 <p>Un abonnement Azure.</p>
@@ -2317,13 +2318,13 @@ Cette politique contient uniquement les autorisations nécessaires pour lancer l
 <div class="ulist">
 <ul>
 <li>
-<p>ID de l&#8217;application (client) : voir  the application ID and directory ID.</p>
+<p>ID de l&#8217;application (client) : voir <a href="Obtenir l&.html#8217;ID de l&#8217;application et l&#8217;ID du répertoire">Obtenir l&.html</a>.</p>
 </li>
 <li>
-<p>ID de répertoire (locataire) : voir  the application ID and directory ID.</p>
+<p>ID de répertoire (locataire) : voir <a href="Obtenir l&.html#8217;ID de l&#8217;application et l&#8217;ID du répertoire">Obtenir l&.html</a>.</p>
 </li>
 <li>
-<p>Secret client : voir  a client secret.</p>
+<p>Secret client : voir <a href="#créez-un-secret-client">Créez un secret client</a>.</p>
 </li>
 </ul>
 </div>
@@ -2381,6 +2382,7 @@ Cette politique contient uniquement les autorisations nécessaires pour lancer l
 </ol>
 </div>
 <div class="paragraph">
+<div class="title">Une fois que vous avez terminé</div>
 <p>Vous devez associer un connecteur aux espaces de travail pour que les administrateurs d&#8217;espace de travail puissent utiliser ces connecteurs pour créer des systèmes Cloud Volumes ONTAP. Si vous ne disposez que d&#8217;administrateurs de compte, il n&#8217;est pas nécessaire d&#8217;associer le connecteur aux espaces de travail. Les administrateurs de comptes peuvent accéder à tous les espaces de travail dans BlueXP par défaut. <a href="task-setting-up-netapp-accounts.html#associating-connectors-with-workspaces">"En savoir plus &gt;&gt;"</a>.</p>
 </div>
 <div class="paragraph">

@@ -1416,7 +1416,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-12-05 22:29:27 +0000">12/05/2022</time>
+    <time datetime="2022-12-06 09:40:36 +0000">12/06/2022</time>
     
   
 
@@ -1446,28 +1446,25 @@
 <p>Pour commencer rapidement, suivez ces étapes ou faites défiler jusqu&#8217;aux sections restantes pour obtenir de plus amples informations.</p>
 </div>
 <div class="paragraph quick-margin-para">
+<div class="title"><span class="image"><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png" alt="Une seule"></span> Configurez l&#8217;authentification</div>
 <p>Pour lancer le connecteur dans AWS, BlueXP doit s&#8217;authentifier auprès d&#8217;AWS en assumant un rôle IAM ou en utilisant les clés d&#8217;accès AWS. Dans les deux cas, une règle IAM est requise.</p>
 </div>
-<div class="literalblock quick-margin-para">
-<div class="content">
-<pre>an IAM policy,Afficher le rôle IAM ou  up AWS authentication,suivez les instructions étape par étape.</pre>
-</div>
+<div class="paragraph quick-margin-para">
+<p><a href="#créer-une-règle-iam">Afficher le rôle IAM</a> ou <a href="Configuration de l&.html#8217;authentification AWS">suivez les instructions étape par étape</a>.</p>
 </div>
 <div class="paragraph quick-margin-para">
+<div class="title"><span class="image"><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png" alt="Deux"></span> Configurer la mise en réseau</div>
 <p>Vous avez besoin d&#8217;un VPC et d&#8217;un sous-réseau avec un accès Internet sortant à des terminaux spécifiques. Si un proxy HTTP est requis pour l&#8217;Internet sortant, vous aurez besoin de l&#8217;adresse IP, des identifiants et du certificat HTTPS.</p>
 </div>
-<div class="literalblock quick-margin-para">
-<div class="content">
-<pre>up networking,Afficher les besoins en matière de mise en réseau.</pre>
-</div>
+<div class="paragraph quick-margin-para">
+<p><a href="#configurer-la-mise-en-réseau">Afficher les besoins en matière de mise en réseau</a>.</p>
 </div>
 <div class="paragraph quick-margin-para">
+<div class="title"><span class="image"><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png" alt="Trois"></span> Créer le connecteur</div>
 <p>Cliquez sur la liste déroulante connecteur, sélectionnez <strong>Ajouter connecteur</strong> et suivez les invites.</p>
 </div>
-<div class="literalblock quick-margin-para">
-<div class="content">
-<pre>a Connector,Suivez les instructions étape par étape.</pre>
-</div>
+<div class="paragraph quick-margin-para">
+<p><a href="#créer-un-connecteur">Suivez les instructions étape par étape</a>.</p>
 </div>
 </div>
 </div>
@@ -1596,6 +1593,7 @@
 </ol>
 </div>
 <div class="paragraph">
+<div class="title">Et la suite ?</div>
 <p>Joignez la politique à un rôle IAM que BlueXP peut assumer ou à un utilisateur IAM.</p>
 </div>
 </div>
@@ -1635,6 +1633,7 @@
 </ol>
 </div>
 <div class="paragraph">
+<div class="title">Résultat</div>
 <p>Le rôle IAM dispose désormais des autorisations requises.</p>
 </div>
 </div>
@@ -1664,6 +1663,7 @@
 </ol>
 </div>
 <div class="paragraph">
+<div class="title">Résultat</div>
 <p>L&#8217;utilisateur AWS dispose désormais des autorisations nécessaires pour créer le connecteur à partir de BlueXP. Vous devez spécifier les clés d&#8217;accès AWS pour cet utilisateur lorsque BlueXP vous le demande.</p>
 </div>
 </div>
@@ -1870,6 +1870,7 @@ Si vous choisissez <strong>supposons rôle</strong>, vous pouvez créer le premi
 </ol>
 </div>
 <div class="paragraph">
+<div class="title">Une fois que vous avez terminé</div>
 <p>Si vous disposez de compartiments Amazon S3 sur le même compte AWS que celui sur lequel vous avez créé le connecteur, l&#8217;environnement de travail Amazon S3 s&#8217;affiche automatiquement sur la fenêtre Canvas. <a href="task-viewing-amazon-s3.html">"Découvrez ce que vous pouvez faire dans cet environnement de travail"</a>.</p>
 </div>
 </div>
