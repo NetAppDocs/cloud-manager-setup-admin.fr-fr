@@ -38,7 +38,7 @@ L'utilisateur IAM qui crée le connecteur doit disposer d'autorisations AWS Mark
 . Accédez au https://aws.amazon.com/marketplace/pp/B018REK8QG["BlueXP, page sur AWS Marketplace"^] Pour déployer le connecteur à partir d'une ami :
 . Sur la page Marketplace, cliquez sur *Continuer pour s'abonner*, puis cliquez sur *Continuer la configuration*.
 +
-image:screenshot_subscribe_cm.gif["Une capture d'écran affiche les boutons Continuer à s'abonner et Continuer la configuration sur AWS Marketplace."]
+image:screenshot-subscribe-aws.png["Une capture d'écran affiche les boutons Continuer à s'abonner et Continuer la configuration sur AWS Marketplace."]
 
 . Modifiez l'une des options par défaut et cliquez sur *Continuer pour lancer*.
 . Sous *choisir action*, sélectionnez *lancer via EC2*, puis cliquez sur *lancer*.
@@ -80,9 +80,6 @@ https://_ipaddress_[]
 link:concept-netapp-accounts.html["En savoir plus sur les comptes NetApp"].
 
 .. Entrez un nom pour le système.
-+
-image:screenshot_set_up_cloud_manager.gif["Copie d'écran montrant l'écran de configuration de connecteur qui permet de sélectionner un compte NetApp et de nommer le système."]
-
 
 
 . Ouvrez un navigateur Web et accédez à https://console.bluexp.netapp.com[] Pour commencer à utiliser le connecteur avec BlueXP.
@@ -150,9 +147,6 @@ https://_ipaddress_[]
 link:concept-netapp-accounts.html["En savoir plus sur les comptes NetApp"].
 
 .. Entrez un nom pour le système.
-+
-image:screenshot_set_up_cloud_manager.gif["Copie d'écran montrant l'écran de configuration de connecteur qui permet de sélectionner un compte NetApp et de nommer le système."]
-
 
 
 

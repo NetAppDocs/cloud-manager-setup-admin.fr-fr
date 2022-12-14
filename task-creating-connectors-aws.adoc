@@ -14,11 +14,13 @@ summary: Un compte BlueXP Admin doit déployer un connecteur avant de pouvoir ut
 
 
 [role="lead"]
-Un administrateur de compte BlueXP doit déployer un _Connector_ avant de pouvoir utiliser la plupart des fonctions BlueXP. BlueXP peut ainsi gérer les ressources et les processus au sein de votre environnement de cloud public. link:concept-connectors.html["Apprenez quand un connecteur est nécessaire"].
+Un administrateur de compte BlueXP doit déployer un _Connector_ avant de pouvoir utiliser la plupart des fonctions BlueXP. BlueXP peut ainsi gérer les ressources et les processus au sein de votre environnement de cloud public.
 
-Cette page explique comment créer un connecteur dans AWS directement à partir de BlueXP. link:concept-connectors.html#how-to-create-a-connector["Découvrez d'autres méthodes de déploiement d'un connecteur"].
+Ces étapes décrivent comment créer un connecteur dans une région commerciale d'AWS directement à partir du site Web BlueXP SaaS.
 
-Ces étapes doivent être réalisées par un utilisateur qui a le rôle d'administrateur de compte. Un administrateur d'espace de travail ne peut pas créer de connecteur.
+* link:task-create-connectors-gov.html["Découvrez comment déployer un connecteur dans une région gouvernementale"]
+* link:concept-connectors.html#how-to-create-a-connector["Découvrez d'autres méthodes de déploiement d'un connecteur"]
+
 
 
 

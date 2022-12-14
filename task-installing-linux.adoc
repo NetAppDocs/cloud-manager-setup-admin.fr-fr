@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: task-installing-linux.html 
 keywords: install connector, manually install connector, install connector software, installation, installing, linux, installer, software, on prem, on-prem, silent, configurations, ec2, vm, ports, ram, operating system, os, host, requirement, requirements, hypervisor, disk, space, mysql, centos, rhel, red hat, cpu, disk space 
-summary: 'La manière la plus courante de créer un connecteur est directement depuis BlueXP ou depuis le marché d"un fournisseur cloud. Mais vous avez la possibilité de télécharger et d"installer le logiciel Connector sur un hôte Linux existant de votre réseau ou dans le cloud.' 
+summary: 'La manière la plus courante de créer un connecteur est directement depuis BlueXP ou depuis le marché d"un fournisseur cloud. Mais vous avez la possibilité de télécharger et d"installer le logiciel Connector sur un hôte Linux existant de votre réseau ou dans le cloud. Ces étapes sont spécifiques aux hôtes disposant d"un accès Internet.' 
 ---
 = Installez le connecteur sur un hôte Linux existant ayant accès à Internet
 :hardbreaks:
@@ -62,16 +62,20 @@ Le connecteur est pris en charge sur les versions en anglais de ces systèmes d'
 Hyperviseur:: Un hyperviseur bare Metal ou hébergé certifié pour exécuter CentOS ou Red Hat Enterprise Linuxhttps://access.redhat.com/certified-hypervisors["Solution Red Hat : quels hyperviseurs sont certifiés pour l'exécution de Red Hat Enterprise Linux ?"^]
 Espace disque dans /opt:: 100 Gio d'espace doit être disponible
 Espace disque dans /var:: 20 Gio d'espace doit être disponible
-Moteur Docker:: Docker Engine version 19 ou ultérieure est requis sur l'hôte avant d'installer le connecteur. https://docs.docker.com/engine/install/["Voir les instructions d'installation"^]
+Moteur Docker:: Docker Engine version 19.3.1 ou ultérieure est requis sur l'hôte avant d'installer le connecteur. https://docs.docker.com/engine/install/["Voir les instructions d'installation"^]
 Accès Internet sortant:: Le programme d'installation du connecteur doit accéder aux URL suivantes pendant le processus d'installation :
 +
 --
-* \https://s3.amazonaws.com/aws-cli/awscli-bundle.zip
-* \https://*.blob.core.windows.net ou \https://hub.docker.com
-+
+* \https://support.netapp.com
+* \https://mysupport.netapp.com
+* \https://cloudmanager.cloud.netapp.com/tenancy
+* \https://stream.cloudmanager.cloud.netapp.com
+* \https://cloudmanagerinfraprod.azurecr.io
+* \https://production-artifacts.cloudmanager.cloud.netapp.com
+* \https://*.blob.core.windows.net
+
+
 L'hôte peut essayer de mettre à jour les packages du système d'exploitation lors de l'installation. L'hôte peut contacter différents sites de mise en miroir pour ces packages OS.
-
-
 
 --
 
@@ -82,8 +86,14 @@ L'hôte peut essayer de mettre à jour les packages du système d'exploitation l
 
 Après avoir vérifié que vous disposez d'un hôte Linux pris en charge, vous pouvez obtenir le logiciel Connector, puis l'installer.
 
-.Privilèges requis
-Les privilèges root sont requis pour installer le connecteur.
+.Ce dont vous avez besoin
+* Privilèges root pour installer le connecteur.
+* Détails sur un serveur proxy, si un proxy est requis pour accéder à Internet à partir du connecteur.
++
+Vous avez la possibilité de configurer un serveur proxy après l'installation, mais cela nécessite de redémarrer le connecteur.
+
+* Certificat signé par une autorité de certification, si le serveur proxy utilise HTTPS.
+
 
 .Description de la tâche
 * L'installation installe les outils de ligne de commande AWS (awscli), afin d'activer les procédures de reprise à partir du support NetApp.
@@ -102,26 +112,56 @@ sudo systemctl enable docker && sudo systemctl start docker
 ----
 . Téléchargez le logiciel du connecteur à partir du https://mysupport.netapp.com/site/products/all/details/cloud-manager/downloads-tab["Site de support NetApp"^], Puis copiez-le sur l'hôte Linux.
 +
-Pour obtenir de l'aide sur la connexion et la copie du fichier vers une instance EC2 dans AWS, reportez-vous à la section http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstancesLinux.html["Documentation AWS : connexion à votre instance Linux à l'aide de SSH"^].
+Vous devez télécharger le programme d'installation du connecteur destiné à être utilisé sur votre réseau ou dans le cloud.
 
 . Attribuez des autorisations pour exécuter le script.
 +
 [source, cli]
 ----
-chmod +x OnCommandCloudManager-V3.9.23.sh
+chmod +x OnCommandCloudManager-V3.9.23
 ----
 . Exécutez le script d'installation.
 +
-Si vous disposez d'un serveur proxy, vous devez entrer les paramètres de commande comme indiqué ci-dessous. Le programme d'installation ne vous invite pas à fournir des informations sur un proxy.
+[source, cli]
+----
+ ./OnCommandCloudManager-V3.9.23 --proxy <HTTP or HTTPS proxy server> --cacert <path and file name of a CA-signed certificate>
+----
++
+Les paramètres --proxy et --cacert sont facultatifs. Si vous disposez d'un serveur proxy, vous devez entrer le ou les paramètres comme indiqué. Le programme d'installation ne vous invite pas à fournir des informations sur un proxy.
+
++
+Voici un exemple de commande utilisant les deux paramètres facultatifs :
 
 +
 [source, cli]
 ----
- ./OnCommandCloudManager-V3.9.23.sh --proxy http://occm:password@10.0.0.30:9090/ --cacert /root/rootca.pem
+ ./OnCommandCloudManager-V3.9.23 --proxy https://user:password@10.0.0.30:8080/ --cacert /tmp/cacert/certificate.cer
 ----
 +
+--proxy configure le connecteur pour utiliser un serveur proxy HTTP ou HTTPS à l'aide de l'un des formats suivants :
+
++
+** \http://address:port
+** \http://username:password@address:port
+** \https://address:port
+** \https://username:password@address:port
+
+
++
+--cacert spécifie un certificat signé par une autorité de certification à utiliser pour l'accès HTTPS entre le connecteur et le serveur proxy. Ce paramètre n'est requis que si vous spécifiez un serveur proxy HTTPS.
+
+
+
+.Résultat
 Le connecteur est maintenant installé. À la fin de l'installation, le service connecteur (ocm) redémarre deux fois si vous avez spécifié un serveur proxy.
 
+
+
+== Configurer le connecteur
+
+Inscrivez-vous ou connectez-vous, puis configurez le connecteur pour qu'il fonctionne avec votre compte.
+
+.Étapes
 . Ouvrez un navigateur Web et entrez l'URL suivante :
 +
 https://_ipaddress_[]
@@ -145,9 +185,6 @@ _Ipaddress_ peut être localhost, une adresse IP privée ou une adresse IP publi
 link:concept-netapp-accounts.html["En savoir plus sur les comptes NetApp"].
 
 .. Entrez un nom pour le système.
-+
-image:screenshot_set_up_cloud_manager.gif["Copie d'écran affichant l'écran de configuration, qui vous permet de sélectionner un compte NetApp et de nommer le système."]
-
 
 
 
@@ -160,5 +197,5 @@ Configurez des autorisations pour que BlueXP puisse gérer les ressources et les
 
 * AWS : link:task-adding-aws-accounts.html["Configurez un compte AWS, puis ajoutez-le à BlueXP"]
 * Azure : link:task-adding-azure-accounts.html["Configurez un compte Azure, puis ajoutez-le à BlueXP"]
-* Google Cloud : voir étape 7 ci-dessus
+* Google Cloud : voir étape 3 ci-dessus
 

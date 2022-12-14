@@ -109,14 +109,9 @@ NOTE: Le connecteur est en train de contacter « cloudmanager.cloud.netapp.com",
 
 | \https://cloudmanagerinfraprod.azurecr.io \https://*.blob.core.windows.net | Pour mettre à niveau le connecteur et ses composants Docker. 
 |===
-* Si vous choisissez d'installer manuellement le connecteur sur votre propre hôte Linux (et non directement à partir de l'interface BlueXP), le programme d'installation du connecteur nécessite l'accès aux points de terminaison suivants pendant le processus d'installation :
+* Si vous choisissez d'installer manuellement le connecteur sur votre propre hôte Linux (et non directement à partir de l'interface BlueXP), le programme d'installation du connecteur nécessite l'accès à plusieurs noeuds finaux pendant le processus d'installation :
 +
-** \https://s3.amazonaws.com/aws-cli/awscli-bundle.zip
-** \https://*.blob.core.windows.net ou \https://hub.docker.com
-+
-L'hôte peut essayer de mettre à jour les packages du système d'exploitation lors de l'installation. L'hôte peut contacter différents sites de mise en miroir pour ces packages OS.
-
-
+link:task-installing-linux.html["Passez en revue la liste des noeuds finaux"].
 
 * Il n'y a pas de trafic entrant vers le connecteur, sauf si vous le lancez.
 +

@@ -526,7 +526,6 @@
   <block id="1290fecb35d9c7e8b4f1faf1f9b5c7f3" category="paragraph">/opt/application/netapp/cloudmanager</block>
   <block id="81fae4ea40cc442afa43dab4cc001004" category="section-title">Fichiers journaux</block>
   <block id="af22c16aeca9d8bc2515764efff73455" category="paragraph">Les fichiers journaux sont contenus dans les dossiers suivants :</block>
-  <block id="9038f40808a3b534dd4031904a7d2ce8" category="list-text">/opt/application/netapp/cloudmanager/log</block>
   <block id="00226bd25a9eabd1528d0b9c1c7eb5e2" category="paragraph">Les journaux de ce dossier fournissent des détails sur les images Connector et docker.</block>
   <block id="b7fb1cb20b803995e802d3588f424efa" category="list-text">/opt/application/netapp/cloudmanager/docker_ocm/data/log</block>
   <block id="117c785e61d16618a1202c0ae6cf754a" category="paragraph">Les journaux de ce dossier fournissent des détails sur les services Cloud et le service BlueXP qui s'exécute sur le connecteur.</block>
@@ -534,24 +533,10 @@
   <block id="9381e0bddd6aaa003edbc676c4bf74ee" category="list-text">Le service BlueXP est nommé ocm.</block>
   <block id="99479a37072ffa90a7b1b8b6c6eb156b" category="list-text">Le service occm dépend du service MySQL.</block>
   <block id="7681f9932e27b70d263e349bf8e45ccb" category="paragraph">Si le service MySQL est en panne, le service occm est également en panne.</block>
-  <block id="27fe4eb3edbaff8f250e2d51f7462681" category="section-title">Packs</block>
-  <block id="764d44260ad297eee560240a0f9876dc" category="paragraph">BlueXP installe les modules suivants sur l'hôte Linux, s'ils ne sont pas déjà installés :</block>
-  <block id="0cc88c75f9ccb3b092b1a9e54edf31dd" category="list-text">7Zip</block>
-  <block id="824e65f15b61863b18403a352208dbf8" category="list-text">AWSCLI</block>
-  <block id="d52387880e1ea22817a72d3759213819" category="list-text">Java</block>
-  <block id="6f49e891fdb1bb11823492f4d315b2fd" category="list-text">Kubectl</block>
-  <block id="62a004b95946bb97541afa471dcca73a" category="list-text">MySQL</block>
-  <block id="bc564dcbf13f1065be526346597880e6" category="list-text">Tridentctl</block>
-  <block id="718f59718640c6506b3721fbc8bf3a4d" category="list-text">Tirer</block>
-  <block id="f7bd8a523429508417b95f15d7d78a4f" category="list-text">Wget</block>
   <block id="407c4e9fac86b98147da49acd4fa0d01" category="section-title">Ports</block>
   <block id="262eae76dd865321cbe26eb35ccca998" category="paragraph">Le connecteur utilise les ports suivants sur l'hôte Linux :</block>
   <block id="f99405255f2e0275d201caf689380ada" category="list-text">80 pour l'accès HTTP</block>
   <block id="95376c13fd8813cbd5336d84e0207ed1" category="list-text">443 pour l'accès HTTPS</block>
-  <block id="08cb80fa4f936d781e5b8c3e12f64139" category="list-text">3306 pour la base de données BlueXP</block>
-  <block id="21ce98ebf19ba7dfc7a4300742bb8f2a" category="list-text">8080 pour le proxy API BlueXP</block>
-  <block id="276b8acd33de7f3d565955f164e67cd2" category="list-text">8666 pour l'API du Gestionnaire de services</block>
-  <block id="803a96dc7774103b48557af2d8ee96c3" category="list-text">8777 pour l'API du service de conteneurs Health-Checker</block>
   <block id="953a0ee991cb0f7fd649dff3efa51614" category="section-title">Configuration par défaut sans accès à Internet</block>
   <block id="23b1e0717b9b8b52e9ae0f29f7fc4241" category="inline-link-macro">En savoir plus sur cette option d'installation</block>
   <block id="d29c75496182e07bc5b38ffe2cb4de30" category="paragraph">La configuration suivante s'applique si vous avez installé manuellement le connecteur sur un hôte Linux sur site qui n'a pas accès à Internet. <block ref="4d73489e378e81ca61892ecf59f809a5" category="inline-link-macro-rx"></block>.</block>
@@ -711,9 +696,6 @@
   <block id="db9e137068a05efe5440105c2494b7f1" category="cell">Pour obtenir des informations sur les licences et envoyer des messages AutoSupport au support NetApp.</block>
   <block id="554841a7559bd190d883de523464d1d1" category="cell">\https://cloudmanagerinfraprod.azurecr.io \https://*.blob.core.windows.net</block>
   <block id="065880318484084e9bfe33ea9c6a8702" category="cell">Pour mettre à niveau le connecteur et ses composants Docker.</block>
-  <block id="8a4762cb5d44b37be8c41c99aa8c77d1" category="list-text">Si vous choisissez d'installer manuellement le connecteur sur votre propre hôte Linux (et non directement à partir de l'interface BlueXP), le programme d'installation du connecteur nécessite l'accès aux points de terminaison suivants pendant le processus d'installation :</block>
-  <block id="66f9783489f42faf5074015874cb1c5f" category="list-text">\https://s3.amazonaws.com/aws-cli/awscli-bundle.zip</block>
-  <block id="b0d26ef113a60166d94bd96f9067b52b" category="list-text">\https://*.blob.core.windows.net ou \https://hub.docker.com</block>
   <block id="35bd57a4dcfbd7a695f9beb7d01913c6" category="paragraph">L'hôte peut essayer de mettre à jour les packages du système d'exploitation lors de l'installation. L'hôte peut contacter différents sites de mise en miroir pour ces packages OS.</block>
   <block id="11ffd2b7817530008f4bc1916d79b3d7" category="list-text">Il n'y a pas de trafic entrant vers le connecteur, sauf si vous le lancez.</block>
   <block id="eedca72959934d39da95314809917fb3" category="paragraph">HTTP (80) et HTTPS (443) permettent d'accéder à l'interface utilisateur locale que vous utiliserez dans de rares circonstances. SSH (22) n'est nécessaire que si vous devez vous connecter à l'hôte pour le dépannage.</block>
@@ -1299,8 +1281,6 @@
   <block id="759ba4e73fa8a63f85961494f316d3ed" category="list-text">Spécifiez le compte NetApp à associer au connecteur.</block>
   <block id="55b620da531e446543c62d6fb6d3f03f" category="paragraph"><block ref="c892241c2a895928e80c961e4d7a26f4" category="inline-link-macro-rx"></block>.</block>
   <block id="d80e79c3d96dec3b7d4daf9305412777" category="list-text">Entrez un nom pour le système.</block>
-  <block id="b7cc882225d4b093221554881a085ca4" category="inline-image-macro">Copie d'écran montrant l'écran de configuration de connecteur qui permet de sélectionner un compte NetApp et de nommer le système.</block>
-  <block id="ac8bdf7adae2e58a7ebb316b87ae9c56" category="paragraph"><block ref="ac8bdf7adae2e58a7ebb316b87ae9c56" category="inline-image-macro-rx" type="image"></block></block>
   <block id="ced2daafb1652bcf5bbc847ec20fd008" category="inline-link-macro">basculer entre eux</block>
   <block id="89ae8e8f1762a7105ac9740c021b232f" category="paragraph">Le connecteur est désormais installé et configuré avec votre compte NetApp. BlueXP utilisera automatiquement ce connecteur lorsque vous créez de nouveaux environnements de travail. Mais si vous avez plus d'un connecteur, vous devrez le faire <block ref="2db1c3a28ec2a3ff67ad2a1b7a913be5" category="inline-link-macro-rx"></block>.</block>
   <block id="8d0d51d4047979af669daac866df81ec" category="inline-link-macro">Découvrez ce que vous pouvez faire dans cet environnement de travail</block>
@@ -1624,8 +1604,6 @@
   <block id="cf4a06fce4c7b1055a372af2e026d54e" category="list-text">Dans la page *Revue + créer*, vérifiez vos sélections et cliquez sur *Créer* pour démarrer le déploiement.</block>
   <block id="764960e87b4fddf3ade9ee834c310b2b" category="paragraph">Azure déploie la machine virtuelle avec les paramètres spécifiés. Le logiciel de la machine virtuelle et du connecteur doit s'exécuter en cinq minutes environ.</block>
   <block id="f8cccaed0b932ef662605b0a2cef04df" category="list-text">Ouvrez un navigateur Web à partir d'un hôte connecté à la machine virtuelle Connector et entrez l'URL suivante :</block>
-  <block id="2bf1f619d2f890a36c270d8592ed2afc" category="inline-image-macro">Capture d'écran présentant l'écran configurer BlueXP qui vous permet de sélectionner un compte NetApp et de nommer le système.</block>
-  <block id="0d815f71e04fd373dfef85f5c2a1e6b5" category="paragraph"><block ref="0d815f71e04fd373dfef85f5c2a1e6b5" category="inline-image-macro-rx" type="image"></block></block>
   <block id="ab055dd2454f72eae9c16179690384d6" category="paragraph">Le connecteur est désormais installé et configuré avec votre compte NetApp.</block>
   <block id="f13f9c900e17fbd7423292fc7d7a65ef" category="paragraph">Si le connecteur se trouve dans une région d'administration Azure, vous pouvez utiliser BlueXP en ouvrant votre navigateur Web et en vous connectant à l'adresse IP de l'instance de connecteur :<block ref="e3a51e84cbbae6e45a585984f3be3fd0" category="inline-link-rx"></block></block>
   <block id="53093f6c5402328654bf860d6c52db0a" category="section-title">Octroi d'autorisations Azure</block>
@@ -1905,7 +1883,6 @@
   <block id="5f5e29b0ef69aac086f8623314c61c8b" category="paragraph">La vidéo suivante démarre à partir du contexte de l'assistant de l'environnement de travail, mais vous montre le même flux de travail après avoir cliqué sur *Ajouter un abonnement* :</block>
   <block id="f237b70f3f3799f90d3acf9d0c78e108" category="section-title">Modification des informations d'identification</block>
   <block id="bf6a5b9863bb599dd7d76e43de882036" category="paragraph">Modifiez vos informations d'identification Azure dans BlueXP en modifiant les informations d'identification de votre service Azure. Par exemple, vous devrez peut-être mettre à jour le secret client si un nouveau secret a été créé pour l'application principale du service.</block>
-  <block id="379280cc324da5135d2ccadf286698e6" category="summary">La manière la plus courante de créer un connecteur est directement depuis BlueXP ou depuis le marché d'un fournisseur cloud. Mais vous avez la possibilité de télécharger et d'installer le logiciel Connector sur un hôte Linux existant de votre réseau ou dans le cloud.</block>
   <block id="6d38e36088ec5fff8ddb7198d300d2e6" category="doc">Installez le connecteur sur un hôte Linux existant ayant accès à Internet</block>
   <block id="ac9c35728450917d81cf663988a4bac2" category="paragraph">La manière la plus courante de créer un connecteur est directement depuis BlueXP ou depuis le marché d'un fournisseur cloud. Mais vous avez la possibilité de télécharger et d'installer le logiciel Connector sur un hôte Linux existant de votre réseau ou dans le cloud. Ces étapes sont spécifiques aux hôtes disposant d'un accès Internet.</block>
   <block id="dc68b79f0ef7708bb6b593e10e6a0631" category="paragraph"><block ref="4c54a8bb31cbafd8cd337aae920ff024" category="inline-link-macro-rx"></block>.</block>
@@ -1952,10 +1929,7 @@
   <block id="c421e739c1e3aa36da0456d7f369e45f" category="paragraph">Si vous recevez un message indiquant que l'installation de awscli a échoué, vous pouvez ignorer le message en toute sécurité. Le connecteur peut fonctionner sans outils.</block>
   <block id="aad3dfdc62f79a4c10e86004046d9509" category="list-text">Le programme d'installation disponible sur le site du support NetApp peut être une version antérieure. Après l'installation, le connecteur se met automatiquement à jour si une nouvelle version est disponible.</block>
   <block id="7e64bcd49d202a618920fe22d66f21ac" category="list-text">Téléchargez le logiciel du connecteur à partir du<block ref="99637e01fa8caa34a544049093cac68c" category="inline-link-rx"></block>, Puis copiez-le sur l'hôte Linux.</block>
-  <block id="1b5f30edaa0508ac79f12ba9891a0f16" category="inline-link">Documentation AWS : connexion à votre instance Linux à l'aide de SSH</block>
-  <block id="880818f23f18d557a415dab94d58f242" category="paragraph">Pour obtenir de l'aide sur la connexion et la copie du fichier vers une instance EC2 dans AWS, reportez-vous à la section<block ref="dc4460aa50f8a612f26d39414027ad75" category="inline-link-rx"></block>.</block>
   <block id="325740f998865be7879e32048d406868" category="list-text">Exécutez le script d'installation.</block>
-  <block id="d2da61b44f426c871849fe81368a8e4f" category="paragraph">Si vous disposez d'un serveur proxy, vous devez entrer les paramètres de commande comme indiqué ci-dessous. Le programme d'installation ne vous invite pas à fournir des informations sur un proxy.</block>
   <block id="e832abccfbda1e1df2db47f59705c74c" category="paragraph">Le connecteur est maintenant installé. À la fin de l'installation, le service connecteur (ocm) redémarre deux fois si vous avez spécifié un serveur proxy.</block>
   <block id="2b7648ae4507d851df87a08114c2876e" category="list-text">S'inscrire ou se connecter.</block>
   <block id="39f494161fdf724ac76591cdc35c1a8a" category="list-text">Si vous avez installé le connecteur dans Google Cloud, configurez un compte de service disposant des autorisations nécessaires à BlueXP pour créer et gérer des systèmes Cloud Volumes ONTAP dans des projets.</block>
@@ -1967,15 +1941,12 @@
   <block id="78a0d16b70372e27005759683969aed9" category="inline-link">Associer ce compte de service à la VM Connector</block>
   <block id="065c40fb33b56030d4bbcc42fcbf0d16" category="list-text"><block ref="1a9447e1a13f89edfdde92dee038b283" category="inline-link-rx"></block>.</block>
   <block id="41adb69bcb6f24f8432b590170f61d23" category="list-text">Une fois connecté, configurez BlueXP :</block>
-  <block id="5b065d9fe675d1a98ef70d7a3436d9e7" category="inline-image-macro">Copie d'écran affichant l'écran de configuration, qui vous permet de sélectionner un compte NetApp et de nommer le système.</block>
-  <block id="90acb993325ea2038d45629d9ccc1fc0" category="paragraph"><block ref="90acb993325ea2038d45629d9ccc1fc0" category="inline-image-macro-rx" type="image"></block></block>
   <block id="ea4fb5b5d8da280e1c96004b07442c03" category="paragraph">Le connecteur est désormais installé et configuré avec votre compte NetApp. BlueXP utilisera automatiquement ce connecteur lorsque vous créez de nouveaux environnements de travail.</block>
   <block id="ea490c25a79a325fea50314c06bedfc1" category="paragraph">Configurez des autorisations pour que BlueXP puisse gérer les ressources et les processus au sein de votre environnement de cloud public :</block>
   <block id="89786caf44f70de778fae8a56354a9d3" category="inline-link-macro">Configurez un compte AWS, puis ajoutez-le à BlueXP</block>
   <block id="edbf82e3b5aeb8b253b3209c3013ed17" category="list-text">AWS : <block ref="74e2499346a5c92803e52cd20e1dacd2" category="inline-link-macro-rx"></block></block>
   <block id="0c94b6c3107d7051f2e455a711c3042b" category="inline-link-macro">Configurez un compte Azure, puis ajoutez-le à BlueXP</block>
   <block id="916ea274d7816c493e060de35ba999ef" category="list-text">Azure : <block ref="738246f1ee44235b504983a794734237" category="inline-link-macro-rx"></block></block>
-  <block id="a376d701bcf6f33dfc99e261c767ae1e" category="list-text">Google Cloud : voir étape 7 ci-dessus</block>
   <block id="773752fa8722d25b5cb88d771e3c6459" category="summary">Après avoir installé un connecteur dans Google Cloud, BlueXP peut automatiquement découvrir des informations sur les compartiments Google Cloud qui résident dans le compte Google où le connecteur est installé. Un environnement de travail Google Cloud Storage est ajouté à Canvas pour vous permettre de visualiser ces informations.</block>
   <block id="fc45939bb3edc691f0de1907290992f5" category="doc">Afficher les compartiments de stockage Google Cloud</block>
   <block id="e952b1c060b2dc1be5663131351e06a5" category="paragraph">Après avoir installé un connecteur dans Google Cloud, BlueXP peut automatiquement découvrir des informations sur les compartiments Google Cloud Storage qui résident dans le compte Google où le connecteur est installé. Un environnement de travail Google Cloud Storage est ajouté à Canvas pour vous permettre de visualiser ces informations.</block>
@@ -2169,8 +2140,6 @@
   <block id="04e60b39adde0e5f7e0bdecbea515591" category="paragraph">Actuellement, My Opportunities vous permet de découvrir les systèmes de fichiers FSX existants pour les systèmes de fichiers ONTAP dans votre compte AWS.</block>
   <block id="0023c752677bd572df55463d76cf9b90" category="inline-link">Découvrez comment découvrir FSX pour ONTAP à l'aide de Mes opportunités</block>
   <block id="b8aac0d7b730cae52d7fa6174da69a85" category="paragraph"><block ref="b8aac0d7b730cae52d7fa6174da69a85" category="inline-link-rx"></block></block>
-  <block id="beba35b5f1ffff4e7c4c9683317102ed" category="paragraph">Un administrateur de compte BlueXP doit déployer un _Connector_ avant de pouvoir utiliser la plupart des fonctions BlueXP. BlueXP peut ainsi gérer les ressources et les processus au sein de votre environnement de cloud public. <block ref="39840e1bb98f6582f1bf4e505d666ea1" category="inline-link-macro-rx"></block>.</block>
-  <block id="642291c0cdf2ee77f8c053427866b467" category="paragraph">Cette page explique comment créer un connecteur dans Azure directement à partir de BlueXP. <block ref="f56df5f8b4fd558a7482d6115403eadd" category="inline-link-macro-rx"></block>.</block>
   <block id="9207a1bb9dbe8c5c1aac06abfdb5a64a" category="paragraph">Pour déployer un connecteur, vous devez fournir à BlueXP un identifiant qui dispose des autorisations requises pour créer la machine virtuelle Connector dans Azure.</block>
   <block id="fd6f3efc498de1b121d4286a7865dda4" category="paragraph">Vous avez deux options :</block>
   <block id="6b45a3b66e73e4f30a6e6c4974d404b4" category="list-text">Connectez-vous avec votre compte Microsoft lorsque vous y êtes invité. Ce compte doit disposer d'autorisations Azure spécifiques. Il s'agit de l'option par défaut.</block>
@@ -2343,7 +2312,6 @@
   <block id="76734448143dd55adf6431fa26af46e4" category="paragraph">Notez que vous ne pouvez pas supprimer un compte actuellement associé à un environnement de travail Cloud Volumes ONTAP. Vous devez d'abord <block ref="ac2d4b7aa5ce32d2814e2f5e96d09326" category="inline-xref-macro-rx"></block>.</block>
   <block id="9cb3617e3ed226bae8f154fd413d6666" category="list-text">Pour le compte NSS que vous souhaitez supprimer, cliquez sur <block ref="c9c50c6d591d91ccce1ee232fa490fb4" category="inline-image-macro-rx" type="image"></block> Puis sélectionnez *Supprimer*.</block>
   <block id="007f1e2d3f01b80a8179746ea45b3c41" category="paragraph"><block ref="007f1e2d3f01b80a8179746ea45b3c41" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="2b728e40e9cb22f93792e581f831c6e8" category="paragraph">Cette page explique comment créer un connecteur dans AWS directement à partir de BlueXP. <block ref="f56df5f8b4fd558a7482d6115403eadd" category="inline-link-macro-rx"></block>.</block>
   <block id="2ff3310af3f7a8c23232832947eccc41" category="paragraph">Pour lancer le connecteur dans AWS, BlueXP doit s'authentifier auprès d'AWS en assumant un rôle IAM ou en utilisant les clés d'accès AWS. Dans les deux cas, une règle IAM est requise.</block>
   <block id="d2b8d6f0cd04659de9813fba0b765319" category="inline-xref">Afficher le rôle IAM</block>
   <block id="5695f1494bf1a23e4dfb636b83f9663c" category="inline-xref">suivez les instructions étape par étape</block>
@@ -2405,7 +2373,6 @@
   <block id="a7c69af8d1fb49b09aa28f0816f5f912" category="list-text">Accédez au<block ref="aa1bf3a3349706e28315b07c47668a91" category="inline-link-rx"></block> Pour déployer le connecteur à partir d'une ami :</block>
   <block id="b748cb0f2ad325f27d30850a71d55e6d" category="list-text">Sur la page Marketplace, cliquez sur *Continuer pour s'abonner*, puis cliquez sur *Continuer la configuration*.</block>
   <block id="648fca9db3d7e8e554a59d3519d8b0f6" category="inline-image-macro">Une capture d'écran affiche les boutons Continuer à s'abonner et Continuer la configuration sur AWS Marketplace.</block>
-  <block id="09840755c5e1c205b5a61231831ba16f" category="paragraph"><block ref="09840755c5e1c205b5a61231831ba16f" category="inline-image-macro-rx" type="image"></block></block>
   <block id="6901834c9ae604b653768895509f4303" category="list-text">Modifiez l'une des options par défaut et cliquez sur *Continuer pour lancer*.</block>
   <block id="197769c5244e448b93746c973eb17b81" category="list-text">Sous *choisir action*, sélectionnez *lancer via EC2*, puis cliquez sur *lancer*.</block>
   <block id="7c36ac5a8d104c08bd1c9905b4e5d437" category="paragraph">Ces étapes décrivent comment lancer l'instance à partir de la console EC2, car la console vous permet d'associer un rôle IAM à l'instance de connecteur. Cela n'est pas possible en utilisant l'action *lancer à partir du site Web*.</block>
@@ -2819,4 +2786,40 @@
   <block id="5ccc745272c52ce1868d5bcf2b07705a" category="section-title">Gestion des espaces de travail d'un administrateur d'espace de travail</block>
   <block id="1cf32fb78afaf111cd4c8421dc8592a6" category="section-title">Gestion des espaces de travail d'un connecteur</block>
   <block id="c558073ec27a1686dce5ebbe5da43092" category="paragraph-title">Options de connexion</block>
+  <block id="25fd4db5a75c387fe3fd85258810fcad" category="list-text">Si vous choisissez d'installer manuellement le connecteur sur votre propre hôte Linux (et non directement à partir de l'interface BlueXP), le programme d'installation du connecteur nécessite l'accès à plusieurs noeuds finaux pendant le processus d'installation :</block>
+  <block id="d225210f36f5d8518fad068e89f2d1c3" category="inline-link-macro">Passez en revue la liste des noeuds finaux</block>
+  <block id="c0355dfc890e268b51bb88722cb448a9" category="paragraph"><block ref="12b2338905766fe009fef0e6c52eb82d" category="inline-link-macro-rx"></block>.</block>
+  <block id="762cb137e48e2922920955cfb157dea8" category="list-text">Docker Engine version 19.3.1 ou ultérieure est requis sur l'hôte avant d'installer le connecteur.<block ref="bbcf0e5e8b0c8687d84c2c22a5ad2ecf" category="inline-link-rx"></block></block>
+  <block id="d03b3625d28d43168905850da108e917" category="list-text">\https://mysupport.netapp.com</block>
+  <block id="648b7f3d6699305c92d33129e6ea00fe" category="list-text">\https://cloudmanager.cloud.netapp.com/tenancy</block>
+  <block id="aeed9abd051a5ff37a94ee8ea302bdd8" category="list-text">\https://stream.cloudmanager.cloud.netapp.com</block>
+  <block id="9dcb0a1d3281e001a6085626a264be49" category="list-text">\https://cloudmanagerinfraprod.azurecr.io</block>
+  <block id="49fa0b884bb05dfb3678aff69fc2a90f" category="list-text">\https://production-artifacts.cloudmanager.cloud.netapp.com</block>
+  <block id="f55e31da35f47937201bdbf54e964315" category="list-text">\https://*.blob.core.windows.net</block>
+  <block id="4212008c2b937ee581ff9e530b8440f8" category="list-text">Privilèges root pour installer le connecteur.</block>
+  <block id="f39873ba3fdf2dff72b117d1ccc0a3f8" category="list-text">Détails sur un serveur proxy, si un proxy est requis pour accéder à Internet à partir du connecteur.</block>
+  <block id="2d8d8f0bca25643e72f72642f3d69663" category="paragraph">Vous avez la possibilité de configurer un serveur proxy après l'installation, mais cela nécessite de redémarrer le connecteur.</block>
+  <block id="65b78a376b8b24b27e70f95a439510ed" category="list-text">Certificat signé par une autorité de certification, si le serveur proxy utilise HTTPS.</block>
+  <block id="e4e566d8d29952e9ed77e5d97574962e" category="paragraph">Vous devez télécharger le programme d'installation du connecteur destiné à être utilisé sur votre réseau ou dans le cloud.</block>
+  <block id="658dfe68751aa32c88df07e11961f9e4" category="paragraph">Les paramètres --proxy et --cacert sont facultatifs. Si vous disposez d'un serveur proxy, vous devez entrer le ou les paramètres comme indiqué. Le programme d'installation ne vous invite pas à fournir des informations sur un proxy.</block>
+  <block id="b9fe00008273bec266b1b13a375c5496" category="paragraph">Voici un exemple de commande utilisant les deux paramètres facultatifs :</block>
+  <block id="c4b4fca8bb676cd8922fa6d8e24c4b0b" category="paragraph">--proxy configure le connecteur pour utiliser un serveur proxy HTTP ou HTTPS à l'aide de l'un des formats suivants :</block>
+  <block id="2ceb0e196c300f23618f8a9e66bf0553" category="list-text">\http://address:port</block>
+  <block id="56ea310ec955ce6bca75693a1ac8f92d" category="list-text">\http://username:password@address:port</block>
+  <block id="ab0bd0c76dc86ad344963fb604cbdb9a" category="list-text">\https://address:port</block>
+  <block id="0e304d528ea3fafc4ceebb3dd322c283" category="list-text">\https://username:password@address:port</block>
+  <block id="aa39dfaee370d13c729f753fcb941905" category="paragraph">--cacert spécifie un certificat signé par une autorité de certification à utiliser pour l'accès HTTPS entre le connecteur et le serveur proxy. Ce paramètre n'est requis que si vous spécifiez un serveur proxy HTTPS.</block>
+  <block id="32a79a3da73e9b7dab502ea9e60bf1a5" category="section-title">Configurer le connecteur</block>
+  <block id="9679c37d1ece85e4705ecd886aca356e" category="paragraph">Inscrivez-vous ou connectez-vous, puis configurez le connecteur pour qu'il fonctionne avec votre compte.</block>
+  <block id="f585d8283789f95373bb4a61f1b6ce67" category="list-text">Google Cloud : voir étape 3 ci-dessus</block>
+  <block id="bdf21bb8cfe7ab9d40f2a425c4b3b3d2" category="paragraph">Un administrateur de compte BlueXP doit déployer un _Connector_ avant de pouvoir utiliser la plupart des fonctions BlueXP. BlueXP peut ainsi gérer les ressources et les processus au sein de votre environnement de cloud public.</block>
+  <block id="d244936e046f15fcb45607b4abdb4b1a" category="paragraph">Ces étapes décrivent comment créer un connecteur dans une région commerciale d'Azure directement à partir du site Web BlueXP SaaS.</block>
+  <block id="2e8e562450aa2519f49cd0db32ef65de" category="inline-link-macro">Découvrez comment déployer un connecteur dans une région gouvernementale</block>
+  <block id="7f86b05bc7243efe06f8812a8de60993" category="list-text"><block ref="7f86b05bc7243efe06f8812a8de60993" category="inline-link-macro-rx"></block></block>
+  <block id="f56df5f8b4fd558a7482d6115403eadd" category="list-text"><block ref="f56df5f8b4fd558a7482d6115403eadd" category="inline-link-macro-rx"></block></block>
+  <block id="4c8996b4b6a0d48752377c7e6f5e0168" category="paragraph">Ces étapes décrivent comment créer un connecteur dans une région commerciale d'AWS directement à partir du site Web BlueXP SaaS.</block>
+  <block id="973e3a2a390bb57ce9d9e16ac0145023" category="paragraph"><block ref="973e3a2a390bb57ce9d9e16ac0145023" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="ff6e28c8eaa73c74f132f30b8a504071" category="list-text">/opt/application/netapp/cloudmanager/log ou</block>
+  <block id="f41aa0898b72dcd91cd63bd3d33d4258" category="list-text">/opt/application/netapp/service-manager-2/logs (à partir de 3.9.23 nouvelles installations)</block>
+  <block id="ca20316f548fc97a4d2a061c877b1956" category="paragraph">Les journaux de ces dossiers fournissent des détails sur le connecteur et les images de docker.</block>
 </blocks>
