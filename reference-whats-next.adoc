@@ -16,12 +16,14 @@ summary: Maintenant que vous vous êtes connecté et que vous avez configuré Bl
 [role="lead"]
 Maintenant que vous vous êtes connecté et que vous avez configuré BlueXP, les utilisateurs peuvent commencer à créer et découvrir des environnements de travail.
 
-* https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-getting-started-aws.html["Commencez avec Cloud Volumes ONTAP pour AWS"^]
-* https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-getting-started-azure.html["Commencez avec Cloud Volumes ONTAP pour Azure"^]
-* https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-getting-started-gcp.html["Lancez-vous avec Cloud Volumes ONTAP pour Google Cloud"^]
-* https://docs.netapp.com/us-en/cloud-manager-azure-netapp-files/task-quick-start.html["Configurer Azure NetApp Files"^]
-* https://docs.netapp.com/us-en/cloud-manager-fsx-ontap/start/task-getting-started-fsx.html["Configurer Amazon FSX pour ONTAP"^]
-* https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-service-aws/task-manage-cvs-aws.html["Configuration d'Cloud Volumes Service pour AWS"^]
-* https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html["Découvrez un cluster ONTAP sur site"^]
-* link:task-viewing-amazon-s3.html["Découvrez vos compartiments Amazon S3"]
+* https://docs.netapp.com/us-en/cloud-manager-azure-netapp-files/task-quick-start.html["Azure NetApp Files"^]
+* https://docs.netapp.com/us-en/cloud-manager-fsx-ontap/start/task-getting-started-fsx.html["Amazon FSX pour ONTAP"^]
+* https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-getting-started-aws.html["Cloud Volumes ONTAP pour AWS"^]
+* https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-getting-started-azure.html["Cloud Volumes ONTAP pour Azure"^]
+* https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-getting-started-gcp.html["Cloud Volumes ONTAP pour Google Cloud"^]
+* https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-service-gcp/task-set-up-google-cloud.html["Cloud Volumes Service pour Google Cloud"^]
+* https://docs.netapp.com/us-en/cloud-manager-e-series/task-discover-e-series.html["Systèmes E-Series"^]
+* https://docs.netapp.com/us-en/cloud-manager-kubernetes/task/task-k8s-quick-start.html["Clusters Kubernetes"^]
+* https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html["Clusters ONTAP sur site"^]
+* https://docs.netapp.com/us-en/cloud-manager-storagegrid/task-discover-storagegrid.html["Systèmes StorageGRID"^]
 

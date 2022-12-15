@@ -263,22 +263,6 @@
   <block id="c89064bda3f1ae133a231f5b1f44c3b0" category="list-text">Depuis l'hôte Linux, exécutez les commandes suivantes :</block>
   <block id="70f1be412fcdc9d0de757859e335f5a6" category="summary">Maintenant que vous vous êtes connecté et que vous avez configuré BlueXP, les utilisateurs peuvent commencer à créer et découvrir des environnements de travail.</block>
   <block id="3163b3d4dc92f42d04ad4c79906dcdc3" category="doc">Par où aller plus loin</block>
-  <block id="7225cbd09f10418bea11f9f5a7bb8239" category="inline-link">Commencez avec Cloud Volumes ONTAP pour AWS</block>
-  <block id="1ab38ec994b2b571e5a64425b17adfd0" category="list-text"><block ref="1ab38ec994b2b571e5a64425b17adfd0" category="inline-link-rx"></block></block>
-  <block id="c9872f24ec1c862fec9a6daae0322223" category="inline-link">Commencez avec Cloud Volumes ONTAP pour Azure</block>
-  <block id="c842a3b183e53a5bf6629088c63c3cfe" category="list-text"><block ref="c842a3b183e53a5bf6629088c63c3cfe" category="inline-link-rx"></block></block>
-  <block id="f4488428860ec63a8b5d5b49e6e05044" category="inline-link">Lancez-vous avec Cloud Volumes ONTAP pour Google Cloud</block>
-  <block id="f16a9ac5c661e28643e0bd9a18254d16" category="list-text"><block ref="f16a9ac5c661e28643e0bd9a18254d16" category="inline-link-rx"></block></block>
-  <block id="1a13f57b619b2ef0b47e851b04e48aec" category="inline-link">Configurer Azure NetApp Files</block>
-  <block id="d1640a3b53ec580119ad1efa519fa5a4" category="list-text"><block ref="d1640a3b53ec580119ad1efa519fa5a4" category="inline-link-rx"></block></block>
-  <block id="64e7cbd14ba57000ea8cdd5fa33d079f" category="inline-link">Configurer Amazon FSX pour ONTAP</block>
-  <block id="571331341f9a044145a7015b8d5b9b03" category="list-text"><block ref="571331341f9a044145a7015b8d5b9b03" category="inline-link-rx"></block></block>
-  <block id="ee1b3fc0e1771ee3c8d6a1474ba7b403" category="inline-link">Configuration d'Cloud Volumes Service pour AWS</block>
-  <block id="3707f9686304d02d294cdb98fb9cbf36" category="list-text"><block ref="3707f9686304d02d294cdb98fb9cbf36" category="inline-link-rx"></block></block>
-  <block id="c6f905e067bdaa7ba33a58a907e59477" category="inline-link">Découvrez un cluster ONTAP sur site</block>
-  <block id="b28e9c0d24784ac4474fb496f6e3ce23" category="list-text"><block ref="b28e9c0d24784ac4474fb496f6e3ce23" category="inline-link-rx"></block></block>
-  <block id="a3e15006a0362130cf46b948ce3a5626" category="inline-link-macro">Découvrez vos compartiments Amazon S3</block>
-  <block id="3f48c5e9be05508878e1ceb77d8423a7" category="list-text"><block ref="3f48c5e9be05508878e1ceb77d8423a7" category="inline-link-macro-rx"></block></block>
   <block id="082338dd3697084a7af4c20fcdf81e82" category="summary">Lorsque BlueXP lance la machine virtuelle Connector dans Azure, il attache un rôle personnalisé à la machine virtuelle qui fournit au connecteur les autorisations nécessaires pour gérer les ressources et les processus au sein de cet abonnement Azure. Le connecteur utilise les autorisations pour effectuer des appels API vers plusieurs services Azure.</block>
   <block id="9fbcb95374723e2f8d5b7c17a2ece586" category="section-title">Autorisations de rôles personnalisées</block>
   <block id="35065a906fcb04c8b9fad94c74ed75b6" category="paragraph">Le rôle personnalisé illustré ci-dessous fournit les autorisations dont un connecteur a besoin pour gérer les ressources et les processus de votre réseau Azure.</block>
@@ -553,7 +537,6 @@
   <block id="5646658d58bb92ba775a6c2cd024ef17" category="paragraph">Si votre réseau dispose d'un sous-réseau configuré avec l'une ou l'autre de ces plages, il se peut que vous ayez des défaillances de connectivité de BlueXP. Par exemple, la découverte de clusters ONTAP sur site dans BlueXP peut échouer.</block>
   <block id="4195cd5f5be4f9f1f03edcb9e48c9b07" category="inline-link-macro">Conflit IP connecteur BlueXP avec le réseau existant</block>
   <block id="290b978e42f71f7d091ff656795a223e" category="paragraph">Consultez l'article de la base de connaissances <block ref="ec3dc3610ab92c8939c1af12267841a7" category="inline-link-macro-rx"></block> Pour obtenir des instructions sur la modification de l’adresse IP des interfaces du connecteur.</block>
-  <block id="82538689c7a66297973814120306d42f" category="section-title">Seul un serveur proxy HTTP est pris en charge</block>
   <block id="d4150be963d8e8a8648985d057b82c98" category="paragraph">Si vos stratégies d'entreprise nécessitent l'utilisation d'un serveur proxy pour toutes les communications HTTP vers Internet, vous devez configurer vos connecteurs pour utiliser ce serveur proxy HTTP. Le serveur proxy peut se trouver dans le cloud ou dans votre réseau.</block>
   <block id="2b82837bf5cef64e65d0df717eafd918" category="paragraph">BlueXP ne prend pas en charge l'utilisation d'un proxy HTTPS avec le connecteur.</block>
   <block id="5f06d23f83d6190c4d06ff980526b619" category="paragraph">BlueXP ne prend pas en charge les configurations de pare-feu pour lesquelles le décryptage SSL est activé. Si le décryptage SSL est activé, des messages d'erreur apparaissent dans BlueXP et l'instance de connecteur s'affiche comme inactive.</block>
@@ -572,10 +555,6 @@
   <block id="0eecc61a1a6e481db1e7242f1c8c6009" category="paragraph">Cela signifie que seuls les utilisateurs privilégiés qui peuvent accéder au VPC/vNet interne de l'utilisateur final peuvent utiliser l'interface utilisateur ou l'API de BlueXP.</block>
   <block id="bb88bf03aaf2d1b8891c8b85df8bd28f" category="paragraph">Il est à noter que les seuls services pris en charge dans ces régions sont Cloud Volumes ONTAP, Cloud Backup, Cloud Data Sense et la réplication. Aucun autre service NetApp n'est pris en charge dans les régions du secteur public.</block>
   <block id="b5d309d79224e6f55d1d4c6b68090c82" category="paragraph"><block ref="2061c033ff26af000ddf0a91359fc3b2" category="inline-link-macro-rx"></block>.</block>
-  <block id="4c8bad6756ca0d84a9a56e8303428c9c" category="section-title">Restrictions du marché</block>
-  <block id="09b41782e7d4a148f9a7da9ba9dd8aab" category="section-title">Le paiement à l'utilisation n'est pas disponible pour les partenaires Azure et Google Cloud</block>
-  <block id="3bb34cc4b91242a4a34cd43a6fe0fd46" category="paragraph">Si vous êtes un partenaire de fournisseur de solutions cloud Microsoft ou un partenaire Google Cloud, les abonnements avec paiement basé sur l'utilisation de NetApp ne sont pas disponibles. Vous devez acheter une licence et déployer des solutions clouds NetApp avec une licence BYOL.</block>
-  <block id="33a2b7ff6dc79a8e4cc0b966b36b485d" category="paragraph">Les abonnements avec le paiement à l'utilisation ne sont pas disponibles pour les services cloud NetApp suivants :</block>
   <block id="6e0db9379e3434e931d198d00617cbd6" category="summary">BlueXP nécessite des autorisations pour effectuer des actions dans votre fournisseur de cloud. Ces autorisations sont incluses dans les règles fournies par NetApp . Vous voudrez peut-être comprendre ce que BlueXP fait avec ces autorisations.</block>
   <block id="9451bddd2cec3e9489f79e90187bcc6a" category="doc">Autorisations Google Cloud pour le connecteur</block>
   <block id="f4c4efc5241f9f82576eec23d40da3e3" category="paragraph">BlueXP requiert des autorisations pour effectuer des actions dans Google Cloud. Ces autorisations sont incluses dans un rôle personnalisé fourni par NetApp. Vous voudrez peut-être comprendre ce que BlueXP fait avec ces autorisations.</block>
@@ -1207,10 +1186,7 @@
   <block id="4b32545acb84a8a99e56ccc813199881" category="list-text">Firewall.create et firewall.delete ne sont nécessaires que si vous ne passez pas de règles de pare-feu au déploiement et que vous choisissez de laisser BlueXP les créer pour vous. Ces autorisations résident dans le fichier .yaml du compte BlueXP. Si vous déployez une paire HA à l'aide d'un VPC partagé, ces autorisations seront utilisées pour créer les règles de pare-feu pour VPC1, 2 et 3. Pour tous les autres déploiements, ces autorisations seront également utilisées pour créer des règles pour VPC0.</block>
   <block id="770b8b43613e5c706e2c10ec7bcc3ec7" category="list-text">Pour le Tiering des données, le compte de service de Tiering doit avoir le rôle serviceAccount.user sur le compte de service, et pas seulement au niveau du projet. Actuellement, si vous attribuez serviceAccount.user au niveau du projet, les autorisations ne s'affichent pas lorsque vous interrogez le compte de service avec getIAMPolicy.</block>
   <block id="ab316a3ccbad97726269c9705958262a" category="section-title">Configurer la mise en réseau</block>
-  <block id="7213720ac295b1a74851802d3a5a56b8" category="paragraph">Configurez votre réseau de sorte que le connecteur puisse gérer les ressources et les processus au sein de votre environnement de cloud public. En dehors de la présence d'un VPC et d'un sous-réseau pour le connecteur, vous devez vous assurer que les exigences suivantes sont respectées.</block>
   <block id="be541d1f37f2cc0c7ba1cfd7fcfbb4db" category="section-title">Connexion aux réseaux cibles</block>
-  <block id="19dfd3f6e4e8058b5d5537232d50ca9b" category="paragraph">Un connecteur nécessite une connexion réseau au type d’environnement de travail que vous créez et aux services que vous prévoyez d’activer.</block>
-  <block id="1b3deabe2c9e1e4a0b1167212bbfaef2" category="paragraph">Par exemple, si vous installez un connecteur sur le réseau de votre entreprise, vous devez configurer une connexion VPN sur le VPC dans lequel vous lancez Cloud Volumes ONTAP.</block>
   <block id="c8f224037ea295aeec347c94779d9932" category="section-title">Accès Internet sortant</block>
   <block id="c0dfa216f26874dae52a89e0090a3358" category="paragraph">Le connecteur nécessite un accès Internet sortant pour gérer les ressources et les processus au sein de votre environnement de cloud public.</block>
   <block id="824f455afa0ae197e5e7156988b6dc50" category="section-title">Serveur proxy</block>
@@ -1220,10 +1196,8 @@
   <block id="6a3f3799bc264d32568bb7169ddd515a" category="list-text">Certificat HTTPS</block>
   <block id="338578acf7e0dc54ebcd8c3592f0b022" category="section-title">Groupe de sécurité</block>
   <block id="ae6252cb830dbd695650f78870fe4309" category="inline-link-macro">Interface utilisateur locale</block>
-  <block id="2724db8eb831856d2bcad22cc1470034" category="paragraph">Il n'y a pas de trafic entrant vers le connecteur, sauf si vous le lancez ou si le connecteur est utilisé comme proxy pour les messages AutoSupport. HTTP et HTTPS permettent l'accès au <block ref="a4d556f51af89bcef8612c38a831609f" category="inline-link-macro-rx"></block>, que vous utiliserez dans de rares circonstances. SSH n'est nécessaire que si vous devez vous connecter à l'hôte pour le dépannage.</block>
   <block id="d72a801b2f49d6a4ed170ebdf3cf0efc" category="section-title">Limitation de l'adresse IP</block>
   <block id="65d425afa00c3ead65e6a786e55b60bc" category="inline-link-macro">En savoir plus sur cette limitation</block>
-  <block id="2ef89d258d7b7a558315c92ffe06a70a" category="paragraph">Il existe un conflit possible avec des adresses IP dans la plage 172. <block ref="9903a97952b05fb45b71a9f44012cd1c" category="inline-link-macro-rx"></block>.</block>
   <block id="3824876226172edfe0f17e8022b60fda" category="section-title">Activez les API Google Cloud</block>
   <block id="f8a0ce106d194d305897d63efea46b8d" category="paragraph">Plusieurs API sont nécessaires pour déployer le connecteur et Cloud Volumes ONTAP.</block>
   <block id="e478bf49f8034f2197e96520fa338da6" category="inline-link">Activez les API Google Cloud suivantes dans votre projet</block>
@@ -1999,28 +1973,10 @@
   <block id="98f770b0af18ca763421bac22b4b6805" category="section-title">Caractéristiques</block>
   <block id="58d76b9868fa792339621fbdd30421f7" category="paragraph">BlueXP est une plateforme de gestion SaaS professionnelle qui vous permet de garder le contrôle de vos données, où qu'elles se trouvent.</block>
   <block id="c70759e14c99d146c9a06c0aa179fd97" category="list-text">Configuration et utilisation<block ref="b41a5c30c6d9d82a8289eb263626d622" category="inline-link-rx"></block> pour une gestion efficace des données multiprotocole sur l'ensemble des clouds.</block>
-  <block id="442da2ce6c62de650f0093c5c3936f8b" category="list-text">Configuration et utilisation des services de stockage de fichiers :</block>
-  <block id="fe47a7bae21deac481466753a76b1e01" category="list-text"><block ref="fe47a7bae21deac481466753a76b1e01" category="inline-link-rx"></block></block>
   <block id="18cf072964a583150dd247485ba75b92" category="inline-link">Amazon FSX pour ONTAP</block>
-  <block id="2ccead5fa1ba8e96f9ff96a6730df792" category="list-text"><block ref="2ccead5fa1ba8e96f9ff96a6730df792" category="inline-link-rx"></block></block>
-  <block id="06021ba1ee96f1a3a57b50001fc7244c" category="inline-link">Cloud Volumes Service pour AWS</block>
-  <block id="510fe8614c3929cdfae8c51f9ef579a0" category="list-text"><block ref="510fe8614c3929cdfae8c51f9ef579a0" category="inline-link-rx"></block></block>
-  <block id="31e7239cc507a58a4794b36df4448093" category="list-text"><block ref="31e7239cc507a58a4794b36df4448093" category="inline-link-rx"></block></block>
-  <block id="8ccee3c04142be04af106dd59a32d53b" category="list-text">Découvrez et gérez les clusters ONTAP sur site en créant des volumes, en sauvegardant dans le cloud, en répliquant les données dans l'ensemble de votre cloud hybride et en effectuant le Tiering des données inactives dans le cloud.</block>
-  <block id="60b339721b3af17b74fa26ee748c0c4a" category="list-text">Profiter de services clouds intégrés, tels que :</block>
-  <block id="eded69f9cac39a42b807d8fe9673cbf0" category="list-text"><block ref="eded69f9cac39a42b807d8fe9673cbf0" category="inline-link-rx"></block></block>
-  <block id="b4f83b03956523a39e8bbbd0895f0f29" category="inline-link">Cloud Insights</block>
-  <block id="79014bb685e82b5d8e08031244ab76c6" category="list-text"><block ref="79014bb685e82b5d8e08031244ab76c6" category="inline-link-rx"></block></block>
-  <block id="f80499b11aeb75282e4dca4568323011" category="list-text"><block ref="f80499b11aeb75282e4dca4568323011" category="inline-link-rx"></block></block>
   <block id="78d1c9f9c86eecd86f5f568cfe0c0721" category="inline-link">En savoir plus sur BlueXP</block>
-  <block id="3f0f4690f27de5e62f84c1a350e6e4b1" category="paragraph"><block ref="3e6500f6feea5ba5821d69bacae3c610" category="inline-link-rx"></block>.</block>
-  <block id="002fca37a5e7d8eb724e874566419716" category="section-title">Fournisseurs de stockage objet pris en charge</block>
   <block id="0cf89ba9f6178dc91d18ec5c2aec1c61" category="paragraph">BlueXP vous permet de gérer le stockage cloud et d'utiliser les services cloud dans Amazon Web Services, Microsoft Azure et Google Cloud.</block>
   <block id="20b4f77bd00b4f63a49ec8e08f3bf6a6" category="section-title">Le coût</block>
-  <block id="14c4e84af1098b2006f2fddadf5e62fd" category="paragraph">BlueXP logiciel est gratuit auprès de NetApp.</block>
-  <block id="231aa5fbc2bffd88a9700bb68c45554e" category="paragraph">Pour la plupart des tâches, BlueXP vous invite à déployer un connecteur dans votre réseau cloud, ce qui entraîne des frais pour l'instance de calcul et le stockage associé de votre fournisseur cloud. Vous avez la possibilité d'exécuter le logiciel de connecteur sur votre site.</block>
-  <block id="da14ee4a8100ac08980150bcda1e397d" category="inline-link-macro">En savoir plus sur la configuration par défaut du connecteur</block>
-  <block id="84fc34721c0c912a148a70d22ac7cd5a" category="paragraph"><block ref="2e3b01a9181b70ea3432226bf12e488f" category="inline-link-macro-rx"></block>.</block>
   <block id="a2513e72ab3ae9830fac174977d58572" category="section-title">Fonctionnement de BlueXP</block>
   <block id="1d30e47d408ebb4c330e626c7ae44937" category="paragraph">BlueXP comprend une interface SaaS intégrée au site Web BlueXP et des connecteurs qui gèrent Cloud Volumes ONTAP et d'autres services Cloud.</block>
   <block id="11cf550820ecd5e75ae1a9046f7f7f05" category="section-title">Services à la demande</block>
@@ -2150,8 +2106,6 @@
   <block id="c6327a576f1d9b438597322e6545500c" category="section-title">Remarque sur les régions Azure</block>
   <block id="0e4b0391e50169d97fc505f0c73a94ba" category="paragraph">Le connecteur doit être déployé dans la même région Azure que les systèmes Cloud Volumes ONTAP qu'il gère ou dans<block ref="71e0e9a7366955554f0600c5ea8cfc7f" category="inline-link-rx"></block> Pour les systèmes Cloud Volumes ONTAP. Cette exigence garantit qu'une connexion Azure Private Link est utilisée entre Cloud Volumes ONTAP et les comptes de stockage associés.</block>
   <block id="07a7f9f6c28c927482b86d1b2710f6a3" category="paragraph"><block ref="07a7f9f6c28c927482b86d1b2710f6a3" category="inline-link-rx"></block></block>
-  <block id="85b230e60d81c13f5dc04f2f6348b69b" category="paragraph">Configurez votre réseau de sorte que le connecteur puisse gérer les ressources et les processus au sein de votre environnement de cloud public. En dehors de la présence d'un VNet et d'un sous-réseau pour le connecteur, vous devez vous assurer que les exigences suivantes sont respectées.</block>
-  <block id="7f98194e906061755ef77e3cbe8a33a9" category="paragraph">Par exemple, si vous installez un connecteur dans votre réseau d'entreprise, vous devez configurer une connexion VPN sur le vnet dans lequel vous lancez Cloud Volumes ONTAP.</block>
   <block id="cd82a81f0c2bccf261869166e5786c07" category="section-title">Créez un connecteur à l'aide de votre compte Azure</block>
   <block id="358332b40331dd189cc9fff0c6200e31" category="paragraph">La méthode par défaut pour créer un connecteur dans Azure consiste à vous connecter avec votre compte Azure lorsque vous y êtes invité. Le formulaire de connexion est détenu et hébergé par Microsoft. Vos identifiants ne sont pas fournis à NetApp.</block>
   <block id="4feea8fb07471b49da12ae6ce993e00f" category="section-title">Configurez les autorisations pour votre compte Azure</block>
@@ -2822,4 +2776,44 @@
   <block id="ff6e28c8eaa73c74f132f30b8a504071" category="list-text">/opt/application/netapp/cloudmanager/log ou</block>
   <block id="f41aa0898b72dcd91cd63bd3d33d4258" category="list-text">/opt/application/netapp/service-manager-2/logs (à partir de 3.9.23 nouvelles installations)</block>
   <block id="ca20316f548fc97a4d2a061c877b1956" category="paragraph">Les journaux de ces dossiers fournissent des détails sur le connecteur et les images de docker.</block>
+  <block id="df290139b26527b2473b1e82a36386d4" category="paragraph">Configurez votre réseau de sorte que le connecteur puisse gérer les ressources et les processus au sein de votre environnement de cloud public. Outre le fait de disposer d'un réseau virtuel et d'un sous-réseau pour le connecteur, vous devez vous assurer que les exigences suivantes sont respectées.</block>
+  <block id="2f03f8dd45cb031f8f3cce95fd4acefc" category="paragraph">Un connecteur nécessite une connexion réseau au type d'environnement de travail que vous créez et aux services que vous prévoyez d'activer.</block>
+  <block id="3f92e0c134aea90b900c9d9fb8728adc" category="paragraph">Par exemple, si vous installez un connecteur dans votre réseau d'entreprise, vous devez configurer une connexion VPN au réseau virtuel dans lequel vous lancez Cloud Volumes ONTAP.</block>
+  <block id="4f85ea1fc2337ca87ea3957b6ed0f523" category="paragraph">Il n'y a pas de trafic entrant vers le connecteur, sauf si vous le lancez ou si le connecteur est utilisé comme proxy pour les messages AutoSupport. HTTP et HTTPS permettent l'accès au<block ref="b66a5441ef03e9f48be36352f5f78769" category="inline-link-rx"></block>, que vous utiliserez dans de rares circonstances. SSH n'est nécessaire que si vous devez vous connecter à l'hôte pour le dépannage.</block>
+  <block id="9b1f033bcac0595326d8acd1ef89e52c" category="paragraph">Il existe un conflit possible avec des adresses IP dans la plage 172.<block ref="120cc620882c590412757bc531a4f583" category="inline-link-rx"></block>.</block>
+  <block id="17a28f89a71d8bcba39452a2fd7343db" category="list-text">Configurez et utilisez les services cloud de stockage de fichiers :</block>
+  <block id="d03fba385c4e1320cb0846a9690ea3db" category="list-text"><block ref="d03fba385c4e1320cb0846a9690ea3db" category="inline-link-rx"></block></block>
+  <block id="a24bba36cb4a314e2d49f3de7731e9af" category="list-text"><block ref="a24bba36cb4a314e2d49f3de7731e9af" category="inline-link-rx"></block></block>
+  <block id="bb5abe8201599db6217db0b48efaaf5c" category="list-text"><block ref="bb5abe8201599db6217db0b48efaaf5c" category="inline-link-rx"></block></block>
+  <block id="f06223f9afc23bac523c7b9854772040" category="inline-link">le stockage sur site</block>
+  <block id="50568fb1f1ec4912ba1fc41a6e7d9b52" category="list-text">Détection et gestion<block ref="3908ac962ccecd5304bef31bbe1227cb" category="inline-link-rx"></block></block>
+  <block id="3404cce75db90acf6a9d52860721a139" category="list-text">Clusters ONTAP</block>
+  <block id="7fcb7f97cbc710b693fef37b5e86770f" category="list-text">Systèmes StorageGRID</block>
+  <block id="ab3e169cccbf28cfe5a645631e4c3ee9" category="list-text">Utilisez les services BlueXP pour la mobilité, la protection des données, l'analyse et le contrôle des données :</block>
+  <block id="0edddc509df3db4e8717d189e32db020" category="list-text"><block ref="0edddc509df3db4e8717d189e32db020" category="inline-link-rx"></block></block>
+  <block id="19e49e48b1b7dfb345807d478924695e" category="list-text"><block ref="19e49e48b1b7dfb345807d478924695e" category="inline-link-rx"></block></block>
+  <block id="c0daf6fd97668893647e484d22abfa87" category="list-text"><block ref="c0daf6fd97668893647e484d22abfa87" category="inline-link-rx"></block></block>
+  <block id="b53201308fec60a975760c1edb55b773" category="list-text"><block ref="b53201308fec60a975760c1edb55b773" category="inline-link-rx"></block></block>
+  <block id="b2b0ea38d4048b69c988dce66f1d0b1d" category="list-text"><block ref="b2b0ea38d4048b69c988dce66f1d0b1d" category="inline-link-rx"></block></block>
+  <block id="8a7565a3d3fd48c7fc9f1e196dfdca92" category="list-text"><block ref="8a7565a3d3fd48c7fc9f1e196dfdca92" category="inline-link-rx"></block></block>
+  <block id="fcb8e4813d92a80a1bbc9b8070ca196b" category="list-text"><block ref="fcb8e4813d92a80a1bbc9b8070ca196b" category="inline-link-rx"></block></block>
+  <block id="950604af87c30e09716e6d097eb491db" category="inline-link">Protection contre les ransomwares</block>
+  <block id="a2caf1b1186133b845d3659ba1a714e8" category="list-text"><block ref="a2caf1b1186133b845d3659ba1a714e8" category="inline-link-rx"></block></block>
+  <block id="8c340dc334134096f68b880b42a8692c" category="inline-link">La réplication</block>
+  <block id="e5335d776982e29d68ce5591f7857b38" category="list-text"><block ref="e5335d776982e29d68ce5591f7857b38" category="inline-link-rx"></block></block>
+  <block id="3e6500f6feea5ba5821d69bacae3c610" category="paragraph"><block ref="3e6500f6feea5ba5821d69bacae3c610" category="inline-link-rx"></block></block>
+  <block id="902e65d33784bd8924eb05e622aa2dda" category="section-title">Fournisseurs cloud pris en charge</block>
+  <block id="586136b5d097497746a02a0ee9fbf106" category="inline-link">En savoir plus sur les tarifs BlueXP</block>
+  <block id="fdef4b7b833e98f74a43e15f9596aba2" category="paragraph">Le prix de BlueXP dépend des services que vous prévoyez d'utiliser.<block ref="75160bc8e8d9a72990607b919e54f0eb" category="inline-link-rx"></block>.</block>
+  <block id="1dbcc3dbf7eca2d457ef75c308b633a7" category="list-text"><block ref="1dbcc3dbf7eca2d457ef75c308b633a7" category="inline-link-rx"></block></block>
+  <block id="04ffe0a147dbb13700889c1e70e9882e" category="list-text"><block ref="04ffe0a147dbb13700889c1e70e9882e" category="inline-link-rx"></block></block>
+  <block id="87364e5ba30db1c43d48c2f9fb268599" category="list-text"><block ref="87364e5ba30db1c43d48c2f9fb268599" category="inline-link-rx"></block></block>
+  <block id="2cd4c52a2c24d00b0728a00fb7fdfa14" category="list-text"><block ref="2cd4c52a2c24d00b0728a00fb7fdfa14" category="inline-link-rx"></block></block>
+  <block id="f540a08b090d18fa948ca4ade8ceb7ff" category="inline-link">Cloud Volumes ONTAP pour Google Cloud</block>
+  <block id="18be24d5615a34e11f88d365c94d770c" category="list-text"><block ref="18be24d5615a34e11f88d365c94d770c" category="inline-link-rx"></block></block>
+  <block id="8ddf9ef59a261682f484b2030ac2104d" category="list-text"><block ref="8ddf9ef59a261682f484b2030ac2104d" category="inline-link-rx"></block></block>
+  <block id="10a0b60b9648ccc503b486ec26950667" category="list-text"><block ref="10a0b60b9648ccc503b486ec26950667" category="inline-link-rx"></block></block>
+  <block id="92f468efd354e3cfaab0772943ec7f1d" category="list-text"><block ref="92f468efd354e3cfaab0772943ec7f1d" category="inline-link-rx"></block></block>
+  <block id="412b379b83628f21da708ff096d131e5" category="list-text"><block ref="412b379b83628f21da708ff096d131e5" category="inline-link-rx"></block></block>
+  <block id="a565303474e8a5c2bfe13bce52714f80" category="list-text"><block ref="a565303474e8a5c2bfe13bce52714f80" category="inline-link-rx"></block></block>
 </blocks>

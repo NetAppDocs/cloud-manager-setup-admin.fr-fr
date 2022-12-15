@@ -34,14 +34,6 @@ Consultez l'article de la base de connaissances link:https://kb.netapp.com/Advic
 
 
 
-=== Seul un serveur proxy HTTP est pris en charge
-
-Si vos stratégies d'entreprise nécessitent l'utilisation d'un serveur proxy pour toutes les communications HTTP vers Internet, vous devez configurer vos connecteurs pour utiliser ce serveur proxy HTTP. Le serveur proxy peut se trouver dans le cloud ou dans votre réseau.
-
-BlueXP ne prend pas en charge l'utilisation d'un proxy HTTPS avec le connecteur.
-
-
-
 === Le décryptage SSL n'est pas pris en charge
 
 BlueXP ne prend pas en charge les configurations de pare-feu pour lesquelles le décryptage SSL est activé. Si le décryptage SSL est activé, des messages d'erreur apparaissent dans BlueXP et l'instance de connecteur s'affiche comme inactive.
@@ -83,21 +75,3 @@ Cela signifie que seuls les utilisateurs privilégiés qui peuvent accéder au V
 Il est à noter que les seuls services pris en charge dans ces régions sont Cloud Volumes ONTAP, Cloud Backup, Cloud Data Sense et la réplication. Aucun autre service NetApp n'est pris en charge dans les régions du secteur public.
 
 link:task-managing-connectors.html#access-the-local-ui["Découvrez comment accéder à l'interface utilisateur locale sur le connecteur"].
-
-
-
-== Restrictions du marché
-
-
-
-=== Le paiement à l'utilisation n'est pas disponible pour les partenaires Azure et Google Cloud
-
-Si vous êtes un partenaire de fournisseur de solutions cloud Microsoft ou un partenaire Google Cloud, les abonnements avec paiement basé sur l'utilisation de NetApp ne sont pas disponibles. Vous devez acheter une licence et déployer des solutions clouds NetApp avec une licence BYOL.
-
-Les abonnements avec le paiement à l'utilisation ne sont pas disponibles pour les services cloud NetApp suivants :
-
-* Cloud Volumes ONTAP
-* Tiering dans le cloud
-* La sauvegarde dans le cloud
-* Sens des données cloud
-
