@@ -1416,7 +1416,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-12-06 09:40:36 +0000">12/06/2022</time>
+    <time datetime="2022-12-14 20:16:53 +0000">12/14/2022</time>
     
   
 
@@ -1545,7 +1545,7 @@ Pour créer un système Cloud Volumes ONTAP dans Google Cloud, vous devez dispos
 </dd>
 <dt class="hdlist1">Moteur Docker</dt>
 <dd>
-<p>Docker Engine version 19 ou ultérieure est requis sur l&#8217;hôte avant d&#8217;installer le connecteur. <a href="https://docs.docker.com/engine/install/" target="_blank" rel="noopener">"Voir les instructions d&#8217;installation"</a></p>
+<p>Docker Engine version 19.3.1 ou ultérieure est requis sur l&#8217;hôte avant d&#8217;installer le connecteur. <a href="https://docs.docker.com/engine/install/" target="_blank" rel="noopener">"Voir les instructions d&#8217;installation"</a></p>
 </dd>
 <dt class="hdlist1">Accès Internet sortant</dt>
 <dd>
@@ -1555,15 +1555,30 @@ Pour créer un système Cloud Volumes ONTAP dans Google Cloud, vous devez dispos
 <div class="ulist">
 <ul>
 <li>
-<p>https://s3.amazonaws.com/aws-cli/awscli-bundle.zip</p>
+<p>https://support.netapp.com</p>
 </li>
 <li>
-<p>https://*.blob.core.windows.net ou https://hub.docker.com</p>
-<div class="paragraph">
-<p>L&#8217;hôte peut essayer de mettre à jour les packages du système d&#8217;exploitation lors de l&#8217;installation. L&#8217;hôte peut contacter différents sites de mise en miroir pour ces packages OS.</p>
-</div>
+<p>https://mysupport.netapp.com</p>
+</li>
+<li>
+<p>https://cloudmanager.cloud.netapp.com/tenancy</p>
+</li>
+<li>
+<p>https://stream.cloudmanager.cloud.netapp.com</p>
+</li>
+<li>
+<p>https://cloudmanagerinfraprod.azurecr.io</p>
+</li>
+<li>
+<p>https://production-artifacts.cloudmanager.cloud.netapp.com</p>
+</li>
+<li>
+<p>https://*.blob.core.windows.net</p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>L&#8217;hôte peut essayer de mettre à jour les packages du système d&#8217;exploitation lors de l&#8217;installation. L&#8217;hôte peut contacter différents sites de mise en miroir pour ces packages OS.</p>
 </div>
 </div>
 </div>
@@ -1578,9 +1593,22 @@ Pour créer un système Cloud Volumes ONTAP dans Google Cloud, vous devez dispos
 <div class="paragraph">
 <p>Après avoir vérifié que vous disposez d&#8217;un hôte Linux pris en charge, vous pouvez obtenir le logiciel Connector, puis l&#8217;installer.</p>
 </div>
+<div class="ulist">
+<div class="title">Ce dont vous avez besoin</div>
+<ul>
+<li>
+<p>Privilèges root pour installer le connecteur.</p>
+</li>
+<li>
+<p>Détails sur un serveur proxy, si un proxy est requis pour accéder à Internet à partir du connecteur.</p>
 <div class="paragraph">
-<div class="title">Privilèges requis</div>
-<p>Les privilèges root sont requis pour installer le connecteur.</p>
+<p>Vous avez la possibilité de configurer un serveur proxy après l&#8217;installation, mais cela nécessite de redémarrer le connecteur.</p>
+</div>
+</li>
+<li>
+<p>Certificat signé par une autorité de certification, si le serveur proxy utilise HTTPS.</p>
+</li>
+</ul>
 </div>
 <div class="ulist">
 <div class="title">Description de la tâche</div>
@@ -1610,31 +1638,75 @@ Pour créer un système Cloud Volumes ONTAP dans Google Cloud, vous devez dispos
 <li>
 <p>Téléchargez le logiciel du connecteur à partir du <a href="https://mysupport.netapp.com/site/products/all/details/cloud-manager/downloads-tab" target="_blank" rel="noopener">"Site de support NetApp"</a>, Puis copiez-le sur l&#8217;hôte Linux.</p>
 <div class="paragraph">
-<p>Pour obtenir de l&#8217;aide sur la connexion et la copie du fichier vers une instance EC2 dans AWS, reportez-vous à la section <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstancesLinux.html" target="_blank" rel="noopener">"Documentation AWS : connexion à votre instance Linux à l&#8217;aide de SSH"</a>.</p>
+<p>Vous devez télécharger le programme d&#8217;installation du connecteur destiné à être utilisé sur votre réseau ou dans le cloud.</p>
 </div>
 </li>
 <li>
 <p>Attribuez des autorisations pour exécuter le script.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-cli" data-lang="cli">chmod +x OnCommandCloudManager-V3.9.23.sh</code></pre>
+<pre class="highlight"><code class="language-cli" data-lang="cli">chmod +x OnCommandCloudManager-V3.9.23</code></pre>
 </div>
 </div>
 </li>
 <li>
 <p>Exécutez le script d&#8217;installation.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli"> ./OnCommandCloudManager-V3.9.23 --proxy &lt;HTTP or HTTPS proxy server&gt; --cacert &lt;path and file name of a CA-signed certificate&gt;</code></pre>
+</div>
+</div>
 <div class="paragraph">
-<p>Si vous disposez d&#8217;un serveur proxy, vous devez entrer les paramètres de commande comme indiqué ci-dessous. Le programme d&#8217;installation ne vous invite pas à fournir des informations sur un proxy.</p>
+<p>Les paramètres --proxy et --cacert sont facultatifs. Si vous disposez d&#8217;un serveur proxy, vous devez entrer le ou les paramètres comme indiqué. Le programme d&#8217;installation ne vous invite pas à fournir des informations sur un proxy.</p>
+</div>
+<div class="paragraph">
+<p>Voici un exemple de commande utilisant les deux paramètres facultatifs :</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-cli" data-lang="cli"> ./OnCommandCloudManager-V3.9.23.sh --proxy http://occm:password@10.0.0.30:9090/ --cacert /root/rootca.pem</code></pre>
+<pre class="highlight"><code class="language-cli" data-lang="cli"> ./OnCommandCloudManager-V3.9.23 --proxy https://user:password@10.0.0.30:8080/ --cacert /tmp/cacert/certificate.cer</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Le connecteur est maintenant installé. À la fin de l&#8217;installation, le service connecteur (ocm) redémarre deux fois si vous avez spécifié un serveur proxy.</p>
+<p>--proxy configure le connecteur pour utiliser un serveur proxy HTTP ou HTTPS à l&#8217;aide de l&#8217;un des formats suivants :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>http://address:port</p>
+</li>
+<li>
+<p>http://username:password@address:port</p>
+</li>
+<li>
+<p>https://address:port</p>
+</li>
+<li>
+<p>https://username:password@address:port</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>--cacert spécifie un certificat signé par une autorité de certification à utiliser pour l&#8217;accès HTTPS entre le connecteur et le serveur proxy. Ce paramètre n&#8217;est requis que si vous spécifiez un serveur proxy HTTPS.</p>
 </div>
 </li>
+</ol>
+</div>
+<div class="paragraph">
+<div class="title">Résultat</div>
+<p>Le connecteur est maintenant installé. À la fin de l&#8217;installation, le service connecteur (ocm) redémarre deux fois si vous avez spécifié un serveur proxy.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="configurer-le-connecteur">Configurer le connecteur</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Inscrivez-vous ou connectez-vous, puis configurez le connecteur pour qu&#8217;il fonctionne avec votre compte.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Étapes</div>
+<ol class="arabic">
 <li>
 <p>Ouvrez un navigateur Web et entrez l&#8217;URL suivante :</p>
 <div class="paragraph">
@@ -1678,9 +1750,6 @@ Pour créer un système Cloud Volumes ONTAP dans Google Cloud, vous devez dispos
 </li>
 <li>
 <p>Entrez un nom pour le système.</p>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_set_up_cloud_manager.gif" alt="Copie d&#8217;écran affichant l&#8217;écran de configuration, qui vous permet de sélectionner un compte NetApp et de nommer le système."></span></p>
-</div>
 </li>
 </ol>
 </div>
@@ -1704,7 +1773,7 @@ Pour créer un système Cloud Volumes ONTAP dans Google Cloud, vous devez dispos
 <p>Azure : <a href="task-adding-azure-accounts.html">"Configurez un compte Azure, puis ajoutez-le à BlueXP"</a></p>
 </li>
 <li>
-<p>Google Cloud : voir étape 7 ci-dessus</p>
+<p>Google Cloud : voir étape 3 ci-dessus</p>
 </li>
 </ul>
 </div>
