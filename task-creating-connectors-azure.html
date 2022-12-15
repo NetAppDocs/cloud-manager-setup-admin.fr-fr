@@ -1416,7 +1416,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-12-14 20:16:53 +0000">12/14/2022</time>
+    <time datetime="2022-12-15 18:22:59 +0000">12/15/2022</time>
     
   
 
@@ -1488,15 +1488,15 @@
 <h2 id="configurer-la-mise-en-réseau">Configurer la mise en réseau</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Configurez votre réseau de sorte que le connecteur puisse gérer les ressources et les processus au sein de votre environnement de cloud public. En dehors de la présence d&#8217;un VNet et d&#8217;un sous-réseau pour le connecteur, vous devez vous assurer que les exigences suivantes sont respectées.</p>
+<p>Configurez votre réseau de sorte que le connecteur puisse gérer les ressources et les processus au sein de votre environnement de cloud public. Outre le fait de disposer d&#8217;un réseau virtuel et d&#8217;un sous-réseau pour le connecteur, vous devez vous assurer que les exigences suivantes sont respectées.</p>
 </div>
 <div class="sect2">
 <h3 id="connexion-aux-réseaux-cibles">Connexion aux réseaux cibles</h3>
 <div class="paragraph">
-<p>Un connecteur nécessite une connexion réseau au type d’environnement de travail que vous créez et aux services que vous prévoyez d’activer.</p>
+<p>Un connecteur nécessite une connexion réseau au type d&#8217;environnement de travail que vous créez et aux services que vous prévoyez d&#8217;activer.</p>
 </div>
 <div class="paragraph">
-<p>Par exemple, si vous installez un connecteur dans votre réseau d&#8217;entreprise, vous devez configurer une connexion VPN sur le vnet dans lequel vous lancez Cloud Volumes ONTAP.</p>
+<p>Par exemple, si vous installez un connecteur dans votre réseau d&#8217;entreprise, vous devez configurer une connexion VPN au réseau virtuel dans lequel vous lancez Cloud Volumes ONTAP.</p>
 </div>
 </div>
 <div class="sect2">
@@ -1578,13 +1578,13 @@ Le connecteur est en train de contacter « cloudmanager.cloud.netapp.com", mais 
 <div class="sect2">
 <h3 id="groupe-de-sécurité">Groupe de sécurité</h3>
 <div class="paragraph">
-<p>Il n&#8217;y a pas de trafic entrant vers le connecteur, sauf si vous le lancez ou si le connecteur est utilisé comme proxy pour les messages AutoSupport. HTTP et HTTPS permettent l&#8217;accès au <a href="concept-connectors.html#the-local-user-interface">"Interface utilisateur locale"</a>, que vous utiliserez dans de rares circonstances. SSH n&#8217;est nécessaire que si vous devez vous connecter à l&#8217;hôte pour le dépannage.</p>
+<p>Il n&#8217;y a pas de trafic entrant vers le connecteur, sauf si vous le lancez ou si le connecteur est utilisé comme proxy pour les messages AutoSupport. HTTP et HTTPS permettent l&#8217;accès au <a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html#the-local-user-interface">"Interface utilisateur locale"</a>, que vous utiliserez dans de rares circonstances. SSH n&#8217;est nécessaire que si vous devez vous connecter à l&#8217;hôte pour le dépannage.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="limitation-de-ladresse-ip">Limitation de l&#8217;adresse IP</h3>
 <div class="paragraph">
-<p>Il existe un conflit possible avec des adresses IP dans la plage 172. <a href="reference-limitations.html">"En savoir plus sur cette limitation"</a>.</p>
+<p>Il existe un conflit possible avec des adresses IP dans la plage 172. <a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-limitations.html">"En savoir plus sur cette limitation"</a>.</p>
 </div>
 </div>
 </div>
