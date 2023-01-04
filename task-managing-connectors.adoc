@@ -254,7 +254,7 @@ Le connecteur en ligne inclut un script de désinstallation que vous pouvez util
 .Étape
 . À partir de l'hôte Linux, exécutez le script de désinstallation :
 +
-*/opt/application/netapp/cloudmanager/bin/uninstall.sh [silencieux]*
+*/opt/application/netapp/service-manager-2/uninstall.sh [silencieux]*
 
 +
 _silent_ exécute le script sans vous demander de confirmer.

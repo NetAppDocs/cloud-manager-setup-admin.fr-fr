@@ -256,7 +256,6 @@
   <block id="4d67fb715dceafe12fe6803426ac57b2" category="section-title">Désinstallation à partir d'un hôte disposant d'un accès à Internet</block>
   <block id="e089c95fb359ddfa284cac5771dbcd57" category="paragraph">Le connecteur en ligne inclut un script de désinstallation que vous pouvez utiliser pour désinstaller le logiciel.</block>
   <block id="6a5be3e06b444aea04beccda3bc9e1d6" category="list-text">À partir de l'hôte Linux, exécutez le script de désinstallation :</block>
-  <block id="e2f6c6cb24129499bc001ae5e6c182d2" category="paragraph">*/opt/application/netapp/cloudmanager/bin/uninstall.sh [silencieux]*</block>
   <block id="0bb43692ecd0352eecc69c235e34d6f0" category="paragraph">_silent_ exécute le script sans vous demander de confirmer.</block>
   <block id="8df713934e0916c402f7101820962747" category="section-title">Désinstallation à partir d'un hôte sans accès à Internet</block>
   <block id="aa03c0a49ae5be9aa71931d934887122" category="paragraph">Utilisez ces commandes si vous avez téléchargé le logiciel Connector depuis le site de support NetApp et l'avez installé dans un réseau restreint qui ne dispose pas d'un accès Internet.</block>
@@ -659,9 +658,7 @@
   <block id="36e6435fcbb8fc1cb1db7a6b55e336f8" category="cell">Votre navigateur Web se connecte à ces points de terminaison pour une authentification utilisateur centralisée via BlueXP.</block>
   <block id="abc66ca669cfbd9be590874c67e8d7ef" category="cell">\https://widget.intercom.io</block>
   <block id="30fe214f0e8ecaf9b895a0137cad8ce9" category="cell">Vous bénéficiez d'un chat en ligne pour discuter avec des experts du cloud NetApp.</block>
-  <block id="df5b9982059c29cbe72aa6342e6b47a8" category="cell">Adresse IP du connecteur</block>
   <block id="0b83c97017787b7fdc5aaf31aaf0da59" category="inline-link-macro">Si vous utilisez l'interface utilisateur locale</block>
-  <block id="9307a4b1840270d6e9b32ec060d29760" category="paragraph">Dans la plupart des cas, vous devez travailler avec BlueXP à partir de l'interface utilisateur SaaS, mais <block ref="9a2b10ef390e45d8a69a5a0f7a3a563a" category="inline-link-macro-rx"></block>, Vous devez ensuite saisir l'adresse IP de l'hôte à partir d'un navigateur Web.</block>
   <block id="4c2345ba2614b91eb52d47835c18de63" category="paragraph">Selon la connectivité à votre fournisseur de cloud, utilisez l'IP privée ou une adresse IP publique attribuée à l'hôte :</block>
   <block id="a106b753f18f3561086de4e9f0a06365" category="list-text">Une adresse IP privée fonctionne si vous disposez d'un VPN et d'un accès direct à votre réseau virtuel</block>
   <block id="460ad81025c5e747a488e7ca0874eca7" category="list-text">Un IP public fonctionne dans tous les scénarios de mise en réseau</block>
@@ -677,7 +674,6 @@
   <block id="065880318484084e9bfe33ea9c6a8702" category="cell">Pour mettre à niveau le connecteur et ses composants Docker.</block>
   <block id="35bd57a4dcfbd7a695f9beb7d01913c6" category="paragraph">L'hôte peut essayer de mettre à jour les packages du système d'exploitation lors de l'installation. L'hôte peut contacter différents sites de mise en miroir pour ces packages OS.</block>
   <block id="11ffd2b7817530008f4bc1916d79b3d7" category="list-text">Il n'y a pas de trafic entrant vers le connecteur, sauf si vous le lancez.</block>
-  <block id="eedca72959934d39da95314809917fb3" category="paragraph">HTTP (80) et HTTPS (443) permettent d'accéder à l'interface utilisateur locale que vous utiliserez dans de rares circonstances. SSH (22) n'est nécessaire que si vous devez vous connecter à l'hôte pour le dépannage.</block>
   <block id="0d07862d67097acd517fe27c0de099d7" category="list-text">Les autorisations du fournisseur cloud</block>
   <block id="b9288d749f3ef53ccabb6e5c7c7bc85f" category="list-text">Vous devez disposer d'un compte disposant des autorisations pour déployer le connecteur dans votre fournisseur de cloud directement à partir de BlueXP.</block>
   <block id="cab27dc53edb571cac663ce2e16450dc" category="inline-link-macro">AWS Marketplace</block>
@@ -703,7 +699,6 @@
   <block id="61b1ce4131acb41d288dfa78b422bb7e" category="list-text">Lorsque vous créez le connecteur, connectez-vous avec le compte Google qui dispose des autorisations requises (l'invite de connexion est détenue et hébergée par Google).</block>
   <block id="2c31078fc1e6c16afa177184673a9e4d" category="cell"><block ref="f490202b9d1c0db24e0f82c4685b7ba8" category="inline-link-macro-rx"></block>.</block>
   <block id="203802866ac2835e79bd76c94a3761c2" category="list-text">Mise en réseau pour des services individuels</block>
-  <block id="9248603a11ea2c749d830243087dd219" category="list-text">Maintenant que votre configuration est terminée, vous êtes prêt à utiliser les services disponibles depuis BlueXP. Notez que chaque service présente ses propres exigences réseau. Pour plus de détails, reportez-vous aux pages suivantes.</block>
   <block id="096f3522cfa2f31de45d052b740adc65" category="inline-link">Cloud Volumes ONTAP pour AWS</block>
   <block id="9b0432f441cfd7ac2213403a3b5bbf3b" category="list-text"><block ref="9b0432f441cfd7ac2213403a3b5bbf3b" category="inline-link-rx"></block></block>
   <block id="2544021bbaa4bc6eadfddbb17edf7811" category="inline-link">Cloud Volumes ONTAP pour Azure</block>
@@ -2816,4 +2811,13 @@
   <block id="92f468efd354e3cfaab0772943ec7f1d" category="list-text"><block ref="92f468efd354e3cfaab0772943ec7f1d" category="inline-link-rx"></block></block>
   <block id="412b379b83628f21da708ff096d131e5" category="list-text"><block ref="412b379b83628f21da708ff096d131e5" category="inline-link-rx"></block></block>
   <block id="a565303474e8a5c2bfe13bce52714f80" category="list-text"><block ref="a565303474e8a5c2bfe13bce52714f80" category="inline-link-rx"></block></block>
+  <block id="a6e1656bf1d677715d170327b95cc743" category="paragraph">*/opt/application/netapp/service-manager-2/uninstall.sh [silencieux]*</block>
+  <block id="1f7138998459804601fc351f8d442e29" category="section-title">1er janvier 2023</block>
+  <block id="e139aa454163ce195b3669d769c3f1c8" category="section-title">Connecteur 3.9.25</block>
+  <block id="ab010f0ae1d3cb2043f9513a1f81beea" category="paragraph">Cette version de Connector inclut des améliorations de Cloud Volumes ONTAP et des correctifs.</block>
+  <block id="826d1d89ec2a521e40a7a91c2ee8f024" category="paragraph"><block ref="826d1d89ec2a521e40a7a91c2ee8f024" category="inline-link-rx"></block></block>
+  <block id="c07581a9e3714e573075f510c11a8b05" category="cell">Adresse IP du connecteur</block>
+  <block id="1c3a99b9cab6b55c9a46ccd58a1283c8" category="paragraph">Dans la plupart des cas, vous devez travailler avec BlueXP à partir de l'interface utilisateur SaaS, mais <block ref="9a2b10ef390e45d8a69a5a0f7a3a563a" category="inline-link-macro-rx"></block>, Vous devez ensuite saisir l'adresse IP de l'hôte à partir d'un navigateur Web.</block>
+  <block id="c24732648af9b734203cc5a8a19f2537" category="paragraph">HTTP (80) et HTTPS (443) permettent d'accéder à l'interface utilisateur locale que vous utiliserez dans de rares circonstances. SSH (22) n'est nécessaire que si vous devez vous connecter à l'hôte pour le dépannage. Parallèlement, des connexions entrantes via le port 3128 sont nécessaires si vous déployez les systèmes Cloud Volumes ONTAP dans un sous-réseau dans lequel aucune connexion Internet sortante n'est disponible.</block>
+  <block id="31cd3194dbc40a48cdae969161abd4a5" category="list-text">Une fois la configuration terminée, vous êtes prêt à utiliser les services disponibles auprès de BlueXP. Notez que chaque service présente ses propres exigences réseau. Pour plus de détails, reportez-vous aux pages suivantes.</block>
 </blocks>

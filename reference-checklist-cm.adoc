@@ -115,7 +115,7 @@ link:task-installing-linux.html["Passez en revue la liste des noeuds finaux"].
 
 * Il n'y a pas de trafic entrant vers le connecteur, sauf si vous le lancez.
 +
-HTTP (80) et HTTPS (443) permettent d'accéder à l'interface utilisateur locale que vous utiliserez dans de rares circonstances. SSH (22) n'est nécessaire que si vous devez vous connecter à l'hôte pour le dépannage.
+HTTP (80) et HTTPS (443) permettent d'accéder à l'interface utilisateur locale que vous utiliserez dans de rares circonstances. SSH (22) n'est nécessaire que si vous devez vous connecter à l'hôte pour le dépannage. Parallèlement, des connexions entrantes via le port 3128 sont nécessaires si vous déployez les systèmes Cloud Volumes ONTAP dans un sous-réseau dans lequel aucune connexion Internet sortante n'est disponible.
 
 
 
@@ -157,7 +157,7 @@ NOTE: Il existe d'autres façons de créer un connecteur : vous pouvez créer un
 | link:task-creating-connectors-gcp.html["Cliquez ici pour afficher les étapes détaillées"]. 
 |===
 --
-Mise en réseau pour des services individuels:: Maintenant que votre configuration est terminée, vous êtes prêt à utiliser les services disponibles depuis BlueXP. Notez que chaque service présente ses propres exigences réseau. Pour plus de détails, reportez-vous aux pages suivantes.
+Mise en réseau pour des services individuels:: Une fois la configuration terminée, vous êtes prêt à utiliser les services disponibles auprès de BlueXP. Notez que chaque service présente ses propres exigences réseau. Pour plus de détails, reportez-vous aux pages suivantes.
 +
 --
 * https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/reference-networking-aws.html["Cloud Volumes ONTAP pour AWS"^]
