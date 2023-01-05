@@ -2678,7 +2678,6 @@
   <block id="4e7880d4f8d9cf685f649e74e34a3de7" category="list-text">Docker Engine version 19 ou ultérieure est requis sur l'hôte avant d'installer le connecteur.<block ref="bbcf0e5e8b0c8687d84c2c22a5ad2ecf" category="inline-link-rx"></block></block>
   <block id="64a39273573e4fc2b712d51106db7a4e" category="section-title">Journal des modifications</block>
   <block id="3133cc4fd29893a0163684e3e3f59633" category="paragraph">Lorsque des autorisations sont ajoutées et supprimées, nous les noterons dans les sections ci-dessous.</block>
-  <block id="a6123430b152ca358cd64ba937f6f1b9" category="section-title">1er décembre 2022</block>
   <block id="ac692d638162a1dc479fa6a76fb4e114" category="list-text">Microsoft.Compute/images/write</block>
   <block id="61d40b12dddcd9e571bbe7a89b0fbae8" category="list-text">Microsoft.Network/loadBalancers/backendAddressPools/join/action</block>
   <block id="7c90682779ddf616c80c90bad703eddd" category="list-text">Microsoft.Network/loadBalancers/frontendIPConfigurations/read</block>
@@ -2820,4 +2819,10 @@
   <block id="1c3a99b9cab6b55c9a46ccd58a1283c8" category="paragraph">Dans la plupart des cas, vous devez travailler avec BlueXP à partir de l'interface utilisateur SaaS, mais <block ref="9a2b10ef390e45d8a69a5a0f7a3a563a" category="inline-link-macro-rx"></block>, Vous devez ensuite saisir l'adresse IP de l'hôte à partir d'un navigateur Web.</block>
   <block id="c24732648af9b734203cc5a8a19f2537" category="paragraph">HTTP (80) et HTTPS (443) permettent d'accéder à l'interface utilisateur locale que vous utiliserez dans de rares circonstances. SSH (22) n'est nécessaire que si vous devez vous connecter à l'hôte pour le dépannage. Parallèlement, des connexions entrantes via le port 3128 sont nécessaires si vous déployez les systèmes Cloud Volumes ONTAP dans un sous-réseau dans lequel aucune connexion Internet sortante n'est disponible.</block>
   <block id="31cd3194dbc40a48cdae969161abd4a5" category="list-text">Une fois la configuration terminée, vous êtes prêt à utiliser les services disponibles auprès de BlueXP. Notez que chaque service présente ses propres exigences réseau. Pour plus de détails, reportez-vous aux pages suivantes.</block>
+  <block id="9efb399c3a128a79f4671ff959339e79" category="list-text">Microsoft.Storage/storageAccounts/listAccountSas/action</block>
+  <block id="a5b807c71b066c1d33685818cfa2806e" category="list-text">Microsoft.Synapse/espaces de travail/privateEndpointConnectionsApproval/action</block>
+  <block id="176944a9db0702558233e827d21e2f80" category="section-title">5 janvier 2023</block>
+  <block id="267cfa5c9c91dc1d99dc797e89903dfa" category="paragraph">Ces autorisations sont requises pour Cloud Backup.</block>
+  <block id="b73f51f05a3d7aca4e9b86bf6b66c214" category="paragraph">Cette autorisation est requise pour le déploiement de Cloud Volumes ONTAP.</block>
+  <block id="1d37387582eb7a955869d3991c1dab28" category="section-title">1er décembre 2022</block>
 </blocks>
