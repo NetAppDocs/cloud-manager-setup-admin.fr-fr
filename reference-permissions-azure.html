@@ -1416,7 +1416,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-12-01 22:43:33 +0000">12/01/2022</time>
+    <time datetime="2023-01-05 15:45:58 +0000">01/05/2023</time>
     
   
 
@@ -1501,6 +1501,7 @@
                     "Microsoft.Storage/storageAccounts/write",
                     "Microsoft.Storage/storageAccounts/blobServices/containers/read",
                     "Microsoft.Storage/storageAccounts/blobServices/containers/write",
+                    "Microsoft.Storage/storageAccounts/listAccountSas/action",
                     "Microsoft.Storage/usages/read",
                     "Microsoft.Compute/snapshots/write",
                     "Microsoft.Compute/snapshots/read",
@@ -1513,6 +1514,7 @@
                     "Microsoft.Network/loadBalancers/write",
                     "Microsoft.Network/loadBalancers/delete",
                     "Microsoft.Network/loadBalancers/backendAddressPools/read",
+                    "Microsoft.Network/loadBalancers/backendAddressPools/join/action",
                     "Microsoft.Network/loadBalancers/loadBalancingRules/read",
                     "Microsoft.Network/loadBalancers/probes/read",
                     "Microsoft.Network/loadBalancers/probes/join/action",
@@ -1574,6 +1576,7 @@
                     "Microsoft.Synapse/workspaces/replaceAllIpFirewallRules/action",
                     "Microsoft.Synapse/workspaces/operationResults/read",
                     "Microsoft.Network/publicIPAddresses/delete",
+                    "Microsoft.Synapse/workspaces/privateEndpointConnectionsApproval/action",
                     "Microsoft.ManagedIdentity/userAssignedIdentities/assign/action"
     ],
     "NotActions": [],
@@ -1671,6 +1674,9 @@
 </li>
 <li>
 <p>Microsoft.Storage/storageAccounts/blobServices/containers/read</p>
+</li>
+<li>
+<p>Microsoft.Storage/storageAccounts/listAccountSas/action</p>
 </li>
 <li>
 <p>Microsoft.KeyVault/coffres-forts/lecture</p>
@@ -1780,6 +1786,9 @@
 </li>
 <li>
 <p>Microsoft.Synapse/espaces de travail/opérationnalizResults/read</p>
+</li>
+<li>
+<p>Microsoft.Synapse/espaces de travail/privateEndpointConnectionsApproval/action</p>
 </li>
 </ul>
 </div>
@@ -2492,6 +2501,12 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">Non</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Microsoft.Network/loadBalancers/backendAddressPools/join/action</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Oui.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Non</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Non</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Microsoft.Network/loadBalancers/loadBalancingRules/read</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Oui.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Non</p></td>
@@ -2508,16 +2523,16 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">Oui.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Non</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Non</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Activez la gestion des verrouillages sur les disques Azure</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Activez la gestion des verrouillages sur les disques Azure</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Microsoft.autorisation/verrous/*</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Oui.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Oui.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Non</p></td>
+<td class="tableblock halign-left valign-top" rowspan="10"><p class="tableblock">Activez des terminaux privés pour les paires haute disponibilité lorsque aucune connectivité ne se trouve en dehors du sous-réseau</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" rowspan="10"><p class="tableblock">Activez des terminaux privés pour les paires haute disponibilité lorsque aucune connectivité ne se trouve en dehors du sous-réseau</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Microsoft.Network/privateEndpoints/write</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Oui.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Oui.</p></td>
@@ -2576,16 +2591,16 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">Oui.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Oui.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Non</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Requis par Azure pour certains déploiements de VM, en fonction du matériel physique sous-jacent</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Requis par Azure pour certains déploiements de VM, en fonction du matériel physique sous-jacent</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Microsoft.Ressources/déploiements/opérations Statelis/lecture</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Oui.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Oui.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Non</p></td>
+<td class="tableblock halign-left valign-top" rowspan="2"><p class="tableblock">Supprimer des ressources d&#8217;un groupe de ressources en cas d&#8217;échec ou de suppression du déploiement</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" rowspan="2"><p class="tableblock">Supprimer des ressources d&#8217;un groupe de ressources en cas d&#8217;échec ou de suppression du déploiement</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Microsoft.Network/privateEndpoints/delete</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Oui.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Oui.</p></td>
@@ -2596,9 +2611,9 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">Oui.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Oui.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Non</p></td>
+<td class="tableblock halign-left valign-top" rowspan="4"><p class="tableblock">Activez l&#8217;utilisation de clés de chiffrement gérées par le client lors de l&#8217;utilisation de l&#8217;API</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" rowspan="4"><p class="tableblock">Activez l&#8217;utilisation de clés de chiffrement gérées par le client lors de l&#8217;utilisation de l&#8217;API</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Microsoft.Compute/diskEncryptionSets/read</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Oui.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Oui.</p></td>
@@ -2621,9 +2636,9 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">Oui.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Oui.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Oui.</p></td>
+<td class="tableblock halign-left valign-top" rowspan="6"><p class="tableblock">Configurez un groupe de sécurité des applications pour une paire haute disponibilité afin d&#8217;isoler les cartes réseau d&#8217;interconnexion haute disponibilité et de cluster</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" rowspan="6"><p class="tableblock">Configurez un groupe de sécurité des applications pour une paire haute disponibilité afin d&#8217;isoler les cartes réseau d&#8217;interconnexion haute disponibilité et de cluster</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Microsoft.Network/applicationSecurityGroups/write</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Non</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Oui.</p></td>
@@ -2658,9 +2673,9 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">Non</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Oui.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Oui.</p></td>
+<td class="tableblock halign-left valign-top" rowspan="3"><p class="tableblock">Balises de lecture, d&#8217;écriture et de suppression associées aux ressources Cloud Volumes ONTAP</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" rowspan="3"><p class="tableblock">Balises de lecture, d&#8217;écriture et de suppression associées aux ressources Cloud Volumes ONTAP</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Microsoft.Ressources/balises/lecture</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Non</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Oui.</p></td>
@@ -2677,13 +2692,7 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">Oui.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Non</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Non</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Crypter les comptes de stockage pendant leur création</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Microsoft.ManagedIdentity/userAssignedIdentities/attributable/action</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Oui.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Oui.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Non</p></td>
 </tr>
 </tbody>
 </table>
@@ -2762,6 +2771,31 @@
 <p>Lorsque des autorisations sont ajoutées et supprimées, nous les noterons dans les sections ci-dessous.</p>
 </div>
 <div class="sect2">
+<h3 id="5-janvier-2023">5 janvier 2023</h3>
+<div class="paragraph">
+<p>Les autorisations suivantes ont été ajoutées à la politique JSON :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Microsoft.Storage/storageAccounts/listAccountSas/action</p>
+</li>
+<li>
+<p>Microsoft.Synapse/espaces de travail/privateEndpointConnectionsApproval/action</p>
+<div class="paragraph">
+<p>Ces autorisations sont requises pour Cloud Backup.</p>
+</div>
+</li>
+<li>
+<p>Microsoft.Network/loadBalancers/backendAddressPools/join/action</p>
+<div class="paragraph">
+<p>Cette autorisation est requise pour le déploiement de Cloud Volumes ONTAP.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
 <h3 id="1er-décembre-2022">1er décembre 2022</h3>
 <div class="paragraph">
 <p>Les autorisations suivantes ont été ajoutées à la politique JSON :</p>
@@ -2789,9 +2823,6 @@
 <ul>
 <li>
 <p>Microsoft.Compute/images/write</p>
-</li>
-<li>
-<p>Microsoft.Network/loadBalancers/backendAddressPools/join/action</p>
 </li>
 <li>
 <p>Microsoft.Network/loadBalancers/frontendIPConfigurations/read</p>
