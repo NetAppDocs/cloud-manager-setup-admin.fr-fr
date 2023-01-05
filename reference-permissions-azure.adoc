@@ -33,7 +33,7 @@ Vous devez également vous assurer que le rôle est à jour lorsque de nouvelles
 {
     "Name": "BlueXP Operator",
     "Actions": [
-                   "Microsoft.Compute/disks/delete",
+                    "Microsoft.Compute/disks/delete",
                     "Microsoft.Compute/disks/read",
                     "Microsoft.Compute/disks/write",
                     "Microsoft.Compute/locations/operations/read",
@@ -609,7 +609,7 @@ Il effectue les requêtes d'API suivantes pour déployer et gérer Cloud Volumes
 | Microsoft.MarketplaceOrdering/Offres/éditeurs/offres/plans/accords/écrire | Oui. | Oui. | Non 
 
 
-.7+| Gérer un équilibreur de charge pour les paires HA | Microsoft.Network/loadBalancers/read | Oui. | Oui. | Non 
+.8+| Gérer un équilibreur de charge pour les paires HA | Microsoft.Network/loadBalancers/read | Oui. | Oui. | Non 
 
 
 | Microsoft.Network/loadBalancers/write | Oui. | Non | Non 
@@ -630,13 +630,13 @@ Il effectue les requêtes d'API suivantes pour déployer et gérer Cloud Volumes
 | Microsoft.Network/loadBalancers/probes/read | Oui. | Non | Non 
 
 
-| Microsoft.Network/loadBalancers/probes/join/action | Oui. | Non | Non | Activez la gestion des verrouillages sur les disques Azure 
+| Microsoft.Network/loadBalancers/probes/join/action | Oui. | Non | Non 
 
 
-| Microsoft.autorisation/verrous/* | Oui. | Oui. | Non .10+| Activez des terminaux privés pour les paires haute disponibilité lorsque aucune connectivité ne se trouve en dehors du sous-réseau 
+| Activez la gestion des verrouillages sur les disques Azure | Microsoft.autorisation/verrous/* | Oui. | Oui. | Non 
 
 
-| Microsoft.Network/privateEndpoints/write | Oui. | Oui. | Non 
+.10+| Activez des terminaux privés pour les paires haute disponibilité lorsque aucune connectivité ne se trouve en dehors du sous-réseau | Microsoft.Network/privateEndpoints/write | Oui. | Oui. | Non 
 
 
 | Microsoft.Storage/storageAccounts/PrivateEndpointConnectionsApproval/action | Oui. | Non | Non 
@@ -663,19 +663,19 @@ Il effectue les requêtes d'API suivantes pour déployer et gérer Cloud Volumes
 | Microsoft.Network/privateDnsZones/read | Oui. | Oui. | Non 
 
 
-| Microsoft.Network/privateDnsZones/virtualNetworkLinks/read | Oui. | Oui. | Non | Requis par Azure pour certains déploiements de VM, en fonction du matériel physique sous-jacent 
+| Microsoft.Network/privateDnsZones/virtualNetworkLinks/read | Oui. | Oui. | Non 
 
 
-| Microsoft.Ressources/déploiements/opérations Statelis/lecture | Oui. | Oui. | Non .2+| Supprimer des ressources d'un groupe de ressources en cas d'échec ou de suppression du déploiement 
+| Requis par Azure pour certains déploiements de VM, en fonction du matériel physique sous-jacent | Microsoft.Ressources/déploiements/opérations Statelis/lecture | Oui. | Oui. | Non 
 
 
-| Microsoft.Network/privateEndpoints/delete | Oui. | Oui. | Non 
+.2+| Supprimer des ressources d'un groupe de ressources en cas d'échec ou de suppression du déploiement | Microsoft.Network/privateEndpoints/delete | Oui. | Oui. | Non 
 
 
-| Microsoft.Compute/availabilitySets/delete | Oui. | Oui. | Non .4+| Activez l'utilisation de clés de chiffrement gérées par le client lors de l'utilisation de l'API 
+| Microsoft.Compute/availabilitySets/delete | Oui. | Oui. | Non 
 
 
-| Microsoft.Compute/diskEncryptionSets/read | Oui. | Oui. | Oui. 
+.4+| Activez l'utilisation de clés de chiffrement gérées par le client lors de l'utilisation de l'API | Microsoft.Compute/diskEncryptionSets/read | Oui. | Oui. | Oui. 
 
 
 | Microsoft.Compute/diskEncryptionSets/write | Oui. | Oui. | Non 
@@ -684,10 +684,10 @@ Il effectue les requêtes d'API suivantes pour déployer et gérer Cloud Volumes
 | Microsoft.KeyVault/coffres-forts/déploiement/action | Oui. | Non | Non 
 
 
-| Microsoft.Compute/diskEncryptionSets/delete | Oui. | Oui. | Oui. .6+| Configurez un groupe de sécurité des applications pour une paire haute disponibilité afin d'isoler les cartes réseau d'interconnexion haute disponibilité et de cluster 
+| Microsoft.Compute/diskEncryptionSets/delete | Oui. | Oui. | Oui. 
 
 
-| Microsoft.Network/applicationSecurityGroups/write | Non | Oui. | Non 
+.6+| Configurez un groupe de sécurité des applications pour une paire haute disponibilité afin d'isoler les cartes réseau d'interconnexion haute disponibilité et de cluster | Microsoft.Network/applicationSecurityGroups/write | Non | Oui. | Non 
 
 
 | Microsoft.Network/applicationSecurityGroups/read | Non | Oui. | Oui. 
@@ -702,16 +702,19 @@ Il effectue les requêtes d'API suivantes pour déployer et gérer Cloud Volumes
 | Microsoft.Network/applicationSecurityGroups/delete | Non | Oui. | Non 
 
 
-| Microsoft.Network/networkSecurityGroups/securityRules/delete | Non | Oui. | Oui. .3+| Balises de lecture, d'écriture et de suppression associées aux ressources Cloud Volumes ONTAP 
+| Microsoft.Network/networkSecurityGroups/securityRules/delete | Non | Oui. | Oui. 
 
 
-| Microsoft.Ressources/balises/lecture | Non | Oui. | Non 
+.3+| Balises de lecture, d'écriture et de suppression associées aux ressources Cloud Volumes ONTAP | Microsoft.Ressources/balises/lecture | Non | Oui. | Non 
 
 
 | Microsoft.Ressources/balises/écrire | Oui. | Oui. | Non 
 
 
-| Microsoft.Ressources/balises/Supprimer | Oui. | Non | Non | Crypter les comptes de stockage pendant leur création 
+| Microsoft.Ressources/balises/Supprimer | Oui. | Non | Non 
+
+
+| Crypter les comptes de stockage pendant leur création | Microsoft.ManagedIdentity/userAssignedIdentities/attributable/action | Oui. | Oui. | Non 
 |===
 
 
