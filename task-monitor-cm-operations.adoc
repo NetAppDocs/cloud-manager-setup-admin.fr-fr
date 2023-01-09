@@ -98,7 +98,7 @@ Vous pouvez envoyer par e-mail des types de notifications spécifiques afin de v
 
 [NOTE]
 ====
-* À l'heure actuelle, seuls Cloud Sync et Cloud Backup envoient des notifications par e-mail. D'autres services seront ajoutés dans les prochaines versions.
+* À l'heure actuelle, seuls Cloud Sync, Cloud Backup et protection contre les ransomwares envoient des notifications par e-mail. D'autres services seront ajoutés dans les prochaines versions.
 * L'envoi de notifications par e-mail n'est pas pris en charge lorsque le connecteur est installé sur un site sans accès à Internet.
 
 

@@ -1483,7 +1483,6 @@
   <block id="86a2197cbddea56be1e7cc24be3d4916" category="paragraph"><block ref="86a2197cbddea56be1e7cc24be3d4916" category="inline-image-macro-rx" type="image"></block></block>
   <block id="4815e02c8d3314e19dd0c9f88070f95e" category="paragraph">Par exemple, si vous souhaitez afficher uniquement les notifications "erreur" et "Avertissement" pour les opérations BlueXP, sélectionnez ces entrées et vous ne verrez que ces types de notifications.</block>
   <block id="876f7ec75e02cbdaa9d75999ea673e23" category="paragraph">Vous pouvez envoyer par e-mail des types de notifications spécifiques afin de vous informer de l'activité système importante, même lorsque vous n'êtes pas connecté à BlueXP. Il est possible d'envoyer des e-mails aux utilisateurs qui font partie de votre compte NetApp ou à tout autre destinataire ayant besoin de connaître certains types d'activité système.</block>
-  <block id="0600a5fd997330da4629c9667c77df85" category="list-text">À l'heure actuelle, seuls Cloud Sync et Cloud Backup envoient des notifications par e-mail. D'autres services seront ajoutés dans les prochaines versions.</block>
   <block id="5fd245f2aeee830efb92d081af6a0e22" category="list-text">L'envoi de notifications par e-mail n'est pas pris en charge lorsque le connecteur est installé sur un site sans accès à Internet.</block>
   <block id="95542c2d2bb8f536e459ea1a4e6e77b7" category="paragraph">Par défaut, les administrateurs de compte BlueXP recevront des e-mails pour toutes les notifications « critiques » et « recommandations ». Par défaut, tous les autres utilisateurs et destinataires sont configurés pour ne pas recevoir d'e-mails de notification.</block>
   <block id="f6cf378d25bc2bcaeedbdbd322fec41b" category="paragraph">Pour personnaliser les paramètres de notifications, vous devez être administrateur de compte.</block>
@@ -2830,4 +2829,5 @@
   <block id="ef67c5eab6f3bfee1596c3f8734a88c7" category="paragraph">Même si aucun connecteur n'est nécessaire pour la découverte directe d'un cluster ONTAP sur site, un connecteur est nécessaire pour tirer parti des fonctionnalités BlueXP supplémentaires.</block>
   <block id="eec3baeb5aa60415324495790bc2f136" category="inline-link">En savoir plus sur les options de découverte et de gestion des clusters ONTAP sur site</block>
   <block id="7a5dd38f95e02bff17a0b6c794d9ce2b" category="paragraph"><block ref="7a5dd38f95e02bff17a0b6c794d9ce2b" category="inline-link-rx"></block></block>
+  <block id="82e02d499effaa5b28aba8ede321e414" category="list-text">À l'heure actuelle, seuls Cloud Sync, Cloud Backup et protection contre les ransomwares envoient des notifications par e-mail. D'autres services seront ajoutés dans les prochaines versions.</block>
 </blocks>
