@@ -153,11 +153,11 @@ Les étapes suivantes expliquent comment créer le rôle à l'aide de Bash dans 
 +
 image:screenshot_azure_shell_upload.png["Capture d'écran d'Azure Cloud Shell sur laquelle vous pouvez choisir de charger un fichier."]
 
-*** Entrez la commande Azure CLI suivante :
+*** Pour créer le rôle personnalisé, utilisez l'interface de ligne de commandes Azure :
 +
 [source, azurecli]
 ----
-az role definition create --role-definition Policy_for_Setup_As_Service_Azure.json
+az role definition create --role-definition Connector_Policy.json
 ----
 +
 Vous devez maintenant avoir un rôle personnalisé appelé opérateur BlueXP que vous pouvez affecter à la machine virtuelle connecteur.

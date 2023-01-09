@@ -20,11 +20,7 @@ Dans la plupart des cas, un administrateur de compte BlueXP devra déployer un _
 
 == Lorsqu'un connecteur est nécessaire
 
-Un connecteur est nécessaire pour utiliser de nombreuses fonctionnalités et services dans BlueXP.
-
-
-
-=== Administratifs
+Un connecteur est nécessaire pour les fonctions et services suivants dans BlueXP :
 
 * Fonctions de gestion d'Amazon FSX pour ONTAP
 * Découverte Amazon S3
@@ -37,29 +33,37 @@ Un connecteur est nécessaire pour utiliser de nombreuses fonctionnalités et se
 * Cache global de fichiers
 * Découverte de Google Cloud Storage
 * Clusters Kubernetes
-* Clusters ONTAP sur site
+* Intégration de clusters ONTAP sur site avec les services de données BlueXP
 * StorageGRID
 
 
 Un connecteur est requis *_NOT_* pour les services suivants :
 
 * Conseiller digital
-* La création d'un environnement de travail Amazon FSX pour ONTAP même si un connecteur n'est pas nécessaire pour créer un environnement de travail, il est nécessaire de créer et de gérer des volumes, de répliquer des données et d'intégrer FSX pour ONTAP avec les services cloud NetApp, tels que Data Sense et Cloud Sync.
++
+Dans presque tous les cas, vous pouvez ajouter une licence au porte-monnaie numérique sans connecteur.
+
++
+La seule fois qu'un connecteur est nécessaire pour ajouter une licence au porte-monnaie numérique est pour les licences Cloud Volumes ONTAP _node-based_. Dans ce cas, un connecteur est requis car les données sont extraites des licences installées sur les systèmes Cloud Volumes ONTAP.
+
+* Création d'un environnement de travail Amazon FSX pour ONTAP
++
+Même si aucun connecteur n'est nécessaire pour créer un environnement de travail, il est nécessaire de créer et de gérer des volumes, de répliquer des données et d'intégrer FSX pour ONTAP avec les services cloud NetApp, comme Data Sense et Cloud Sync.
+
 * Azure NetApp Files
 +
 Même si un connecteur n'est pas nécessaire pour configurer et gérer Azure NetApp Files, il est nécessaire d'utiliser un connecteur si vous souhaitez analyser les données Azure NetApp Files avec Cloud Data SENSE.
 
 * Cloud Volumes Service pour Google Cloud
 * Cloud Sync
+* Découverte directe des clusters ONTAP sur site
++
+Même si aucun connecteur n'est nécessaire pour la découverte directe d'un cluster ONTAP sur site, un connecteur est nécessaire pour tirer parti des fonctionnalités BlueXP supplémentaires.
+
++
+https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html["En savoir plus sur les options de découverte et de gestion des clusters ONTAP sur site"^]
 
 
-
-
-=== Portefeuille numérique
-
-Dans presque tous les cas, vous pouvez ajouter une licence au porte-monnaie numérique sans connecteur.
-
-La seule fois qu'un connecteur est nécessaire pour ajouter une licence au porte-monnaie numérique est pour les licences Cloud Volumes ONTAP _node-based_. Dans ce cas, un connecteur est requis car les données sont extraites des licences installées sur les systèmes Cloud Volumes ONTAP.
 
 
 
